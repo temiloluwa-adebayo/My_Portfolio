@@ -10,6 +10,11 @@
 
 **Live site:** [temiloluwa-adebayo.vercel.app](https://my-portfolio-bice-delta-10.vercel.app/)
 
+## Screenshots
+
+![Dashboard](assets/Screenshot%202026-03-19%20215907.png)
+![Leads Table](assets/Screenshot%202026-03-19%20221158.png)
+
 ---
 
 ## Table of Contents
