@@ -393,7 +393,7 @@ export default function App() {
               </p>
               <div className="grid grid-cols-2 gap-8 pt-8">
                 <div>
-                  <div className="text-zinc-100 font-bold text-2xl mb-1">20+</div>
+                  <div className="text-zinc-100 font-bold text-2xl mb-1">15+</div>
                   <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest">Projects Delivered</div>
                 </div>
                 <div>
