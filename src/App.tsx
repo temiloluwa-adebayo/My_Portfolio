@@ -421,10 +421,10 @@ export default function App() {
               <Mail size={20} /> temidaniel124@gmail.com
             </a>
             <div className="flex items-center gap-4">
-              <a href="#" className="w-12 h-12 glass rounded-xl flex items-center justify-center text-zinc-100 hover:text-brand-primary transition-colors">
+              <a href="https://github.com/temiloluwa-adebayo" className="w-12 h-12 glass rounded-xl flex items-center justify-center text-zinc-100 hover:text-brand-primary transition-colors">
                 <Github size={24} />
               </a>
-              <a href="#" className="w-12 h-12 glass rounded-xl flex items-center justify-center text-zinc-100 hover:text-brand-primary transition-colors">
+              <a href="ww.linkedin.com/in/temiloluwa-adebayo-4843ba377" className="w-12 h-12 glass rounded-xl flex items-center justify-center text-zinc-100 hover:text-brand-primary transition-colors">
                 <Linkedin size={24} />
               </a>
             </div>
