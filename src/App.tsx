@@ -377,7 +377,7 @@ export default function App() {
               />
             </div>
             <div className="absolute -bottom-6 -right-6 glass p-6 rounded-2xl glow">
-              <div className="text-brand-primary font-display font-bold text-3xl">5+</div>
+              <div className="text-brand-primary font-display font-bold text-3xl">4+</div>
               <div className="text-xs font-bold text-zinc-400 uppercase tracking-widest">Years Experience</div>
             </div>
           </div>
