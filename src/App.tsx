@@ -28,81 +28,95 @@ const PROJECTS = [
   {
     id: 'payhub',
     title: 'PayHub Central',
-    subtitle: 'Hospital Employee Cooperative Management',
-    description: 'A secure multi-tenant financial platform that connects hospitals, employees, and cooperatives into a single controlled digital ecosystem. Solves the critical problem of cross-cooperative loan risk transparency.',
-    tags: ['Next.js', 'Supabase', 'PostgreSQL', 'RBAC', 'Multi-tenant'],
-    metrics: ['6 Roles', '3 Levels of Isolation', 'Real-time Risk Calculation'],
+    subtitle: 'Multi-Tenant Fintech Platform',
+    description: 'A hardened financial platform built for hospital employee cooperatives. Enforces three levels of data isolation, nine distinct user roles, and row-level security on every table — ensuring no cooperative can access another\'s sensitive financial data, even within the same hospital.',
+    tags: ['Next.js', 'Supabase', 'PostgreSQL', 'RBAC', 'Row-Level Security'],
+    metrics: ['3 Isolation Levels', '9 User Roles', 'Cross-Cooperative Risk Engine'],
     icon: Shield,
-    color: 'emerald'
+    color: 'emerald',
+    githubUrl: 'https://github.com/temiloluwa-adebayo/payhub-central',
+    liveUrl: '',
   },
   {
     id: 'leadforge',
     title: 'LeadForge',
-    subtitle: 'Automated Lead Generation Engine',
-    description: 'A fully automated outreach system that finds businesses, extracts data, analyzes digital presence, and generates personalized proposals via n8n automation.',
-    tags: ['n8n', 'Supabase', 'ScrapingBee', 'Google Workspace API'],
-    metrics: ['100% Automated', 'Zero Manual Research', 'Personalized PDF Proposals'],
+    subtitle: 'Automated Outbound Sales Engine',
+    description: 'A nine-phase automation pipeline that runs entirely without human input. Discovers businesses on Google, scrapes and scores their digital presence, generates a personalised PDF proposal using Google Docs, and delivers a cold email via Gmail — triggered by a single button click.',
+    tags: ['Next.js 14', 'n8n', 'Supabase', 'ScrapingBee', 'Gmail API'],
+    metrics: ['9-Phase Pipeline', 'Zero Manual Steps', 'AI-Scored Lead Quality'],
     icon: Zap,
-    color: 'amber'
+    color: 'amber',
+    githubUrl: 'https://github.com/temiloluwa-adebayo/LeadForge',
+    liveUrl: '',
   },
   {
     id: 'voolt-academy',
     title: 'VOOLT Academy',
-    subtitle: 'Proprietary LMS for VOOLT Group',
-    description: 'A closed, invitation-only learning management system engineered for automation and engagement. Features mandatory weekly quizzes and automated student onboarding.',
-    tags: ['React', 'Supabase', 'n8n', 'Tailwind CSS'],
-    metrics: ['Automated Onboarding', 'Weekly MCQ Quizzes', 'Google Drive Integration'],
+    subtitle: 'Invitation-Only Learning Management System',
+    description: 'A closed, access-controlled LMS where students gain entry only after payment is verified externally. Automated onboarding via n8n generates credentials and provisions accounts instantly. Weekly MCQ quizzes are enforced as gates — students cannot advance without completing them.',
+    tags: ['React 19', 'Supabase', 'n8n', 'Tailwind CSS', 'RLS'],
+    metrics: ['Automated Provisioning', 'Enforced Weekly Gates', 'Zero Public Access'],
     icon: Layers,
-    color: 'indigo'
+    color: 'indigo',
+    githubUrl: 'https://github.com/temiloluwa-adebayo/Voolt_Academy',
+    liveUrl: 'https://voolt-academy-8f72.vercel.app/',
   },
   {
     id: 'vooltflow',
     title: 'VooltFlow',
     subtitle: 'AI-Powered Affiliate Automation',
-    description: 'Automates product discovery across Amazon, Jumia, and Konga. Matches trending YouTube Shorts and publishes directly to WooCommerce with AI-written descriptions.',
-    tags: ['Next.js', 'WooCommerce API', 'GPT-4o', 'n8n'],
-    metrics: ['< 60s Publishing', 'Viral Video Matching', 'AI SEO Descriptions'],
+    description: 'Searches Amazon, Jumia, and Konga simultaneously, filters results through a quality scoring engine (rating, review count, price thresholds), generates proper affiliate links, finds viral YouTube Shorts as social proof, and publishes a GPT-4o-written listing to WooCommerce — in under 60 seconds.',
+    tags: ['Next.js 15', 'GPT-4o', 'n8n', 'WooCommerce API', 'Supabase'],
+    metrics: ['3 Marketplaces in Parallel', '< 60s End-to-End', 'GPT-4o Descriptions'],
     icon: Cpu,
-    color: 'rose'
+    color: 'rose',
+    githubUrl: 'https://github.com/temiloluwa-adebayo/vooltflow',
+    liveUrl: 'https://vooltflow-fmql.vercel.app/',
   },
   {
     id: 'voolttrip',
     title: 'VooltTrip',
     subtitle: 'AI Visa Assistance Platform',
-    description: 'A trust-focused platform for visa processing. Features an intelligent AI assistant for instant guidance and a lawyer-backed secure payment system.',
-    tags: ['AI Chatbot', 'Trust-First Design', 'Escrow Model'],
-    metrics: ['24/7 AI Support', 'Lawyer-Backed Security', 'Instant Eligibility Checks'],
+    description: 'A trust-engineered visa assistance platform with a 24/7 AI assistant trained on service-specific knowledge. Client funds are held by a verified third-party lawyer and released only upon successful visa approval — with a full refund guarantee on rejection. Built to eliminate the trust barrier in visa services.',
+    tags: ['AI Chatbot', 'Escrow Payment Model', 'Lawyer-Backed Security'],
+    metrics: ['24/7 AI Consultation', 'Funds Held in Escrow', 'Full Refund on Rejection'],
     icon: Globe,
-    color: 'sky'
+    color: 'sky',
+    githubUrl: 'https://github.com/temiloluwa-adebayo/VooltTrip',
+    liveUrl: 'https://voolt-trip.vercel.app/',
   },
   {
     id: 'campuspress',
     title: 'CampusPress AI',
     subtitle: 'University Journalism Platform',
-    description: 'A professional digital newsroom for academic institutions. Combines journalism training with AI-assisted credibility and bias analysis.',
-    tags: ['Mobile-First', 'AI Content Analysis', 'Academic Workflow'],
-    metrics: ['Professional Newsroom', 'Bias Detection', 'Credibility Scoring'],
+    description: 'A structured digital newsroom for academic institutions. Every article submitted by a student journalist passes through an AI analysis layer — detecting bias, scoring credibility, and flagging sentiment — before an editor reviews it. Content cannot be published without passing editorial approval. No informal channels, no unmoderated publishing.',
+    tags: ['React Native', 'AI Analysis', 'Editorial Workflow', 'Supabase'],
+    metrics: ['AI Bias Detection', 'Enforced Editorial Gate', 'Credibility Scoring'],
     icon: Layout,
-    color: 'violet'
+    color: 'violet',
+    githubUrl: 'https://github.com/temiloluwa-adebayo/campuspress-ai',
+    liveUrl: '',
   },
   {
     id: 'examforge',
     title: 'ExamForge CBT',
-    subtitle: 'Professional Offline Desktop CBT',
-    description: 'A secure, offline-first examination system for institutions. Features isolated student/admin clients and automated MCQ/Theory marking.',
-    tags: ['Desktop App', 'Offline-First', 'Secure Exam Client'],
-    metrics: ['Zero Internet Required', 'Isolated Admin Console', 'Auto-Marking Engine'],
+    subtitle: 'Offline-First Desktop Examination System',
+    description: 'Two completely isolated desktop applications — a student exam client and an admin console — with no shared interface or data access between them. Runs 100% offline during examinations. Submissions are saved locally and synced to a Supabase workspace when connectivity returns. Built to operate reliably in environments with zero internet dependency.',
+    tags: ['Electron', 'SQLite', 'Supabase', 'Offline-First', 'Isolated Architecture'],
+    metrics: ['Zero Internet Required', 'Isolated Admin & Student Apps', 'Auto-Sync on Reconnect'],
     icon: Terminal,
-    color: 'orange'
+    color: 'orange',
+    githubUrl: 'https://github.com/temiloluwa-adebayo/examforge-cbt',
+    liveUrl: '',
   }
 ];
 
 const SKILLS = [
-  { category: 'Frontend', items: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript', 'Framer Motion'] },
-  { category: 'Backend', items: ['Node.js', 'Express', 'PostgreSQL', 'Supabase', 'Firebase'] },
-  { category: 'Automation', items: ['n8n', 'Webhooks', 'API Integration', 'Workflow Design'] },
-  { category: 'AI/ML', items: ['OpenAI API', 'Gemini API', 'Prompt Engineering', 'RAG'] },
-  { category: 'DevOps', items: ['Vercel', 'Docker', 'CI/CD', 'Cloud Run'] }
+  { category: 'Frontend', items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'] },
+  { category: 'Backend', items: ['Node.js', 'Supabase', 'PostgreSQL', 'REST APIs', 'Express'] },
+  { category: 'Automation', items: ['n8n', 'Webhooks', 'API Chaining', 'Workflow Design'] },
+  { category: 'AI / ML', items: ['Generative AI', 'AI Integration', 'Prompt Engineering', 'Large Language Models (LLMs)'] },
+  { category: 'Platforms', items: ['Vercel', 'Electron', 'Flutter', 'Google Play', 'Microsoft Store'] }
 ];
 
 // --- Components ---
@@ -188,13 +202,13 @@ const Hero = () => {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-xs font-bold mb-6">
             <Sparkles size={14} />
-            AVAILABLE FOR NEW PROJECTS
+            AVAILABLE FOR NEW OPPORTUNITIES
           </div>
           <h1 className="text-5xl md:text-7xl lg:text-6xl leading-[0.9] mb-8">
-            Engineering <span className="text-brand-primary">Perfection</span> in every line of code.
+            Building systems that <span className="text-brand-primary">run themselves.</span>
           </h1>
           <p className="text-lg md:text-xl text-zinc-400 max-w-lg mb-10 leading-relaxed">
-            Full-Stack Engineer specializing in high-security financial systems, AI-driven automation, and scalable enterprise architectures.
+            AI Software Engineer specialising in full-stack web applications, workflow automation, and AI-integrated systems — from architecture to deployment.
           </p>
           <div className="flex flex-wrap gap-4">
             <a href="#work" className="px-8 py-4 bg-brand-primary text-bg-dark font-bold rounded-xl flex items-center gap-2 hover:scale-105 transition-transform glow">
@@ -222,17 +236,19 @@ const Hero = () => {
             <div className="font-mono text-sm space-y-2">
               <div className="text-brand-primary">$ whoami</div>
               <div className="text-zinc-300">Temiloluwa Adebayo</div>
+              <div className="text-brand-primary">$ cat role.txt</div>
+              <div className="text-zinc-300">AI Software Engineer</div>
               <div className="text-brand-primary">$ skills --list</div>
               <div className="grid grid-cols-2 gap-2 text-zinc-400">
-                <div>• React/Next.js</div>
-                <div>• Node.js/Express</div>
-                <div>• Supabase/PostgreSQL</div>
+                <div>• Next.js / React</div>
+                <div>• Supabase / PostgreSQL</div>
                 <div>• n8n Automation</div>
-                <div>• AI/LLM Integration</div>
+                <div>• Electron / Flutter</div>
+                <div>• OpenAI / GPT-4o</div>
                 <div>• System Architecture</div>
               </div>
               <div className="text-brand-primary">$ status</div>
-              <div className="text-emerald-400">Ready to build something amazing_</div>
+              <div className="text-emerald-400">Open to opportunities — let's build._</div>
             </div>
           </div>
           {/* Decorative elements */}
@@ -280,7 +296,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
           </div>
           
           <div className="pt-4 border-t border-zinc-800">
-            <ul className="space-y-2">
+            <ul className="space-y-2 mb-4">
               {project.metrics.map(metric => (
                 <li key={metric} className="flex items-center gap-2 text-xs text-zinc-500">
                   <ChevronRight size={12} className="text-brand-primary" />
@@ -288,6 +304,32 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
                 </li>
               ))}
             </ul>
+
+            {/* Project Links */}
+            <div className="flex items-center gap-3 pt-2">
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs font-bold text-zinc-400 hover:text-brand-primary transition-colors"
+                >
+                  <Github size={13} />
+                  README
+                </a>
+              )}
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs font-bold text-zinc-400 hover:text-brand-primary transition-colors"
+                >
+                  <ExternalLink size={13} />
+                  Live Demo
+                </a>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -308,7 +350,7 @@ export default function App() {
             <div>
               <h2 className="text-4xl md:text-6xl mb-4">Selected Work</h2>
               <p className="text-zinc-400 max-w-xl">
-                A collection of complex full-stack applications, automation engines, and AI-powered platforms built with a focus on security and performance.
+                Production systems built end-to-end — architecture, security, automation, and deployment. Every project here is shipped, documented, and running.
               </p>
             </div>
             <div className="text-right">
@@ -331,7 +373,7 @@ export default function App() {
             <div>
               <h2 className="text-4xl md:text-6xl mb-4">Technical Arsenal</h2>
               <p className="text-zinc-400 max-w-xl">
-                My tech stack is built for modern demands: speed, security, and scalability.
+                Everything required to take a system from whiteboard to production — across web, mobile, desktop, automation, and AI.
               </p>
             </div>
             <div className="text-right">
@@ -386,10 +428,10 @@ export default function App() {
             <h2 className="text-4xl md:text-6xl mb-8">The Engineer Behind the Code.</h2>
             <div className="space-y-6 text-lg text-zinc-400 leading-relaxed">
               <p>
-                I am a Full-Stack Engineer with a passion for building systems that don't just work—they excel. My approach combines rigorous technical standards with a deep understanding of user needs.
+                I'm a First-Class BSc Software Engineering graduate with a university specialisation in Artificial Intelligence and Machine Learning. I build production-grade software systems — web, mobile, desktop, and AI-powered — from architecture to deployment.
               </p>
               <p>
-                Whether it's architecting a secure financial platform for hospitals or building AI-driven automation that saves companies thousands of hours, I focus on creating value through technical excellence.
+                Every system I ship is designed with security, reliability, and real-world constraints in mind. I don't build demos. I build things that run.
               </p>
               <div className="grid grid-cols-2 gap-8 pt-8">
                 <div>
@@ -399,6 +441,14 @@ export default function App() {
                 <div>
                   <div className="text-zinc-100 font-bold text-2xl mb-1">100%</div>
                   <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest">Client Satisfaction</div>
+                </div>
+                <div>
+                  <div className="text-zinc-100 font-bold text-2xl mb-1">First Class</div>
+                  <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest">BSc Software Engineering</div>
+                </div>
+                <div>
+                  <div className="text-zinc-100 font-bold text-2xl mb-1">AI / ML</div>
+                  <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest">University Specialisation</div>
                 </div>
               </div>
             </div>
@@ -411,9 +461,9 @@ export default function App() {
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-primary to-transparent" />
         
         <div className="max-w-3xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl md:text-7xl mb-6">Let's build the <span className="text-brand-primary">future</span>.</h2>
+          <h2 className="text-4xl md:text-7xl mb-6">Let's build something <span className="text-brand-primary">that lasts.</span></h2>
           <p className="text-xl text-zinc-400 mb-12">
-            Ready to bring your next big idea to life? I'm currently available for freelance projects and full-time opportunities.
+            Open to full-time engineering roles, contract projects, and technical collaborations. If you need an engineer who ships complete, production-grade systems — reach out.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -421,10 +471,10 @@ export default function App() {
               <Mail size={20} /> temidaniel124@gmail.com
             </a>
             <div className="flex items-center gap-4">
-              <a href="https://github.com/temiloluwa-adebayo" className="w-12 h-12 glass rounded-xl flex items-center justify-center text-zinc-100 hover:text-brand-primary transition-colors">
+              <a href="https://github.com/temiloluwa-adebayo" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass rounded-xl flex items-center justify-center text-zinc-100 hover:text-brand-primary transition-colors">
                 <Github size={24} />
               </a>
-              <a href="ww.linkedin.com/in/temiloluwa-adebayo-4843ba377" className="w-12 h-12 glass rounded-xl flex items-center justify-center text-zinc-100 hover:text-brand-primary transition-colors">
+              <a href="https://linkedin.com/in/temiloluwa-adebayo-4843ba377" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass rounded-xl flex items-center justify-center text-zinc-100 hover:text-brand-primary transition-colors">
                 <Linkedin size={24} />
               </a>
             </div>
