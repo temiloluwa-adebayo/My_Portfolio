@@ -226,4 +226,4 @@ MIT — free to use as a template. If you do, a credit or a star is appreciated.
 ## Author
 
 **Temiloluwa Adebayo** — AI Software Engineer  
-[Live Site](https://my-portfolio-bice-delta-10.vercel.app/) · [GitHub](https://github.com/temiloluwa-adebayo) · [LinkedIn](https://linkedin.com/in/temiloluwa-adebayo)
+[Live Site](https://my-portfolio-bice-delta-10.vercel.app/) · [GitHub](https://github.com/temiloluwa-adebayo) · [LinkedIn](www.linkedin.com/in/temiloluwa-adebayo-4843ba377)
