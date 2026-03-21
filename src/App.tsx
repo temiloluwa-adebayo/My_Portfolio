@@ -21,6 +21,7 @@ import {
   Layers,
   Sparkles
 } from 'lucide-react';
+import { Analytics } from "@vercel/analytics/next"
 
 // --- Data ---
 
