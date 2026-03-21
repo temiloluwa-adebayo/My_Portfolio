@@ -412,7 +412,7 @@ export default function App() {
           <div className="relative">
             <div className="aspect-square glass rounded-3xl overflow-hidden glow">
               <img 
-                src="https://picsum.photos/seed/developer/800/800" 
+                src="/profile.png" 
                 alt="Temiloluwa Adebayo" 
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 referrerPolicy="no-referrer"
