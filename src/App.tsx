@@ -443,7 +443,7 @@ export default function App() {
                   <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest">Client Satisfaction</div>
                 </div>
                 <div>
-                  <div className="text-zinc-100 font-bold text-2xl mb-1">First Class</div>
+                  <div className="text-zinc-100 font-bold text-2xl mb-1">Degree</div>
                   <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest">BSc Software Engineering</div>
                 </div>
                 <div>
