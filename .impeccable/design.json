@@ -1,253 +1,325 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-25T01:18:35.339637+00:00",
+  "generatedAt": "2026-09-25T00:00:00Z",
   "title": "Design System: Temiloluwa Adebayo",
   "extensions": {
     "colorMeta": {
       "page": {
         "role": "neutral",
-        "displayName": "Graphite Page",
-        "canonical": "#131313",
+        "displayName": "Graphite",
         "tonalRamp": [
-          "#131313",
+          "#121212",
           "#161616",
           "#1b1b1b",
-          "#222222",
+          "#232323",
           "#2a2a2a",
-          "#3a3a3a",
-          "#8c8c8c",
-          "#ededed"
+          "#3b3b3b",
+          "#8d8b86",
+          "#efede8"
         ]
       },
       "band": {
         "role": "neutral",
         "displayName": "Band Graphite",
-        "canonical": "#161616",
         "tonalRamp": [
-          "#131313",
+          "#121212",
           "#161616",
           "#1b1b1b",
-          "#222222",
+          "#232323",
           "#2a2a2a",
-          "#3a3a3a",
-          "#8c8c8c",
-          "#ededed"
+          "#3b3b3b",
+          "#8d8b86",
+          "#efede8"
         ]
       },
       "panel": {
         "role": "neutral",
         "displayName": "Panel Graphite",
-        "canonical": "#1b1b1b",
         "tonalRamp": [
-          "#131313",
+          "#121212",
           "#161616",
           "#1b1b1b",
-          "#222222",
+          "#232323",
           "#2a2a2a",
-          "#3a3a3a",
-          "#8c8c8c",
-          "#ededed"
+          "#3b3b3b",
+          "#8d8b86",
+          "#efede8"
         ]
       },
       "raised": {
         "role": "neutral",
         "displayName": "Raised Graphite",
-        "canonical": "#222222",
         "tonalRamp": [
-          "#131313",
+          "#121212",
           "#161616",
           "#1b1b1b",
-          "#222222",
+          "#232323",
           "#2a2a2a",
-          "#3a3a3a",
-          "#8c8c8c",
-          "#ededed"
+          "#3b3b3b",
+          "#8d8b86",
+          "#efede8"
         ]
       },
       "line": {
         "role": "neutral",
         "displayName": "Hairline",
-        "canonical": "#2a2a2a",
         "tonalRamp": [
-          "#131313",
+          "#121212",
           "#161616",
           "#1b1b1b",
-          "#222222",
+          "#232323",
           "#2a2a2a",
-          "#3a3a3a",
-          "#8c8c8c",
-          "#ededed"
+          "#3b3b3b",
+          "#8d8b86",
+          "#efede8"
         ]
       },
       "line-strong": {
         "role": "neutral",
-        "displayName": "Hairline Strong",
-        "canonical": "#3a3a3a",
+        "displayName": "Strong Hairline",
         "tonalRamp": [
-          "#131313",
+          "#121212",
           "#161616",
           "#1b1b1b",
-          "#222222",
+          "#232323",
           "#2a2a2a",
-          "#3a3a3a",
-          "#8c8c8c",
-          "#ededed"
+          "#3b3b3b",
+          "#8d8b86",
+          "#efede8"
         ]
       },
       "fg": {
         "role": "neutral",
         "displayName": "Bone",
-        "canonical": "#ededed",
         "tonalRamp": [
-          "#131313",
+          "#121212",
           "#161616",
           "#1b1b1b",
-          "#222222",
+          "#232323",
           "#2a2a2a",
-          "#3a3a3a",
-          "#8c8c8c",
-          "#ededed"
+          "#3b3b3b",
+          "#8d8b86",
+          "#efede8"
         ]
       },
       "muted": {
         "role": "neutral",
         "displayName": "Ash",
-        "canonical": "#a3a3a3",
         "tonalRamp": [
-          "#131313",
+          "#121212",
           "#161616",
           "#1b1b1b",
-          "#222222",
+          "#232323",
           "#2a2a2a",
-          "#3a3a3a",
-          "#8c8c8c",
-          "#ededed"
+          "#3b3b3b",
+          "#8d8b86",
+          "#efede8"
         ]
       },
       "faint": {
         "role": "neutral",
         "displayName": "Smoke",
-        "canonical": "#8c8c8c",
         "tonalRamp": [
-          "#131313",
+          "#121212",
           "#161616",
           "#1b1b1b",
-          "#222222",
+          "#232323",
           "#2a2a2a",
-          "#3a3a3a",
-          "#8c8c8c",
-          "#ededed"
+          "#3b3b3b",
+          "#8d8b86",
+          "#efede8"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Signal Amber",
+        "tonalRamp": [
+          "#3d2800",
+          "#5c3d00",
+          "#8a5c00",
+          "#b88000",
+          "#e69d0a",
+          "#ffb224",
+          "#ffc457",
+          "#ffe3ad"
+        ]
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "Lit Amber",
+        "tonalRamp": [
+          "#3d2800",
+          "#5c3d00",
+          "#8a5c00",
+          "#b88000",
+          "#e69d0a",
+          "#ffb224",
+          "#ffc457",
+          "#ffe3ad"
+        ]
+      },
+      "on-accent": {
+        "role": "primary",
+        "displayName": "Ember Ink",
+        "tonalRamp": [
+          "#3d2800",
+          "#5c3d00",
+          "#8a5c00",
+          "#b88000",
+          "#e69d0a",
+          "#ffb224",
+          "#ffc457",
+          "#ffe3ad"
         ]
       },
       "live": {
-        "role": "primary",
-        "displayName": "Signal Green",
-        "canonical": "#4ade80",
+        "role": "tertiary",
+        "displayName": "Live Green",
         "tonalRamp": [
-          "#14532d",
-          "#166534",
-          "#15803d",
-          "#16a34a",
-          "#22c55e",
+          "#0b3a1e",
+          "#12592e",
+          "#18793e",
+          "#22a052",
+          "#34c469",
           "#4ade80",
           "#86efac",
-          "#bbf7d0"
-        ]
-      },
-      "pill-hover": {
-        "role": "neutral",
-        "displayName": "Paper White",
-        "canonical": "#ffffff",
-        "tonalRamp": [
-          "#131313",
-          "#161616",
-          "#1b1b1b",
-          "#222222",
-          "#2a2a2a",
-          "#3a3a3a",
-          "#8c8c8c",
-          "#ededed"
+          "#dcfce7"
         ]
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Hero H1 only."
+        "purpose": "Hero headline only, word-by-word 3D reveal."
       },
       "display-closing": {
         "displayName": "Display Closing",
-        "purpose": "Contact banner statement."
+        "purpose": "Contact panel closing headline."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Centred section heads."
+        "purpose": "Every section heading, followed by a Geist lede."
       },
       "figure": {
         "displayName": "Figure",
-        "purpose": "Lead fact inside a pipeline panel."
+        "purpose": "Rolling CV figures in the Proof bento."
+      },
+      "title-lg": {
+        "displayName": "Title Lg",
+        "purpose": "Featured project names."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Project card and role titles."
+        "purpose": "Project-card names and sub-section headings."
+      },
+      "title-quiet": {
+        "displayName": "Title Quiet",
+        "purpose": "Stack group labels and service names (Clash 500)."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Hero intro and section ledes."
+        "purpose": "Ledes and intros, about 36rem max."
       },
       "body-sm": {
-        "displayName": "Body Small",
-        "purpose": "Card copy and list items."
+        "displayName": "Body Sm",
+        "purpose": "Card copy, FAQ answers, timeline points."
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Pill labels."
-      },
-      "meta": {
-        "displayName": "Meta",
-        "purpose": "Sources, role meta, tag lines in Smoke."
+        "purpose": "Sources, tags, captions, hints; sentence case in Smoke."
       },
       "mono": {
         "displayName": "Mono",
-        "purpose": "Dates, hostnames, email only."
+        "purpose": "Machine text only: dates, hostnames, email, n/N counters."
       }
     },
-    "shadows": [],
+    "shadows": [
+      {
+        "name": "float",
+        "value": "0 40px 80px -30px rgba(0,0,0,0.9)",
+        "purpose": "Hero portrait card; palette uses 0 40px 80px -20px rgba(0,0,0,0.8)."
+      },
+      {
+        "name": "stack-lip",
+        "value": "0 -20px 60px -30px rgba(0,0,0,0.9)",
+        "purpose": "Featured cards casting up onto the card they cover."
+      },
+      {
+        "name": "docked",
+        "value": "0 16px 40px -20px rgba(0,0,0,0.9)",
+        "purpose": "Top nav once scrolled."
+      },
+      {
+        "name": "docked-up",
+        "value": "0 -8px 40px -12px rgba(0,0,0,0.9)",
+        "purpose": "Mobile bottom tab bar."
+      },
+      {
+        "name": "signal-glow",
+        "value": "0 8px 24px -8px rgba(255,178,36,0.55), inset 0 1px 0 rgba(255,255,255,0.35)",
+        "purpose": "Primary actions at rest."
+      },
+      {
+        "name": "signal-glow-hover",
+        "value": "0 12px 32px -8px rgba(255,178,36,0.7), inset 0 1px 0 rgba(255,255,255,0.35)",
+        "purpose": "Primary actions on hover."
+      },
+      {
+        "name": "focus-halo",
+        "value": "0 0 0 4px rgba(239,237,232,0.06)",
+        "purpose": "Input focus, with border at 50% Bone."
+      },
+      {
+        "name": "focus-ring",
+        "value": "outline: 2px solid #ffb224; outline-offset: 3px",
+        "purpose": "Every :focus-visible element."
+      }
+    ],
     "motion": [
       {
         "name": "ease-out-expo",
         "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Every transition and entrance."
+        "purpose": "Reveals, hover transitions, accordions, slideshow slides."
       },
       {
         "name": "reveal",
-        "value": "opacity 0 -> 1, translateY 18px -> 0, blur 6px -> 0; 900ms ease-out-expo; once, viewport margin -80px",
-        "purpose": "One reveal per section; project cards stagger 80ms by column."
+        "value": "opacity 0 to 1, y 40px to 0, rotateX 10deg to 0, blur 6px to 0; 1s ease-out-expo; perspective 1200, origin bottom; once, -60px margin",
+        "purpose": "Shared entrance for sections and cards; staggered 0.05 to 0.08s."
       },
       {
-        "name": "hero-entrance",
-        "value": "text: translateY 24px, 1000ms; portrait: scale 0.97 + blur 10px, 1200ms, 100ms delay",
-        "purpose": "First viewport only."
+        "name": "spring-ui",
+        "value": "spring stiffness 260, damping 24, mass 0.9",
+        "purpose": "Default interactive spring (morphing buttons, layout changes)."
       },
       {
-        "name": "state-transition",
-        "value": "300ms ease-out-expo",
-        "purpose": "Pill colour/border/press (scale 0.97), chip hover, arrow nudge 2px."
+        "name": "spring-pill",
+        "value": "spring stiffness 380, damping 30 to 32",
+        "purpose": "Sliding active pills (nav, tab bar, FAQ tabs)."
       },
       {
-        "name": "disclosure",
-        "value": "height + opacity, 500ms ease-out-expo (mobile menu 400ms)",
-        "purpose": "Accordion and mobile menu; chevron rotates 180deg."
+        "name": "headline-words",
+        "value": "stagger 0.08s after 0.35s; each word rotateX -70deg to 0, y 0.6em, blur 8px; spring damping 20, stiffness 110",
+        "purpose": "Hero headline only."
       },
       {
-        "name": "media-hover",
-        "value": "scale 1.02, brightness 0.82 -> 1, 700ms ease-out-expo",
-        "purpose": "Screenshot frames on card hover."
+        "name": "kenburns",
+        "value": "scale 1.1 to 1 over 9s ease-out-expo; crossfade 1.6s every 6.5s",
+        "purpose": "Hero background slides."
       },
       {
-        "name": "marquee",
-        "value": "translateX 0 -> -50%, linear infinite; 40s hero icons, 70s fact rows (row 2 reversed)",
-        "purpose": "Paused on hover/focus-within; stopped under reduced motion, facts become a static grid."
+        "name": "tilt",
+        "value": "max 6deg, spring stiffness 200, damping 20; radial sheen rgba(255,255,255,0.07); fine pointers only",
+        "purpose": "Portrait and project cards."
+      },
+      {
+        "name": "rolling-digits",
+        "value": "per-digit column, spring stiffness 70, damping 18",
+        "purpose": "Proof figures on arrival."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "MotionConfig reducedMotion=user; slideshows, marquee, Ken Burns, tilt, parallax, stacking off; digits static; timeline fully drawn",
+        "purpose": "Every motion collapses to a fade or a static state."
       }
     ],
     "breakpoints": [
@@ -262,143 +334,154 @@
       {
         "name": "lg",
         "value": "1024px"
+      },
+      {
+        "name": "hero-image-sm",
+        "value": "960px"
       }
-    ]
+    ],
+    "grain": {
+      "value": "SVG fractalNoise baseFrequency 0.9, 3 octaves, 160px tile",
+      "opacity": 0.06,
+      "purpose": "Fixed over the whole page, above content, pointer-events none."
+    }
   },
   "components": [
     {
-      "name": "Pill Solid",
+      "name": "Primary Action",
       "kind": "button",
-      "refersTo": "pill-solid",
-      "description": "Primary action (Contact, Email me): Bone pill with a trailing arrow; one per group.",
-      "html": "<a href=\"#\" class=\"ds-pill-solid\">Contact me <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>",
-      "css": ".ds-pill-solid{display:inline-flex;align-items:center;gap:8px;border-radius:9999px;padding:10px 20px;background:var(--color-fg,#ededed);color:var(--color-page,#131313);font:500 14px/20px 'Geist Variable',ui-sans-serif,system-ui,sans-serif;text-decoration:none;transition:background-color .3s cubic-bezier(0.16,1,0.3,1),transform .3s cubic-bezier(0.16,1,0.3,1)}.ds-pill-solid svg{transition:transform .3s cubic-bezier(0.16,1,0.3,1)}.ds-pill-solid:hover{background:#fff}.ds-pill-solid:hover svg{transform:translateX(2px)}.ds-pill-solid:active{transform:scale(.97)}.ds-pill-solid:focus-visible{outline:2px solid var(--color-fg,#ededed);outline-offset:3px}"
+      "refersTo": "button-primary",
+      "description": "Amber pill for the single next step (Start a project, Hire me, Request a quote, Send message).",
+      "html": "<button class=\"ds-btn-primary\">Start a project <svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
+      "css": ".ds-btn-primary{border-radius:9999px;display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 24px;font-family:var(--font-sans);font-size:0.95rem;font-weight:500;white-space:nowrap;cursor:pointer;transition:background-color .3s cubic-bezier(0.16,1,0.3,1),border-color .3s cubic-bezier(0.16,1,0.3,1),box-shadow .3s cubic-bezier(0.16,1,0.3,1),transform .3s cubic-bezier(0.16,1,0.3,1);border:none;background:var(--color-accent,#ffb224);color:var(--color-on-accent,#1d1303);box-shadow:0 8px 24px -8px rgba(255,178,36,0.55),inset 0 1px 0 rgba(255,255,255,0.35);} .ds-btn-primary svg{transition:transform .3s cubic-bezier(0.16,1,0.3,1);} .ds-btn-primary:hover{background:var(--color-accent-hover,#ffc457);box-shadow:0 12px 32px -8px rgba(255,178,36,0.7),inset 0 1px 0 rgba(255,255,255,0.35);} .ds-btn-primary:hover svg{transform:translateX(2px);} .ds-btn-primary:active{transform:scale(0.96);} .ds-btn-primary:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px;}"
     },
     {
-      "name": "Pill Outline",
+      "name": "Secondary Action",
       "kind": "button",
-      "refersTo": "pill-outline",
-      "description": "Secondary action (See my work, Download CV, Source code).",
-      "html": "<a href=\"#\" class=\"ds-pill-outline\">See my work</a>",
-      "css": ".ds-pill-outline{display:inline-flex;align-items:center;gap:8px;border-radius:9999px;padding:10px 20px;border:1px solid var(--color-line-strong,#3a3a3a);background:transparent;color:var(--color-fg,#ededed);font:500 14px/20px 'Geist Variable',ui-sans-serif,system-ui,sans-serif;text-decoration:none;transition:background-color .3s cubic-bezier(0.16,1,0.3,1),border-color .3s cubic-bezier(0.16,1,0.3,1),transform .3s cubic-bezier(0.16,1,0.3,1)}.ds-pill-outline:hover{background:var(--color-raised,#222);border-color:rgba(237,237,237,.6)}.ds-pill-outline:active{transform:scale(.97)}.ds-pill-outline:focus-visible{outline:2px solid var(--color-fg,#ededed);outline-offset:3px}"
+      "refersTo": "button-secondary",
+      "description": "Outlined pill for supporting paths (See my work, Live website, CV, LinkedIn).",
+      "html": "<button class=\"ds-btn-secondary\">See my work</button>",
+      "css": ".ds-btn-secondary{border-radius:9999px;display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 24px;font-family:var(--font-sans);font-size:0.95rem;font-weight:500;white-space:nowrap;cursor:pointer;transition:background-color .3s cubic-bezier(0.16,1,0.3,1),border-color .3s cubic-bezier(0.16,1,0.3,1),box-shadow .3s cubic-bezier(0.16,1,0.3,1),transform .3s cubic-bezier(0.16,1,0.3,1);border:1px solid var(--color-line-strong,#3b3b3b);background:rgba(18,18,18,0.4);backdrop-filter:blur(4px);color:var(--color-fg,#efede8);} .ds-btn-secondary:hover{border-color:rgba(239,237,232,0.5);background:var(--color-raised,#232323);} .ds-btn-secondary:active{transform:scale(0.96);} .ds-btn-secondary:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px;}"
     },
     {
-      "name": "Status Pill",
-      "kind": "chip",
-      "refersTo": "status-pill",
-      "description": "Availability tag with the single green live dot.",
-      "html": "<span class=\"ds-status\"><span class=\"ds-status-dot\"></span>Available for work<span class=\"ds-status-detail\">· Remote, contract or full-time</span></span>",
-      "css": ".ds-status{display:inline-flex;align-items:center;gap:10px;border-radius:9999px;border:1px solid var(--color-line,#2a2a2a);background:var(--color-panel,#1b1b1b);padding:6px 16px 6px 12px;color:var(--color-muted,#a3a3a3);font:400 14px/20px 'Geist Variable',ui-sans-serif,sans-serif}.ds-status-dot{width:8px;height:8px;border-radius:9999px;background:var(--color-live,#4ade80);box-shadow:0 0 0 0 rgba(74,222,128,.6);animation:ds-ping 1.5s cubic-bezier(0,0,.2,1) infinite}.ds-status-detail{color:var(--color-faint,#8c8c8c)}@keyframes ds-ping{75%,100%{box-shadow:0 0 0 6px rgba(74,222,128,0)}}@media (prefers-reduced-motion:reduce){.ds-status-dot{animation:none}}"
+      "name": "Tertiary Link",
+      "kind": "button",
+      "refersTo": "button-tertiary",
+      "description": "Underlined text action (Download CV, Source code).",
+      "html": "<a class=\"ds-link-tertiary\" href=\"#\">Download CV</a>",
+      "css": ".ds-link-tertiary{font-family:var(--font-sans);font-size:0.875rem;font-weight:500;color:var(--color-fg,#efede8);text-decoration:underline;text-decoration-color:var(--color-line-strong,#3b3b3b);text-decoration-thickness:1px;text-underline-offset:0.22em;transition:text-decoration-color .3s;} .ds-link-tertiary:hover{text-decoration-color:var(--color-fg,#efede8);} .ds-link-tertiary:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px;border-radius:4px;}"
     },
     {
-      "name": "Stack Chip",
-      "kind": "chip",
-      "refersTo": "stack-chip",
-      "description": "Tool pill with a real brand mark (BrandIcon contrast rule: marks under 4.5:1 on panel render in Bone).",
-      "html": "<span class=\"ds-chip\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"#3178C6\"><rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"2\"/></svg>TypeScript</span>",
-      "css": ".ds-chip{display:inline-flex;align-items:center;gap:10px;border-radius:9999px;border:1px solid var(--color-line,#2a2a2a);background:var(--color-panel,#1b1b1b);padding:8px 16px 8px 12px;color:var(--color-fg,#ededed);font:400 15.2px/1.4 'Geist Variable',ui-sans-serif,sans-serif;transition:background-color .3s,border-color .3s}.ds-chip:hover{background:var(--color-raised,#222);border-color:var(--color-line-strong,#3a3a3a)}"
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Contact form field with label above; Bone focus halo, never amber.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Your name</span><input class=\"ds-input\" placeholder=\"Ada Okafor\"></label>",
+      "css": ".ds-field{display:flex;flex-direction:column;gap:6px;width:280px;} .ds-field-label{padding:0 4px;font-family:var(--font-sans);font-size:0.85rem;color:var(--color-muted,#a8a6a1);} .ds-input{width:100%;border-radius:16px;border:1px solid var(--color-line,#2a2a2a);background:rgba(18,18,18,0.6);padding:14px 16px;font-family:var(--font-sans);font-size:0.98rem;color:var(--color-fg,#efede8);caret-color:var(--color-fg,#efede8);outline:none;transition:border-color .3s,box-shadow .3s;} .ds-input::placeholder{color:var(--color-faint,#8d8b86);} .ds-input:focus{border-color:rgba(239,237,232,0.5);box-shadow:0 0 0 4px rgba(239,237,232,0.06);}"
     },
     {
-      "name": "Project Card (screenshot frame)",
-      "kind": "card",
-      "refersTo": "project-card",
-      "description": "Panel card with a 10px inset media block; live sites get a framed screenshot with a mono hostname bar.",
-      "html": "<article class=\"ds-card\"><div class=\"ds-frame\"><div class=\"ds-frame-bar\"><span class=\"ds-frame-dot\"></span><span class=\"ds-frame-host\">vooltflow.vercel.app</span></div><div class=\"ds-frame-shot\"></div></div><div class=\"ds-card-body\"><h3 class=\"ds-card-title\">VooltFlow</h3><p class=\"ds-card-kind\">AI affiliate automation</p><p class=\"ds-card-copy\">Listings published in under 60 seconds.</p><ul class=\"ds-card-facts\"><li><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#4ade80\" stroke-width=\"2\"><path d=\"M20 6 9 17l-5-5\"/></svg>Under 60 s end to end</li></ul></div></article>",
-      "css": ".ds-card{border-radius:1.75rem;border:1px solid var(--color-line,#2a2a2a);background:var(--color-panel,#1b1b1b);padding:10px;transition:border-color .5s;font-family:'Geist Variable',ui-sans-serif,sans-serif;max-width:480px}.ds-card:hover{border-color:var(--color-line-strong,#3a3a3a)}.ds-frame{overflow:hidden;border-radius:1rem;border:1px solid var(--color-line,#2a2a2a);background:var(--color-raised,#222)}.ds-frame-bar{display:flex;align-items:center;gap:8px;height:32px;padding:0 14px;border-bottom:1px solid var(--color-line,#2a2a2a)}.ds-frame-dot{width:8px;height:8px;border-radius:9999px;background:var(--color-line-strong,#3a3a3a)}.ds-frame-host{font:400 11.2px 'Geist Mono Variable',ui-monospace,monospace;color:var(--color-faint,#8c8c8c)}.ds-frame-shot{aspect-ratio:16/10;background:linear-gradient(180deg,#2e2e2e,#222);filter:brightness(.82);transition:transform .7s cubic-bezier(0.16,1,0.3,1),filter .7s cubic-bezier(0.16,1,0.3,1)}.ds-card:hover .ds-frame-shot{transform:scale(1.02);filter:brightness(1)}.ds-card-body{padding:24px 20px 16px}.ds-card-title{margin:0;font-size:24px;font-weight:400;letter-spacing:-.02em;color:var(--color-fg,#ededed)}.ds-card-kind{margin:4px 0 0;font-size:15.2px;color:var(--color-faint,#8c8c8c)}.ds-card-copy{margin:12px 0 0;font-size:15.2px;line-height:1.625;color:var(--color-muted,#a3a3a3)}.ds-card-facts{list-style:none;margin:20px 0 0;padding:0;font-size:14px;color:var(--color-fg,#ededed)}.ds-card-facts li{display:flex;align-items:center;gap:6px}"
-    },
-    {
-      "name": "Pipeline Panel",
-      "kind": "custom",
-      "refersTo": "project-media",
-      "description": "Media block for projects without a live site: light lead figure plus a pill chain whose last step is inverted.",
-      "html": "<div class=\"ds-pipe\"><p class=\"ds-pipe-fig\">5 cooperatives live</p><ol class=\"ds-pipe-steps\"><li><span>Hospital</span><i></i></li><li><span>Cooperative</span><i></i></li><li><span class=\"ds-pipe-last\">RLS on every row</span></li></ol></div>",
-      "css": ".ds-pipe{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;aspect-ratio:16/10.6;border-radius:1rem;border:1px solid var(--color-line,#2a2a2a);background:var(--color-raised,#222);padding:28px;font-family:'Geist Variable',ui-sans-serif,sans-serif;max-width:460px}.ds-pipe-fig{align-self:end;margin:0;font-size:32px;line-height:1.05;font-weight:300;letter-spacing:-.03em;color:var(--color-fg,#ededed)}.ds-pipe-steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;justify-content:center}.ds-pipe-steps li{display:flex;flex-direction:column;align-items:flex-end}.ds-pipe-steps span{border-radius:9999px;border:1px solid var(--color-line-strong,#3a3a3a);background:var(--color-panel,#1b1b1b);color:var(--color-fg,#ededed);padding:6px 14px;font-size:13.6px;white-space:nowrap}.ds-pipe-steps i{display:block;width:1px;height:20px;margin-right:24px;background:var(--color-line-strong,#3a3a3a)}.ds-pipe-steps .ds-pipe-last{background:var(--color-fg,#ededed);border-color:var(--color-fg,#ededed);color:var(--color-page,#131313)}"
-    },
-    {
-      "name": "Experience Accordion Item",
-      "kind": "custom",
-      "refersTo": "accordion-item",
-      "description": "One-open-at-a-time role panel with mono date range and rotating chevron.",
-      "html": "<div class=\"ds-acc\"><button class=\"ds-acc-head\" aria-expanded=\"true\"><span class=\"ds-acc-text\"><span class=\"ds-acc-title\">Founding Engineer &amp; Project Lead</span><span class=\"ds-acc-co\">VooltGroup Limited</span></span><span class=\"ds-acc-date\">Oct 2025 – Present</span><svg class=\"ds-acc-chev\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"m6 9 6 6 6-6\"/></svg></button></div>",
-      "css": ".ds-acc{border-radius:1.5rem;border:1px solid var(--color-line,#2a2a2a);background:var(--color-panel,#1b1b1b);transition:border-color .3s;font-family:'Geist Variable',ui-sans-serif,sans-serif;max-width:760px}.ds-acc:hover{border-color:var(--color-line-strong,#3a3a3a)}.ds-acc-head{display:flex;width:100%;align-items:flex-start;gap:16px;padding:24px 28px;background:none;border:0;border-radius:1.5rem;text-align:left;cursor:pointer;color:inherit}.ds-acc-head:focus-visible{outline:2px solid var(--color-fg,#ededed);outline-offset:3px}.ds-acc-text{flex:1;min-width:0}.ds-acc-title{display:block;font-size:20px;letter-spacing:-.01em;color:var(--color-fg,#ededed)}.ds-acc-co{display:block;margin-top:4px;font-size:15.2px;color:var(--color-muted,#a3a3a3)}.ds-acc-date{padding-top:4px;font:400 12.8px 'Geist Mono Variable',ui-monospace,monospace;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--color-faint,#8c8c8c)}.ds-acc-chev{margin-top:4px;color:var(--color-muted,#a3a3a3);transition:transform .5s cubic-bezier(0.16,1,0.3,1)}.ds-acc-head[aria-expanded=true] .ds-acc-chev{transform:rotate(180deg)}"
-    },
-    {
-      "name": "Fact Card",
-      "kind": "card",
-      "refersTo": "fact-card",
-      "description": "Production fact from the CV: bold lead in Bone, rest in Ash, source in Smoke. Lives in paused-on-hover marquees or a static grid.",
-      "html": "<div class=\"ds-fact\"><p class=\"ds-fact-text\"><strong>8,370 hospital staff</strong> received their payslips the same day.</p><p class=\"ds-fact-src\">Payslip automation</p></div>",
-      "css": ".ds-fact{display:flex;flex-direction:column;justify-content:space-between;gap:32px;width:22rem;border-radius:1.5rem;border:1px solid var(--color-line,#2a2a2a);background:var(--color-panel,#1b1b1b);padding:28px;font-family:'Geist Variable',ui-sans-serif,sans-serif}.ds-fact-text{margin:0;font-size:18.4px;line-height:1.375;letter-spacing:-.01em;color:var(--color-muted,#a3a3a3)}.ds-fact-text strong{font-weight:500;color:var(--color-fg,#ededed)}.ds-fact-src{margin:0;font-size:13.6px;color:var(--color-faint,#8c8c8c)}"
-    },
-    {
-      "name": "Contact Panel",
-      "kind": "card",
-      "refersTo": "contact-panel",
-      "description": "Closing banner: light statement, solid Email + outline CV pills, mono email copy button with green check confirmation.",
-      "html": "<div class=\"ds-contact\"><h2 class=\"ds-contact-h\">Let’s build something that lasts</h2><button class=\"ds-copy\">temidaniel124@gmail.com <svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"8\" y=\"8\" width=\"14\" height=\"14\" rx=\"2\"/><path d=\"M4 16V4h12\"/></svg></button></div>",
-      "css": ".ds-contact{border-radius:2rem;border:1px solid var(--color-line,#2a2a2a);background:var(--color-panel,#1b1b1b);padding:96px 40px;text-align:center;font-family:'Geist Variable',ui-sans-serif,sans-serif}.ds-contact-h{margin:0 auto;max-width:14ch;font-size:64px;line-height:1.02;font-weight:300;letter-spacing:-.04em;color:var(--color-fg,#ededed)}.ds-copy{margin-top:32px;display:inline-flex;align-items:center;gap:8px;border:0;background:none;border-radius:9999px;padding:6px 12px;font:400 14px 'Geist Mono Variable',ui-monospace,monospace;color:var(--color-muted,#a3a3a3);cursor:pointer;transition:color .15s}.ds-copy:hover{color:var(--color-fg,#ededed)}.ds-copy:focus-visible{outline:2px solid var(--color-fg,#ededed);outline-offset:3px}"
-    },
-    {
-      "name": "Navigation",
+      "name": "Floating Nav",
       "kind": "nav",
-      "refersTo": "nav-bar",
-      "description": "Fixed 72px bar, transparent at top, frosted page with hairline after scroll.",
-      "html": "<header class=\"ds-nav\"><span class=\"ds-nav-name\"><span class=\"ds-nav-av\"></span>Temiloluwa Adebayo</span><nav class=\"ds-nav-links\"><a href=\"#\">Skills</a><a href=\"#\">Work</a><a href=\"#\">Experience</a><a href=\"#\">Proof</a></nav></header>",
-      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;height:72px;padding:0 32px;background:rgba(19,19,19,.8);backdrop-filter:blur(24px);border-bottom:1px solid var(--color-line,#2a2a2a);font-family:'Geist Variable',ui-sans-serif,sans-serif}.ds-nav-name{display:flex;align-items:center;gap:12px;font-size:15.2px;font-weight:500;letter-spacing:-.025em;color:var(--color-fg,#ededed)}.ds-nav-av{width:32px;height:32px;border-radius:9999px;background:var(--color-raised,#222)}.ds-nav-links{display:flex;gap:32px}.ds-nav-links a{font-size:14px;color:var(--color-muted,#a3a3a3);text-decoration:none;transition:color .15s}.ds-nav-links a:hover{color:var(--color-fg,#ededed)}.ds-nav-links a:focus-visible{outline:2px solid var(--color-fg,#ededed);outline-offset:3px;border-radius:9999px}"
+      "refersTo": "nav-pill-active",
+      "description": "Scrolled state of the floating pill nav with the sliding active pill and amber Hire me.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-name\">Temiloluwa Adebayo</span><span class=\"ds-nav-links\"><a class=\"ds-nav-link is-active\" href=\"#\">Work</a><a class=\"ds-nav-link\" href=\"#\">Skills</a><a class=\"ds-nav-link\" href=\"#\">Services</a></span><a class=\"ds-nav-cta\" href=\"#\">Hire me</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;width:620px;padding:8px 8px 8px 16px;border-radius:9999px;border:1px solid var(--color-line,#2a2a2a);background:rgba(18,18,18,0.92);backdrop-filter:blur(24px);box-shadow:0 16px 40px -20px rgba(0,0,0,0.9);font-family:var(--font-sans);} .ds-nav-name{font-size:0.95rem;font-weight:500;letter-spacing:-0.01em;color:var(--color-fg,#efede8);} .ds-nav-links{display:flex;gap:4px;} .ds-nav-link{padding:8px 14px;border-radius:9999px;font-size:0.875rem;color:var(--color-muted,#a8a6a1);text-decoration:none;transition:color .2s,background-color .3s;} .ds-nav-link:hover{color:var(--color-fg,#efede8);} .ds-nav-link.is-active{background:var(--color-raised,#232323);color:var(--color-fg,#efede8);} .ds-nav-link:focus-visible,.ds-nav-cta:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px;} .ds-nav-cta{display:inline-flex;align-items:center;height:40px;padding:0 16px;border-radius:9999px;background:var(--color-accent,#ffb224);color:var(--color-on-accent,#1d1303);font-size:0.875rem;font-weight:500;text-decoration:none;box-shadow:0 8px 24px -8px rgba(255,178,36,0.55),inset 0 1px 0 rgba(255,255,255,0.35);} .ds-nav-cta:hover{background:var(--color-accent-hover,#ffc457);}"
+    },
+    {
+      "name": "Tool Chip",
+      "kind": "chip",
+      "refersTo": "chip-tool",
+      "description": "Stack chip; brand mark or hollow ring, Panel pill.",
+      "html": "<span class=\"ds-chip\"><span class=\"ds-chip-ring\" aria-hidden=\"true\"></span>PostgreSQL</span>",
+      "css": ".ds-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 10px;border-radius:9999px;border:1px solid var(--color-line,#2a2a2a);background:var(--color-panel,#1b1b1b);font-family:var(--font-sans);font-size:0.9rem;color:var(--color-fg,#efede8);transition:border-color .3s,background-color .3s;} .ds-chip:hover{border-color:var(--color-line-strong,#3b3b3b);background:var(--color-raised,#232323);} .ds-chip-ring{margin:0 3px;width:9px;height:9px;border-radius:9999px;border:1px solid rgba(239,237,232,0.6);}"
+    },
+    {
+      "name": "Project Card",
+      "kind": "card",
+      "refersTo": "card-project",
+      "description": "Grid card: media frame with hostname bar, Clash title, facts with green ticks, secondary action.",
+      "html": "<article class=\"ds-card\"><figure class=\"ds-frame\"><div class=\"ds-frame-bar\"><span class=\"ds-dot\"></span><span class=\"ds-dot\"></span><span class=\"ds-host\">clarix-3w5i.vercel.app</span></div><div class=\"ds-shot\"></div></figure><div class=\"ds-card-body\"><h3 class=\"ds-card-title\">Clarix</h3><p class=\"ds-card-kind\">Multi-tenant fintech platform</p><p class=\"ds-card-copy\">Loan and deduction management for hospital staff cooperatives.</p><p class=\"ds-fact\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#4ade80\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg> 5 cooperatives</p></div></article>",
+      "css": ".ds-card{width:340px;padding:10px;border-radius:28px;border:1px solid var(--color-line,#2a2a2a);background:var(--color-panel,#1b1b1b);transition:border-color .5s;} .ds-card:hover{border-color:var(--color-line-strong,#3b3b3b);} .ds-frame{margin:0;overflow:hidden;border-radius:16px;border:1px solid var(--color-line,#2a2a2a);background:var(--color-raised,#232323);} .ds-frame-bar{display:flex;align-items:center;gap:6px;height:36px;padding:0 16px;border-bottom:1px solid var(--color-line,#2a2a2a);} .ds-dot{width:8px;height:8px;border-radius:9999px;background:var(--color-line-strong,#3b3b3b);} .ds-host{margin-left:4px;font-family:var(--font-mono);font-size:0.72rem;color:var(--color-faint,#8d8b86);} .ds-shot{aspect-ratio:16/10;background:linear-gradient(135deg,#232323,#161616);} .ds-card-body{padding:20px 12px 12px;display:flex;flex-direction:column;gap:12px;} .ds-card-title{margin:0;font-family:var(--font-display);font-size:1.6rem;font-weight:600;line-height:1;letter-spacing:-0.01em;color:var(--color-fg,#efede8);} .ds-card-kind{margin:-6px 0 0;font-family:var(--font-sans);font-size:0.875rem;color:var(--color-faint,#8d8b86);} .ds-card-copy{margin:0;font-family:var(--font-sans);font-size:0.93rem;line-height:1.625;color:var(--color-muted,#a8a6a1);} .ds-fact{margin:0;display:flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:0.875rem;color:var(--color-fg,#efede8);}"
+    },
+    {
+      "name": "Fact Tile",
+      "kind": "custom",
+      "refersTo": "tile-fact",
+      "description": "Proof bento tile: rolling Clash figure, lead, sentence, source in Smoke.",
+      "html": "<div class=\"ds-tile\"><div><p class=\"ds-figure\">8,370</p><p class=\"ds-lead\">hospital staff</p><p class=\"ds-rest\">received their payslips the same day.</p></div><p class=\"ds-source\">Payslip automation · Government hospital</p></div>",
+      "css": ".ds-tile{width:300px;display:flex;flex-direction:column;justify-content:space-between;gap:32px;padding:28px;border-radius:24px;border:1px solid var(--color-line,#2a2a2a);background:var(--color-panel,#1b1b1b);transition:border-color .5s;} .ds-tile:hover{border-color:var(--color-line-strong,#3b3b3b);} .ds-figure{margin:0;font-family:var(--font-display);font-size:2.9rem;font-weight:600;line-height:1;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;color:var(--color-fg,#efede8);} .ds-lead{margin:8px 0 0;font-family:var(--font-sans);font-size:1.05rem;font-weight:500;color:var(--color-fg,#efede8);} .ds-rest{margin:12px 0 0;font-family:var(--font-sans);font-size:0.98rem;line-height:1.625;color:var(--color-muted,#a8a6a1);} .ds-source{margin:0;font-family:var(--font-sans);font-size:0.82rem;color:var(--color-faint,#8d8b86);}"
+    },
+    {
+      "name": "FAQ Tabs",
+      "kind": "custom",
+      "refersTo": "tab-pill-active",
+      "description": "Tab rail with a sliding Bone pill; the same pattern as the mobile tab bar.",
+      "html": "<div class=\"ds-tabs\" role=\"tablist\"><button class=\"ds-tab is-on\" role=\"tab\" aria-selected=\"true\">Availability</button><button class=\"ds-tab\" role=\"tab\">Working together</button><button class=\"ds-tab\" role=\"tab\">Technical</button></div>",
+      "css": ".ds-tabs{display:inline-flex;gap:4px;padding:4px;border-radius:9999px;border:1px solid var(--color-line,#2a2a2a);background:var(--color-panel,#1b1b1b);} .ds-tab{border:none;background:transparent;padding:8px 20px;border-radius:9999px;font-family:var(--font-sans);font-size:0.875rem;color:var(--color-muted,#a8a6a1);cursor:pointer;transition:color .2s,background-color .3s;} .ds-tab:hover{color:var(--color-fg,#efede8);} .ds-tab.is-on{background:var(--color-fg,#efede8);color:var(--color-page,#121212);} .ds-tab:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px;}"
     }
   ],
   "narrative": {
-    "northStar": "The Quiet Ledger",
-    "overview": "A graphite room with the lights low, where the only things that glow are the work and the facts about it. The ground is near-black and nearly flat; depth comes from four steps of grey and a hairline, never from shadow or colour. Everything interactive is a pill, everything that holds content is a softly rounded panel, and the one living colour is a green that means \"true\" or \"running\".\n\nDensity is generous: one idea per section, centred section heads, wide vertical rhythm (128px between sections on desktop) and a single 1080px column. Type does the atmosphere: Geist at weight 300 and tight negative tracking for the big statements, regular Geist for everything else, Geist Mono only where a value is literally machine text (a date range, a hostname, an email address). Real photography (the portrait, live-site screenshots) and real brand marks carry the colour the palette withholds.\n\nThe world rejects the neon-glow \"hacker terminal\" register and any invented social proof. Where a project has no live site, it gets a typographic pipeline panel, not a mock screenshot.",
+    "northStar": "The Night Shift Screening Room",
+    "overview": "A graphite room with the lights down, where the work plays on screen. The ground is near-black and warm-neutral, not blue; panels step up one shade at a time and are separated by 1px hairlines rather than shadow. Real imagery does the atmosphere: a crossfading, slowly zooming slideshow behind the hero, real product screenshots inside browser-style frames, the owner's portrait. A fine film grain sits over everything so the flat greys read as material rather than screen.\n\nMotion carries the personality. Content rises into place with a slight backward tilt that flattens as it arrives; interactive things move on springs; cards stack and tuck behind one another on scroll; pointer devices get a gentle 3D tilt with a light sheen. Colour stays almost entirely out of the way so that one signal amber can mean exactly one thing: this is the next step. Green appears only for live status and confirmation.\n\nTypography pairs a geometric, slightly condensed display face (Clash Display) for every heading and figure with Geist for everything a person reads or clicks. Density is generous: long sections, wide gutters, one idea per band.",
     "keyCharacteristics": [
-      "Near-black tonal ladder (page, band, panel, raised) with 1px hairlines instead of shadows.",
-      "Pill-shaped actions: solid off-white primary with an arrow, outlined secondary.",
-      "Light-weight, tightly tracked Geist display; mono reserved for dates, hostnames, email.",
-      "One accent hue, green, used only as a truth signal.",
-      "Motion is one soft rise-and-unblur per section, ease-out-expo, once."
+      "Warm graphite ladder (page, band, panel, raised) with hairline borders; no pure black, no pure white.",
+      "One accent, amber, used only on primary actions and the keyboard focus ring.",
+      "Clash Display for headings and figures; Geist for UI and body; Geist Mono for machine-literal strings.",
+      "Large, soft radii (24 to 36px) on containers; fully round pills on every action and chip.",
+      "Film grain over the whole page; generated atmosphere imagery kept decorative.",
+      "Ease-out-expo reveals with a 10° rotateX; springs for interaction; fades only under reduced motion."
     ],
     "rules": [
       {
-        "name": "The Live Green Rule",
-        "body": "Green is the only hue in the system and it signals truth or status: live dot, verified-fact check, copied confirmation. It never fills a surface, a button, or a heading.",
+        "name": "The One Signal Rule",
+        "body": "Amber marks the primary action and nothing else. If a screen has two amber things, one of them is wrong. Selected and active states use Bone or Raised Graphite, never amber.",
         "section": "colors"
       },
       {
-        "name": "The Tonal Ladder Rule",
-        "body": "Separation is made by stepping one rung on page, band, panel, raised, plus a hairline. A new surface picks a rung; it does not invent a grey.",
+        "name": "The Status Is Green Rule",
+        "body": "Green means live or done. It is never used to decorate, rank, or highlight.",
         "section": "colors"
-      },
-      {
-        "name": "The Light Statement Rule",
-        "body": "Only the two display statements run at weight 300; section heads, titles and body stay at 400, and weight 500 is for pill labels, the name, and the bold lead of a fact.",
-        "section": "typography"
       },
       {
         "name": "The Machine Text Rule",
-        "body": "Geist Mono appears only on literal machine strings: dates, hostnames, email. Never for labels, headings, or flavour.",
+        "body": "Geist Mono is for strings a machine wrote: dates, hostnames, the email address, step and slide counters. Never for headings, labels, or decoration.",
         "section": "typography"
       },
       {
-        "name": "The Hairline, Not Shadow Rule",
-        "body": "A container earns separation with a one-rung tone step and a 1px line. Shadows are not part of this world.",
+        "name": "The Sentence Case Rule",
+        "body": "No uppercase tracked labels anywhere. Labels are small, sentence case, and quiet.",
+        "section": "typography"
+      },
+      {
+        "name": "The Float, Don't Outline Rule",
+        "body": "Shadows lift things that float (nav, palette, portrait, stacked cards). Cards in a grid rely on tone and hairline alone.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Glass Only On Imagery Rule",
+        "body": "Backdrop blur is used only where content sits over a photograph or scrolls under a fixed bar: nav, tab bar, hero badge, portrait caption, slideshow controls, palette scrim.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "Do place every new surface on an existing rung (page, band, panel, raised) with a 1px line or line-strong border.",
-      "Do make actions pills: solid Bone for the one primary action, outline for the rest.",
-      "Do use ease-out-expo and a single rise-and-unblur reveal per section, once.",
-      "Do render brand marks through the BrandIcon contrast rule so no mark drops under 4.5:1 on panel.",
-      "Do show a real screenshot in the frame only for projects with a live site; otherwise use the pipeline panel.",
-      "Do keep marquees pausable on hover and focus, and provide a static layout under reduced motion."
+      "Do use the Action component's three tiers: amber primary, outlined secondary pill, underlined tertiary link.",
+      "Do keep Signal Amber (#ffb224) to primary actions and the focus ring; express selection with Bone or Raised Graphite.",
+      "Do separate sections by alternating Graphite and Band Graphite grounds, and components by 1px hairlines.",
+      "Do reveal content with the shared rise: 40px up, 10° rotateX flattening, 6px blur clearing, 1s ease-out-expo `cubic-bezier(0.16, 1, 0.3, 1)`; use springs for anything the visitor drives.",
+      "Do give every motion a reduced-motion path: slideshows stop, stacking becomes a plain column, tilt and parallax switch off, digits render static, the timeline shows fully drawn.",
+      "Do frame product screenshots in the media frame with the real hostname, and credit any stock photo by name on its frame bar.",
+      "Do trace every number on the page to the CV and name its source under the figure.",
+      "Do keep generated imagery decorative (empty alt, `aria-hidden`), with its provenance recorded beside the file and disclosed in the footer."
     ],
     "donts": [
-      "Don't add box-shadows, glows, or neon; depth is tonal.",
-      "Don't introduce a second accent hue, or use green for fills, buttons or headings.",
-      "Don't set labels, headings or decoration in Geist Mono; it is for dates, hostnames and email only.",
-      "Don't put small uppercase kickers or eyebrows above headings; section heads are a title plus a lede.",
-      "Don't invent testimonials, client logos, satisfaction figures, or screenshots for projects without a live site.",
-      "Don't use weight 300 below display size, or bold (700) anywhere."
+      "Don't put amber on text, borders, icons, selected states, backgrounds, or a second button in the same group.",
+      "Don't place a small label, kicker, or eyebrow line above a section heading. The hero's availability badge is live status with a live dot, not a category label, and is the only element that sits above a headline.",
+      "Don't nest a card inside a card. The media frame inside a project card and the control wells inside the contact panel are objects, not prose containers, and are the only sanctioned insets.",
+      "Don't use uppercase tracked labels or mono for anything that is not machine text.",
+      "Don't outline grid cards with shadows or use hard offset shadows; depth is tone, hairline, and soft float shadows on floating objects.",
+      "Don't invent social proof: no testimonials, client logos, satisfaction percentages, or prices.",
+      "Don't present generated atmosphere images as the owner's workspace or product, or use them in place of project screenshots.",
+      "Don't use pure black or pure white; the extremes are Graphite (#121212) and Bone (#efede8)."
     ]
   }
 }

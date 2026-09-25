@@ -110,25 +110,6 @@ body::before {
   border: 3px solid var(--color-page);
 }
 
-/* Marquee */
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-.marquee-track {
-  animation: marquee var(--marquee-duration, 60s) linear infinite;
-}
-
-.marquee:hover .marquee-track,
-.marquee:focus-within .marquee-track {
-  animation-play-state: paused;
-}
-
-.marquee-mask {
-  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-}
-
 /* Slow zoom on the active hero slide. */
 @keyframes kenburns {
   from { transform: scale(1.1); }
@@ -143,7 +124,6 @@ body::before {
   html {
     scroll-behavior: auto;
   }
-  .marquee-track,
   .kenburns {
     animation: none;
   }
