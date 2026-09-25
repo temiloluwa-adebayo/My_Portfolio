@@ -6,3 +6,8 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Impeccable working files
+.impeccable/review/
+.impeccable/hook.cache.json
+.impeccable/*.local.json

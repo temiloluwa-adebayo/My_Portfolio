@@ -1,504 +1,572 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Github, 
-  Linkedin, 
-  Mail, 
-  ExternalLink, 
-  Code2, 
-  Database, 
-  Zap, 
-  Shield, 
-  Layout, 
-  Cpu, 
-  Globe, 
-  Server, 
+import { useEffect, useState, type CSSProperties, type ReactNode } from 'react';
+import { AnimatePresence, MotionConfig, motion } from 'motion/react';
+import type { SimpleIcon } from 'simple-icons';
+import {
   ArrowRight,
-  ChevronRight,
+  ArrowUpRight,
+  Check,
+  ChevronDown,
+  Copy,
+  Download,
+  Github,
+  Linkedin,
+  Mail,
   Menu,
   X,
-  Terminal,
-  Layers,
-  Sparkles
 } from 'lucide-react';
+import { EXPERIENCE, FACTS, HERO_TOOLS, NAV, PROFILE, PROJECTS, STACK, type Fact, type Project } from './data';
 
+const EASE = [0.16, 1, 0.3, 1] as const;
 
-// --- Data ---
+// --- Primitives ---
 
-const PROJECTS = [
-  {
-    id: 'payhub',
-    title: 'PayHub Central',
-    subtitle: 'Multi-Tenant Fintech Platform',
-    description: 'A hardened financial platform built for hospital employee cooperatives. Enforces three levels of data isolation, nine distinct user roles, and row-level security on every table — ensuring no cooperative can access another\'s sensitive financial data, even within the same hospital.',
-    tags: ['Next.js', 'Supabase', 'PostgreSQL', 'RBAC', 'Row-Level Security'],
-    metrics: ['3 Isolation Levels', '9 User Roles', 'Cross-Cooperative Risk Engine'],
-    icon: Shield,
-    color: 'emerald',
-    githubUrl: 'https://github.com/temiloluwa-adebayo/payhub-central',
-    liveUrl: '',
-  },
-  {
-    id: 'leadforge',
-    title: 'LeadForge',
-    subtitle: 'Automated Outbound Sales Engine',
-    description: 'A nine-phase automation pipeline that runs entirely without human input. Discovers businesses on Google, scrapes and scores their digital presence, generates a personalised PDF proposal using Google Docs, and delivers a cold email via Gmail — triggered by a single button click.',
-    tags: ['Next.js 14', 'n8n', 'Supabase', 'ScrapingBee', 'Gmail API'],
-    metrics: ['9-Phase Pipeline', 'Zero Manual Steps', 'AI-Scored Lead Quality'],
-    icon: Zap,
-    color: 'amber',
-    githubUrl: 'https://github.com/temiloluwa-adebayo/LeadForge',
-    liveUrl: '',
-  },
-  {
-    id: 'voolt-academy',
-    title: 'VOOLT Academy',
-    subtitle: 'Invitation-Only Learning Management System',
-    description: 'A closed, access-controlled LMS where students gain entry only after payment is verified externally. Automated onboarding via n8n generates credentials and provisions accounts instantly. Weekly MCQ quizzes are enforced as gates — students cannot advance without completing them.',
-    tags: ['React 19', 'Supabase', 'n8n', 'Tailwind CSS', 'RLS'],
-    metrics: ['Automated Provisioning', 'Enforced Weekly Gates', 'Zero Public Access'],
-    icon: Layers,
-    color: 'indigo',
-    githubUrl: 'https://github.com/temiloluwa-adebayo/Voolt_Academy',
-    liveUrl: 'https://voolt-academy-8f72.vercel.app/',
-  },
-  {
-    id: 'vooltflow',
-    title: 'VooltFlow',
-    subtitle: 'AI-Powered Affiliate Automation',
-    description: 'Searches Amazon, Jumia, and Konga simultaneously, filters results through a quality scoring engine (rating, review count, price thresholds), generates proper affiliate links, finds viral YouTube Shorts as social proof, and publishes a GPT-4o-written listing to WooCommerce — in under 60 seconds.',
-    tags: ['Next.js 15', 'GPT-4o', 'n8n', 'WooCommerce API', 'Supabase'],
-    metrics: ['3 Marketplaces in Parallel', '< 60s End-to-End', 'GPT-4o Descriptions'],
-    icon: Cpu,
-    color: 'rose',
-    githubUrl: 'https://github.com/temiloluwa-adebayo/vooltflow',
-    liveUrl: 'https://vooltflow-fmql.vercel.app/',
-  },
-  {
-    id: 'voolttrip',
-    title: 'VooltTrip',
-    subtitle: 'AI Visa Assistance Platform',
-    description: 'A trust-engineered visa assistance platform with a 24/7 AI assistant trained on service-specific knowledge. Client funds are held by a verified third-party lawyer and released only upon successful visa approval — with a full refund guarantee on rejection. Built to eliminate the trust barrier in visa services.',
-    tags: ['AI Chatbot', 'Escrow Payment Model', 'Lawyer-Backed Security'],
-    metrics: ['24/7 AI Consultation', 'Funds Held in Escrow', 'Full Refund on Rejection'],
-    icon: Globe,
-    color: 'sky',
-    githubUrl: 'https://github.com/temiloluwa-adebayo/VooltTrip',
-    liveUrl: 'https://voolt-trip.vercel.app/',
-  },
-  {
-    id: 'campuspress',
-    title: 'CampusPress AI',
-    subtitle: 'University Journalism Platform',
-    description: 'A structured digital newsroom for academic institutions. Every article submitted by a student journalist passes through an AI analysis layer — detecting bias, scoring credibility, and flagging sentiment — before an editor reviews it. Content cannot be published without passing editorial approval. No informal channels, no unmoderated publishing.',
-    tags: ['React Native', 'AI Analysis', 'Editorial Workflow', 'Supabase'],
-    metrics: ['AI Bias Detection', 'Enforced Editorial Gate', 'Credibility Scoring'],
-    icon: Layout,
-    color: 'violet',
-    githubUrl: 'https://github.com/temiloluwa-adebayo/campuspress-ai',
-    liveUrl: '',
-  },
-  {
-    id: 'examforge',
-    title: 'ExamForge CBT',
-    subtitle: 'Offline-First Desktop Examination System',
-    description: 'Two completely isolated desktop applications — a student exam client and an admin console — with no shared interface or data access between them. Runs 100% offline during examinations. Submissions are saved locally and synced to a Supabase workspace when connectivity returns. Built to operate reliably in environments with zero internet dependency.',
-    tags: ['Electron', 'SQLite', 'Supabase', 'Offline-First', 'Isolated Architecture'],
-    metrics: ['Zero Internet Required', 'Isolated Admin & Student Apps', 'Auto-Sync on Reconnect'],
-    icon: Terminal,
-    color: 'orange',
-    githubUrl: 'https://github.com/temiloluwa-adebayo/examforge-cbt',
-    liveUrl: '',
-  }
-];
-
-const SKILLS = [
-  { category: 'Frontend', items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'] },
-  { category: 'Backend', items: ['Node.js', 'Supabase', 'PostgreSQL', 'REST APIs', 'Express'] },
-  { category: 'Automation', items: ['n8n', 'Webhooks', 'API Chaining', 'Workflow Design'] },
-  { category: 'AI / ML', items: ['Generative AI', 'AI Integration', 'Prompt Engineering', 'Large Language Models (LLMs)'] },
-  { category: 'Platforms', items: ['Vercel', 'Electron', 'Flutter', 'Google Play', 'Microsoft Store'] }
-];
-
-// --- Components ---
-
-const Nav = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+/** Brand mark from simple-icons; near-black brand colours render light on the dark ground. */
+const BrandIcon = ({ icon, size = 18 }: { icon: SimpleIcon; size?: number }) => {
+  const hex = icon.hex;
+  const r = parseInt(hex.slice(0, 2), 16);
+  const g = parseInt(hex.slice(2, 4), 16);
+  const b = parseInt(hex.slice(4, 6), 16);
+  const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+  const fill = luminance < 0.35 ? '#ededed' : `#${hex}`;
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass py-3' : 'py-6'}`}>
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-brand-primary rounded-lg flex items-center justify-center font-display font-bold text-bg-dark">TA</div>
-          <span className="font-display font-bold text-zinc-100 tracking-tight hidden sm:block">Temiloluwa Adebayo</span>
-        </div>
-        
-        <div className="hidden md:flex items-center gap-8">
-          {['Work', 'Skills', 'About', 'Contact'].map((item) => (
-            <a 
-              key={item} 
-              href={`#${item.toLowerCase()}`} 
-              className="text-sm font-medium text-zinc-400 hover:text-brand-primary transition-colors"
-            >
-              {item}
-            </a>
-          ))}
-          <a 
-            href="#contact" 
-            className="px-4 py-2 bg-brand-primary text-bg-dark text-sm font-bold rounded-lg hover:scale-105 transition-transform"
-          >
-            Hire Me
-          </a>
-        </div>
-
-        <button className="md:hidden text-zinc-100" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          {isMobileMenuOpen ? <X /> : <Menu />}
-        </button>
-      </div>
-
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 glass border-t-0 p-6 flex flex-col gap-4 md:hidden"
-          >
-            {['Work', 'Skills', 'About', 'Contact'].map((item) => (
-              <a 
-                key={item} 
-                href={`#${item.toLowerCase()}`} 
-                className="text-lg font-medium text-zinc-100"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item}
-              </a>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
+    <svg role="img" aria-hidden="true" viewBox="0 0 24 24" width={size} height={size} fill={fill} className="shrink-0">
+      <path d={icon.path} />
+    </svg>
   );
 };
 
-const Hero = () => {
-  return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-brand-primary/10 blur-[120px] rounded-full" />
-      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-brand-primary/5 blur-[120px] rounded-full" />
-      
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-xs font-bold mb-6">
-            <Sparkles size={14} />
-            AVAILABLE FOR NEW OPPORTUNITIES
-          </div>
-          <h1 className="text-5xl md:text-7xl lg:text-6xl leading-[0.9] mb-8">
-            Building systems that <span className="text-brand-primary">run themselves.</span>
-          </h1>
-          <p className="text-lg md:text-xl text-zinc-400 max-w-lg mb-10 leading-relaxed">
-            AI Software Engineer specialising in full-stack web applications, workflow automation, and AI-integrated systems — from architecture to deployment.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <a href="#work" className="px-8 py-4 bg-brand-primary text-bg-dark font-bold rounded-xl flex items-center gap-2 hover:scale-105 transition-transform glow">
-              View My Work <ArrowRight size={18} />
-            </a>
-            <a href="#contact" className="px-8 py-4 glass text-zinc-100 font-bold rounded-xl hover:bg-zinc-800 transition-colors">
-              Contact Me
-            </a>
-          </div>
-        </motion.div>
+type PillProps = {
+  href: string;
+  children: ReactNode;
+  variant?: 'solid' | 'outline';
+  external?: boolean;
+  download?: boolean;
+  className?: string;
+};
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="relative hidden lg:block"
+const Pill = ({ href, children, variant = 'solid', external, download, className = '' }: PillProps) => (
+  <a
+    href={href}
+    {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+    {...(download ? { download: '' } : {})}
+    className={`group inline-flex items-center gap-2 rounded-full text-sm font-medium transition-[background-color,color,border-color,transform] duration-300 ease-(--ease-out-expo) active:scale-[0.97] ${
+      variant === 'solid'
+        ? 'bg-fg px-5 py-2.5 text-page hover:bg-white'
+        : 'border border-line-strong px-5 py-2.5 text-fg hover:border-fg/60 hover:bg-raised'
+    } ${className}`}
+  >
+    {children}
+  </a>
+);
+
+const PillArrow = () => (
+  <ArrowRight size={16} strokeWidth={2} className="transition-transform duration-300 ease-(--ease-out-expo) group-hover:translate-x-0.5" />
+);
+
+const Reveal = ({ children, className = '', delay = 0 }: { children: ReactNode; className?: string; delay?: number }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 18, filter: 'blur(6px)' }}
+    whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+    viewport={{ once: true, margin: '-80px' }}
+    transition={{ duration: 0.9, ease: EASE, delay }}
+    className={className}
+  >
+    {children}
+  </motion.div>
+);
+
+const SectionHead = ({ title, lede }: { title: string; lede: string }) => (
+  <Reveal className="mx-auto mb-14 max-w-xl text-center md:mb-16">
+    <h2 className="text-[2rem] font-normal leading-tight tracking-[-0.03em] md:text-[2.75rem]">{title}</h2>
+    <p className="mt-4 text-base leading-relaxed text-muted md:text-lg">{lede}</p>
+  </Reveal>
+);
+
+const Container = ({ children, className = '' }: { children: ReactNode; className?: string }) => (
+  <div className={`mx-auto w-full max-w-[1080px] px-5 md:px-8 ${className}`}>{children}</div>
+);
+
+// --- Nav ---
+
+const Nav = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  return (
+    <header
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color] duration-500 ${
+        scrolled || open ? 'border-line bg-page/80 backdrop-blur-xl' : 'border-transparent'
+      }`}
+    >
+      <Container className="flex h-[4.5rem] items-center justify-between">
+        <a href="#top" className="flex items-center gap-3 rounded-full" aria-label={`${PROFILE.name}, back to top`}>
+          <img src="/avatar.webp" alt="" width={32} height={32} className="size-8 rounded-full object-cover" />
+          <span className="text-[0.95rem] font-medium tracking-tight text-fg">{PROFILE.name}</span>
+        </a>
+
+        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
+          {NAV.map((item) => (
+            <a key={item.href} href={item.href} className="text-sm text-muted transition-colors hover:text-fg">
+              {item.label}
+            </a>
+          ))}
+          <Pill href="#contact" className="py-2! pr-4! pl-4!">
+            Contact me <PillArrow />
+          </Pill>
+        </nav>
+
+        <button
+          type="button"
+          className="-mr-2 grid size-10 place-items-center rounded-full text-fg md:hidden"
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          onClick={() => setOpen((v) => !v)}
         >
-          <div className="glass rounded-3xl p-8 glow relative z-10">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-3 h-3 rounded-full bg-red-500" />
-              <div className="w-3 h-3 rounded-full bg-amber-500" />
-              <div className="w-3 h-3 rounded-full bg-emerald-500" />
-              <div className="ml-auto font-mono text-xs text-zinc-500">terminal — 80x24</div>
-            </div>
-            <div className="font-mono text-sm space-y-2">
-              <div className="text-brand-primary">$ whoami</div>
-              <div className="text-zinc-300">Temiloluwa Adebayo</div>
-              <div className="text-brand-primary">$ cat role.txt</div>
-              <div className="text-zinc-300">AI Software Engineer</div>
-              <div className="text-brand-primary">$ skills --list</div>
-              <div className="grid grid-cols-2 gap-2 text-zinc-400">
-                <div>• Next.js / React</div>
-                <div>• Supabase / PostgreSQL</div>
-                <div>• n8n Automation</div>
-                <div>• Electron / Flutter</div>
-                <div>• OpenAI / GPT-4o</div>
-                <div>• System Architecture</div>
+          {open ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </Container>
+
+      <AnimatePresence>
+        {open && (
+          <motion.nav
+            id="mobile-menu"
+            aria-label="Mobile"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.4, ease: EASE }}
+            className="overflow-hidden md:hidden"
+          >
+            <Container className="flex flex-col gap-1 pb-6">
+              {NAV.map((item) => (
+                <a key={item.href} href={item.href} onClick={() => setOpen(false)} className="py-3 text-2xl font-light tracking-tight text-fg">
+                  {item.label}
+                </a>
+              ))}
+              <Pill href="#contact" className="mt-4 w-fit">
+                Contact me <PillArrow />
+              </Pill>
+            </Container>
+          </motion.nav>
+        )}
+      </AnimatePresence>
+    </header>
+  );
+};
+
+// --- Hero ---
+
+const Hero = () => (
+  <section id="top" className="pt-28 pb-20 md:pt-36 md:pb-28">
+    <Container className="grid items-stretch gap-10 md:grid-cols-[1.05fr_1fr] md:gap-8">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: EASE }}
+        className="order-2 flex min-w-0 flex-col justify-center md:order-1 md:py-6"
+      >
+        <div className="mb-7 inline-flex w-fit items-center gap-2.5 rounded-full border border-line bg-panel py-1.5 pr-4 pl-3 text-sm text-muted">
+          <span className="relative flex size-2">
+            <span className="absolute inset-0 animate-ping rounded-full bg-live/60 motion-reduce:hidden" />
+            <span className="relative size-2 rounded-full bg-live" />
+          </span>
+          {PROFILE.availability}
+          <span className="hidden text-faint sm:inline">· {PROFILE.availabilityDetail}</span>
+        </div>
+
+        <h1 className="text-[3.1rem] leading-[0.98] font-light tracking-[-0.04em] sm:text-6xl lg:text-[4.75rem]">{PROFILE.role}</h1>
+
+        <p className="mt-6 max-w-[34rem] text-[1.05rem] leading-relaxed text-muted md:text-lg">{PROFILE.intro}</p>
+
+        <div className="mt-9 flex flex-wrap gap-3">
+          <Pill href="#work" variant="outline">
+            See my work
+          </Pill>
+          <Pill href="#contact">
+            Contact me <PillArrow />
+          </Pill>
+        </div>
+
+        <div className="marquee marquee-mask mt-12 overflow-hidden" aria-hidden="true">
+          <div className="marquee-track flex w-max gap-3" style={{ '--marquee-duration': '40s' } as CSSProperties}>
+            {[...HERO_TOOLS, ...HERO_TOOLS].map((icon, i) => (
+              <div key={i} className="grid size-14 place-items-center rounded-2xl border border-line bg-panel">
+                <BrandIcon icon={icon} size={24} />
               </div>
-              <div className="text-brand-primary">$ status</div>
-              <div className="text-emerald-400">Open to opportunities — let's build._</div>
-            </div>
+            ))}
           </div>
-          {/* Decorative elements */}
-          <div className="absolute -top-6 -right-6 w-32 h-32 glass rounded-2xl -z-10 rotate-12" />
-          <div className="absolute -bottom-10 -left-10 w-48 h-48 glass rounded-2xl -z-10 -rotate-6" />
-        </motion.div>
+        </div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.97, filter: 'blur(10px)' }}
+        animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+        transition={{ duration: 1.2, ease: EASE, delay: 0.1 }}
+        className="relative order-1 overflow-hidden rounded-[1.75rem] border border-line bg-panel md:order-2"
+      >
+        <img
+          src="/profile.webp"
+          alt="Portrait of Temiloluwa Adebayo"
+          width={800}
+          height={1336}
+          fetchPriority="high"
+          className="aspect-[4/5] h-full max-h-[26rem] w-full object-cover object-[50%_28%] sm:max-h-[34rem] md:max-h-none"
+        />
+      </motion.div>
+    </Container>
+  </section>
+);
+
+// --- Skills ---
+
+const Skills = () => (
+  <section id="skills" className="bg-band py-24 md:py-32">
+    <Container>
+      <SectionHead title="Tools I build with" lede="The stack behind fourteen production systems, from the database and automation layer to store-ready apps." />
+      <Reveal className="mx-auto flex max-w-[52rem] flex-wrap justify-center gap-2.5">
+        {STACK.map((tool) => (
+          <span
+            key={tool.name}
+            className="inline-flex items-center gap-2.5 rounded-full border border-line bg-panel py-2 pr-4 pl-3 text-[0.95rem] text-fg transition-colors duration-300 hover:border-line-strong hover:bg-raised"
+          >
+            <BrandIcon icon={tool.icon} size={16} />
+            {tool.name}
+          </span>
+        ))}
+      </Reveal>
+    </Container>
+  </section>
+);
+
+// --- Work ---
+
+const ProjectMedia = ({ project }: { project: Project }) => {
+  if (project.image) {
+    const host = project.liveUrl ? new URL(project.liveUrl).host : '';
+    return (
+      <div className="overflow-hidden rounded-2xl border border-line bg-raised">
+        <div className="flex h-8 items-center gap-2 border-b border-line px-3.5">
+          <span className="size-2 rounded-full bg-line-strong" />
+          <span className="truncate font-mono text-[0.7rem] text-faint">{host}</span>
+        </div>
+        <img
+          src={project.image}
+          alt={`${project.title} live site, landing screen`}
+          width={1200}
+          height={750}
+          loading="lazy"
+          className="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-(--ease-out-expo) group-hover:scale-[1.02]"
+        />
       </div>
+    );
+  }
+
+  return (
+    <div className="flex aspect-[16/10.6] flex-col justify-between rounded-2xl border border-line bg-raised p-5 sm:p-6">
+      <span className="font-mono text-[0.7rem] tracking-wide text-faint">How it runs</span>
+      <ol className="flex flex-wrap items-center gap-x-1.5 gap-y-2.5">
+        {project.flow?.map((step, i) => (
+          <li key={step} className="flex items-center gap-1.5">
+            {i > 0 && <ArrowRight size={14} className="text-faint" aria-hidden="true" />}
+            <span
+              className={`rounded-full border px-3 py-1.5 text-[0.82rem] whitespace-nowrap ${
+                i === (project.flow?.length ?? 0) - 1 ? 'border-fg/70 bg-fg text-page' : 'border-line-strong bg-panel text-fg'
+              }`}
+            >
+              {step}
+            </span>
+          </li>
+        ))}
+      </ol>
+      <p className="text-[1.65rem] leading-none font-light tracking-[-0.03em] text-fg sm:text-3xl">{project.facts[0]}</p>
+    </div>
+  );
+};
+
+const ProjectCard = ({ project, index }: { project: Project; index: number }) => (
+  <Reveal delay={(index % 2) * 0.08}>
+    <article className="group flex h-full flex-col rounded-[1.75rem] border border-line bg-panel p-2.5 transition-colors duration-500 hover:border-line-strong">
+      <ProjectMedia project={project} />
+      <div className="flex flex-1 flex-col px-4 pt-6 pb-4 sm:px-5">
+        <p className="text-sm text-faint">{project.kind}</p>
+        <h3 className="mt-1.5 text-2xl font-normal tracking-[-0.02em]">{project.title}</h3>
+        <p className="mt-3 text-[0.95rem] leading-relaxed text-muted">{project.description}</p>
+        <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-1.5 text-sm text-fg" aria-label="Key facts">
+          {project.facts.map((fact) => (
+            <li key={fact} className="flex items-center gap-1.5">
+              <Check size={14} className="text-live" aria-hidden="true" />
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <p className="mt-4 font-mono text-[0.72rem] leading-relaxed text-faint">{project.tags.join(' · ')}</p>
+
+        <div className="mt-auto flex flex-wrap items-center gap-2.5 pt-6">
+          {project.githubUrl && (
+            <Pill href={project.githubUrl} variant="outline" external className="px-4! py-2!">
+              <Github size={15} /> Source code
+            </Pill>
+          )}
+          {project.liveUrl && (
+            <Pill href={project.liveUrl} external className="px-4! py-2!">
+              Live website <ArrowUpRight size={15} />
+            </Pill>
+          )}
+          {project.note && <p className="text-sm text-faint">{project.note}</p>}
+        </div>
+      </div>
+    </article>
+  </Reveal>
+);
+
+const Work = () => (
+  <section id="work" className="py-24 md:py-32">
+    <Container>
+      <SectionHead title="Projects I’ve shipped" lede="Complete systems, built end to end: architecture, security, automation and deployment." />
+      <div className="grid gap-4 md:grid-cols-2 md:gap-5">
+        {PROJECTS.map((project, i) => (
+          <ProjectCard key={project.id} project={project} index={i} />
+        ))}
+      </div>
+    </Container>
+  </section>
+);
+
+// --- Experience ---
+
+const Experience = () => {
+  const [open, setOpen] = useState(0);
+
+  return (
+    <section id="experience" className="bg-band py-24 md:py-32">
+      <Container className="max-w-[820px]!">
+        <SectionHead title="Where I’ve worked" lede="Three years across founding-engineer, freelance and agency roles, most of it shipping alone." />
+        <Reveal className="flex flex-col gap-3">
+          {EXPERIENCE.map((role, i) => {
+            const isOpen = open === i;
+            const panelId = `role-${i}`;
+            return (
+              <div key={role.title + role.period} className={`rounded-3xl border bg-panel transition-colors duration-300 ${isOpen ? 'border-line-strong' : 'border-line hover:border-line-strong'}`}>
+                <h3 className="text-base">
+                  <button
+                    type="button"
+                    aria-expanded={isOpen}
+                    aria-controls={panelId}
+                    onClick={() => setOpen(isOpen ? -1 : i)}
+                    className="flex w-full items-start gap-4 rounded-3xl px-5 py-5 text-left sm:px-7 sm:py-6"
+                  >
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-[1.1rem] font-normal tracking-[-0.01em] text-fg sm:text-xl">{role.title}</span>
+                      <span className="mt-1 block text-[0.95rem] text-muted">{role.company}</span>
+                    </span>
+                    <span className="hidden pt-1 font-mono text-[0.8rem] whitespace-nowrap text-faint tabular-nums sm:block">{role.period}</span>
+                    <ChevronDown
+                      size={20}
+                      aria-hidden="true"
+                      className={`mt-1 shrink-0 text-muted transition-transform duration-500 ease-(--ease-out-expo) ${isOpen ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+                </h3>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      id={panelId}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.5, ease: EASE }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 pb-6 sm:px-7 sm:pb-7">
+                        <p className="font-mono text-[0.78rem] text-faint">
+                          <span className="sm:hidden">{role.period} · </span>
+                          {role.meta}
+                        </p>
+                        <ul className="mt-4 space-y-2.5">
+                          {role.points.map((point) => (
+                            <li key={point} className="flex gap-3 text-[0.95rem] leading-relaxed text-muted">
+                              <span className="mt-[0.6rem] size-1 shrink-0 rounded-full bg-faint" aria-hidden="true" />
+                              {point}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </Reveal>
+        <Reveal className="mt-10 flex justify-center">
+          <Pill href={PROFILE.cv} download>
+            Download my CV <Download size={16} />
+          </Pill>
+        </Reveal>
+      </Container>
     </section>
   );
 };
 
-interface ProjectCardProps {
-  project: typeof PROJECTS[0];
-  index: number;
-  key?: string;
-}
+// --- Proof ---
 
-const ProjectCard = ({ project, index }: ProjectCardProps) => {
+const FactCard = ({ fact }: { fact: Fact }) => (
+  <figure className="flex w-[19rem] shrink-0 flex-col justify-between gap-8 rounded-3xl border border-line bg-panel p-6 sm:w-[22rem] sm:p-7">
+    <blockquote className="text-[1.15rem] leading-snug tracking-[-0.01em] text-muted">
+      <span className="font-medium text-fg">{fact.lead}</span> {fact.rest}
+    </blockquote>
+    <figcaption className="font-mono text-[0.75rem] text-faint">{fact.source}</figcaption>
+  </figure>
+);
+
+const Proof = () => {
+  const rows = [FACTS.slice(0, 4), FACTS.slice(4)];
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative"
-    >
-      <div className="glass rounded-3xl p-8 h-full flex flex-col glow-hover">
-        <div className={`w-12 h-12 rounded-2xl bg-zinc-800 flex items-center justify-center mb-6 group-hover:bg-brand-primary group-hover:text-bg-dark transition-colors duration-500`}>
-          <project.icon size={24} />
-        </div>
-        
-        <h3 className="text-2xl mb-2 group-hover:text-brand-primary transition-colors">{project.title}</h3>
-        <p className="text-xs font-bold text-brand-primary/60 uppercase tracking-widest mb-4">{project.subtitle}</p>
-        <p className="text-zinc-400 text-sm leading-relaxed mb-6 flex-grow">
-          {project.description}
-        </p>
-
-        <div className="space-y-4">
-          <div className="flex flex-wrap gap-2">
-            {project.tags.map(tag => (
-              <span key={tag} className="text-[10px] font-bold px-2 py-1 rounded-md bg-zinc-800 text-zinc-300 border border-zinc-700">
-                {tag}
-              </span>
-            ))}
-          </div>
-          
-          <div className="pt-4 border-t border-zinc-800">
-            <ul className="space-y-2 mb-4">
-              {project.metrics.map(metric => (
-                <li key={metric} className="flex items-center gap-2 text-xs text-zinc-500">
-                  <ChevronRight size={12} className="text-brand-primary" />
-                  {metric}
+    <section id="proof" className="overflow-hidden py-24 md:py-32">
+      <Container>
+        <SectionHead title="Don’t just take my word for it" lede="Figures from systems running in production, every one of them on my CV." />
+      </Container>
+      <Reveal className="flex flex-col gap-4">
+        {rows.map((row, r) => (
+          <div key={r} className="marquee marquee-mask overflow-hidden">
+            <ul className="marquee-track flex w-max gap-4" data-reverse={r === 1 ? '' : undefined} style={{ '--marquee-duration': '70s' } as CSSProperties}>
+              {[...row, ...row].map((fact, i) => (
+                <li key={i} aria-hidden={i >= row.length ? true : undefined}>
+                  <FactCard fact={fact} />
                 </li>
               ))}
             </ul>
-
-            {/* Project Links */}
-            <div className="flex items-center gap-3 pt-2">
-              {project.githubUrl && (
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-xs font-bold text-zinc-400 hover:text-brand-primary transition-colors"
-                >
-                  <Github size={13} />
-                  README
-                </a>
-              )}
-              {project.liveUrl && (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-xs font-bold text-zinc-400 hover:text-brand-primary transition-colors"
-                >
-                  <ExternalLink size={13} />
-                  Live Demo
-                </a>
-              )}
-            </div>
           </div>
-        </div>
-      </div>
-    </motion.div>
+        ))}
+      </Reveal>
+    </section>
   );
 };
 
+// --- Contact ---
+
+const Contact = () => {
+  const [copied, setCopied] = useState(false);
+
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(PROFILE.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      window.location.href = `mailto:${PROFILE.email}`;
+    }
+  };
+
+  return (
+    <section id="contact" className="pb-16 md:pb-20">
+      <Container>
+        <Reveal>
+          <div className="rounded-[2rem] border border-line bg-panel px-6 py-16 text-center sm:px-10 md:py-24">
+            <h2 className="mx-auto max-w-[14ch] text-[2.5rem] leading-[1.02] font-light tracking-[-0.04em] md:text-[4rem]">
+              Let’s build something that lasts
+            </h2>
+            <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-muted md:text-lg">
+              Open to remote, contract and full-time roles, and to commissioned systems.
+            </p>
+
+            <div className="mt-10 flex flex-col items-center gap-4">
+              <div className="flex flex-wrap justify-center gap-3">
+                <Pill href={`mailto:${PROFILE.email}`}>
+                  Email me <PillArrow />
+                </Pill>
+                <Pill href={PROFILE.cv} variant="outline" download>
+                  Download CV <Download size={16} />
+                </Pill>
+              </div>
+              <button
+                type="button"
+                onClick={copy}
+                className="group mt-2 inline-flex items-center gap-2 rounded-full px-3 py-1.5 font-mono text-sm text-muted transition-colors hover:text-fg"
+              >
+                {PROFILE.email}
+                {copied ? <Check size={15} className="text-live" /> : <Copy size={15} className="opacity-60 group-hover:opacity-100" />}
+                <span className="sr-only" aria-live="polite">
+                  {copied ? 'Email address copied' : 'Copy email address'}
+                </span>
+              </button>
+            </div>
+          </div>
+        </Reveal>
+      </Container>
+    </section>
+  );
+};
+
+// --- Footer ---
+
+const Footer = () => (
+  <footer className="pb-10">
+    <Container>
+      <div className="flex flex-col justify-between gap-10 pb-10 md:flex-row">
+        <div className="max-w-xs">
+          <div className="flex items-center gap-3">
+            <img src="/avatar.webp" alt="" width={32} height={32} className="size-8 rounded-full object-cover" />
+            <span className="font-medium tracking-tight text-fg">{PROFILE.name}</span>
+          </div>
+          <p className="mt-4 text-[0.95rem] leading-relaxed text-muted">Complete, production-grade systems that run themselves.</p>
+          <div className="mt-5 flex gap-2">
+            {[
+              { href: PROFILE.github, label: 'GitHub', icon: Github },
+              { href: PROFILE.linkedin, label: 'LinkedIn', icon: Linkedin },
+              { href: `mailto:${PROFILE.email}`, label: 'Email', icon: Mail },
+            ].map(({ href, label, icon: Icon }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                className="grid size-9 place-items-center rounded-full border border-line bg-panel text-muted transition-colors hover:border-line-strong hover:text-fg"
+              >
+                <Icon size={16} />
+              </a>
+            ))}
+          </div>
+        </div>
+        <nav aria-label="Footer" className="flex flex-col gap-3 md:items-end">
+          {NAV.map((item) => (
+            <a key={item.href} href={item.href} className="text-[0.95rem] text-muted transition-colors hover:text-fg">
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+      <p className="border-t border-line pt-8 text-center text-sm text-faint">
+        © {new Date().getFullYear()} {PROFILE.name}. Built with React and Vite.
+      </p>
+    </Container>
+  </footer>
+);
+
 export default function App() {
   return (
-    <div className="min-h-screen">
+    <MotionConfig reducedMotion="user">
+      <a href="#work" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-full focus:bg-fg focus:px-4 focus:py-2 focus:text-page">
+        Skip to work
+      </a>
       <Nav />
-      <Hero />
-
-      {/* --- Work Section --- */}
-      <section id="work" className="py-24 px-6 relative">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-            <div>
-              <h2 className="text-4xl md:text-6xl mb-4">Selected Work</h2>
-              <p className="text-zinc-400 max-w-xl">
-                Production systems built end-to-end — architecture, security, automation, and deployment. Every project here is shipped, documented, and running.
-              </p>
-            </div>
-            <div className="text-right">
-              <div className="text-5xl font-display font-bold text-zinc-800/50">01</div>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {PROJECTS.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* --- Skills Section --- */}
-      <section id="skills" className="py-24 px-6 bg-zinc-900/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-            <div>
-              <h2 className="text-4xl md:text-6xl mb-4">Technical Arsenal</h2>
-              <p className="text-zinc-400 max-w-xl">
-                Everything required to take a system from whiteboard to production — across web, mobile, desktop, automation, and AI.
-              </p>
-            </div>
-            <div className="text-right">
-              <div className="text-5xl font-display font-bold text-zinc-800/50">02</div>
-            </div>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {SKILLS.map((skill, index) => (
-              <motion.div 
-                key={skill.category}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass rounded-2xl p-6 glow-hover"
-              >
-                <h4 className="text-brand-primary text-sm font-bold mb-4 uppercase tracking-wider">{skill.category}</h4>
-                <ul className="space-y-2">
-                  {skill.items.map(item => (
-                    <li key={item} className="text-zinc-300 flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-brand-primary/40" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* --- About Section --- */}
-      <section id="about" className="py-24 px-6">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-          <div className="relative">
-            <div className="aspect-square glass rounded-3xl overflow-hidden glow">
-              <img 
-                src="/profile.png" 
-                alt="Temiloluwa Adebayo" 
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-            <div className="absolute -bottom-6 -right-6 glass p-6 rounded-2xl glow">
-              <div className="text-brand-primary font-display font-bold text-3xl">4+</div>
-              <div className="text-xs font-bold text-zinc-400 uppercase tracking-widest">Years Experience</div>
-            </div>
-          </div>
-          
-          <div>
-            <h2 className="text-4xl md:text-6xl mb-8">The Engineer Behind the Code.</h2>
-            <div className="space-y-6 text-lg text-zinc-400 leading-relaxed">
-              <p>
-                I'm a First-Class BSc Software Engineering graduate with a university specialisation in Artificial Intelligence and Machine Learning. I build production-grade software systems — web, mobile, desktop, and AI-powered — from architecture to deployment.
-              </p>
-              <p>
-                Every system I ship is designed with security, reliability, and real-world constraints in mind. I don't build demos. I build things that run.
-              </p>
-              <div className="grid grid-cols-2 gap-8 pt-8">
-                <div>
-                  <div className="text-zinc-100 font-bold text-2xl mb-1">15+</div>
-                  <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest">Projects Delivered</div>
-                </div>
-                <div>
-                  <div className="text-zinc-100 font-bold text-2xl mb-1">100%</div>
-                  <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest">Client Satisfaction</div>
-                </div>
-                <div>
-                  <div className="text-zinc-100 font-bold text-2xl mb-1">Degree</div>
-                  <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest">BSc Software Engineering</div>
-                </div>
-                <div>
-                  <div className="text-zinc-100 font-bold text-2xl mb-1">AI / ML</div>
-                  <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest">University Specialisation</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* --- Contact Section --- */}
-      <section id="contact" className="py-24 px-6 bg-brand-primary/5 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-primary to-transparent" />
-        
-        <div className="max-w-3xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl md:text-7xl mb-6">Let's build something <span className="text-brand-primary">that lasts.</span></h2>
-          <p className="text-xl text-zinc-400 mb-12">
-            Open to full-time engineering roles, contract projects, and technical collaborations. If you need an engineer who ships complete, production-grade systems — reach out.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <a href="mailto:temidaniel124@gmail.com" className="w-full sm:w-auto px-8 py-4 bg-brand-primary text-bg-dark font-bold rounded-xl flex items-center justify-center gap-2 hover:scale-105 transition-transform glow">
-              <Mail size={20} /> temidaniel124@gmail.com
-            </a>
-            <div className="flex items-center gap-4">
-              <a href="https://github.com/temiloluwa-adebayo" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass rounded-xl flex items-center justify-center text-zinc-100 hover:text-brand-primary transition-colors">
-                <Github size={24} />
-              </a>
-              <a href="https://linkedin.com/in/temiloluwa-adebayo-4843ba377" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass rounded-xl flex items-center justify-center text-zinc-100 hover:text-brand-primary transition-colors">
-                <Linkedin size={24} />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* --- Footer --- */}
-      <footer className="py-12 px-6 border-t border-zinc-800">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-brand-primary rounded flex items-center justify-center font-display font-bold text-[10px] text-bg-dark">TA</div>
-            <span className="text-sm font-bold text-zinc-100">TEMILOLUWA ADEBAYO</span>
-          </div>
-          <p className="text-zinc-500 text-sm">
-            © 2026 Temiloluwa Adebayo. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            <a href="#" className="text-xs font-bold text-zinc-500 hover:text-brand-primary transition-colors uppercase tracking-widest">Privacy</a>
-            <a href="#" className="text-xs font-bold text-zinc-500 hover:text-brand-primary transition-colors uppercase tracking-widest">Terms</a>
-          </div>
-        </div>
-      </footer>
-    </div>
+      <main>
+        <Hero />
+        <Skills />
+        <Work />
+        <Experience />
+        <Proof />
+        <Contact />
+      </main>
+      <Footer />
+    </MotionConfig>
   );
 }
