@@ -105,24 +105,25 @@ export type Project = {
   tags: string[];
   githubUrl?: string;
   liveUrl?: string;
-  /** Real screenshot of the live product. */
-  image?: string;
-  /** Otherwise the card draws the system's own pipeline. */
-  flow?: string[];
+  image: string;
+  /** Text in the image frame's top bar; defaults to the live site's host. */
+  frameLabel?: string;
+  /** Attribution for stock photography. */
+  credit?: { name: string; url: string };
   note?: string;
 };
 
 export const PROJECTS: Project[] = [
   {
-    id: 'payhub',
-    title: 'PayHub Central',
-    kind: 'Multi-tenant fintech platform',
+    id: 'clarix',
+    title: 'Clarix',
+    kind: 'Cross-cooperative loan coordination',
     description:
-      'A hardened financial platform for hospital employee cooperatives, in active use across five cooperatives. Row-Level Security on every table keeps each cooperative’s data sealed, even inside the same hospital, and a cross-cooperative risk view stops salary-deduction overflow.',
-    facts: ['5 cooperatives live', '3 isolation levels', '9 user roles'],
-    tags: ['Next.js', 'Supabase', 'PostgreSQL', 'RBAC', 'RLS'],
-    githubUrl: 'https://github.com/temiloluwa-adebayo/payhub-central',
-    flow: ['Hospital', 'Cooperative', 'Member', 'RLS on every row'],
+      'Hospital staff often belong to several cooperatives, and each one approves loans without seeing what the member already owes elsewhere. Clarix checks a member’s combined deductions across every cooperative against the one-third-of-salary cap, in real time, before a loan is approved. In use across five staff cooperatives at a federal hospital.',
+    facts: ['5 cooperatives', 'One-third salary cap check', 'RLS on every table'],
+    tags: ['Next.js 16', 'Supabase', 'PostgreSQL', 'Row-Level Security', 'pgTAP'],
+    liveUrl: 'https://clarix-3w5i.vercel.app/',
+    image: '/work/clarix.webp',
   },
   {
     id: 'leadforge',
@@ -133,7 +134,9 @@ export const PROJECTS: Project[] = [
     facts: ['Up to 4,000 leads a day', '9 phases', 'Zero manual steps'],
     tags: ['Next.js 14', 'n8n', 'Supabase', 'ScrapingBee', 'Gmail API'],
     githubUrl: 'https://github.com/temiloluwa-adebayo/LeadForge',
-    flow: ['Discover', 'Score', 'PDF proposal', 'Gmail send'],
+    image: '/work/leadforge.webp',
+    frameLabel: 'Illustrative photo',
+    credit: { name: 'Justin Morgan', url: 'https://unsplash.com/photos/D2TZ-ashGzc' },
   },
   {
     id: 'vooltflow',
@@ -180,7 +183,8 @@ export const PROJECTS: Project[] = [
     facts: ['Runs fully offline', 'Isolated student & admin apps', 'Auto-sync on reconnect'],
     tags: ['Electron', 'React', 'SQLite', 'Supabase'],
     githubUrl: 'https://github.com/temiloluwa-adebayo/examforge-cbt',
-    flow: ['Student app', 'Local SQLite', 'Reconnect', 'Supabase sync'],
+    image: '/work/examforge.webp',
+    frameLabel: 'Windows desktop app · welcome screen',
   },
   {
     id: 'eyebalance',
@@ -190,7 +194,9 @@ export const PROJECTS: Project[] = [
       'A Stripe-monetised Windows visual therapy application, published on the Microsoft Store, with a companion Flutter app on Google Play. Built solo from architecture to store submission for Flix Technologies.',
     facts: ['Microsoft Store', 'Google Play companion', 'Stripe subscriptions'],
     tags: ['Electron', 'Express', 'SQLite', 'Stripe', 'Flutter'],
-    flow: ['Electron app', 'Stripe checkout', 'Microsoft Store'],
+    image: '/work/eyebalance.webp',
+    frameLabel: 'Illustrative photo',
+    credit: { name: 'Ion Fet', url: 'https://unsplash.com/photos/QRawWgV6gmo' },
     note: 'Client product under NDA · details on request',
   },
   {
@@ -202,7 +208,8 @@ export const PROJECTS: Project[] = [
     facts: ['AI bias detection', 'Credibility scoring', 'Enforced editorial gate'],
     tags: ['React Native', 'AI analysis', 'Supabase'],
     githubUrl: 'https://github.com/temiloluwa-adebayo/campuspress-ai',
-    flow: ['Draft', 'AI analysis', 'Editor review', 'Publish'],
+    liveUrl: 'https://campuspress-ai.vercel.app/',
+    image: '/work/campuspress.webp',
   },
 ];
 
@@ -235,7 +242,7 @@ export const EXPERIENCE: Role[] = [
     meta: 'Remote · Freelance, retained after internship',
     points: [
       'Built a payslip automation tool for a government hospital, verified at a peak of 8,370 employees: weeks of manual distribution became same-day dispatch.',
-      'Built PayHub Central, now in active use across five hospital cooperatives.',
+      'Built Clarix (formerly PayHub Central), now in use across five hospital staff cooperatives.',
       'Built ExamForge CBT, an offline-first desktop exam system with automatic cloud sync.',
     ],
   },
@@ -276,7 +283,7 @@ export type Fact = { lead: string; rest: string; source: string };
 
 export const FACTS: Fact[] = [
   { lead: '8,370 hospital staff', rest: 'received their payslips the same day, instead of after weeks of manual distribution.', source: 'Payslip automation · Government hospital' },
-  { lead: '5 hospital cooperatives', rest: 'run their finances on PayHub Central, with Row-Level Security on every table.', source: 'PayHub Central' },
+  { lead: '5 hospital cooperatives', rest: 'check a member’s combined deductions on Clarix before approving a loan.', source: 'Clarix' },
   { lead: '4,000 leads a day', rest: 'is what the LeadForge pipeline was designed to handle, with no manual steps.', source: 'LeadForge' },
   { lead: 'Under 60 seconds', rest: 'from marketplace search to a published, AI-written WooCommerce listing.', source: 'VooltFlow' },
   { lead: '14 production systems', rest: 'designed and shipped across web, mobile and desktop since 2023.', source: 'Career to date' },

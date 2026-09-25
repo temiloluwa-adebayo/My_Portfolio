@@ -252,48 +252,32 @@ const Skills = () => (
 // --- Work ---
 
 const ProjectMedia = ({ project }: { project: Project }) => {
-  if (project.image) {
-    const host = project.liveUrl ? new URL(project.liveUrl).host : '';
-    return (
-      <div className="overflow-hidden rounded-2xl border border-line bg-raised">
-        <div className="flex h-8 items-center gap-2 border-b border-line px-3.5">
-          <span className="size-2 rounded-full bg-line-strong" />
-          <span className="truncate font-mono text-[0.7rem] text-faint">{host}</span>
-        </div>
-        <img
-          src={project.image}
-          alt={`${project.title} live site, landing screen`}
-          width={1200}
-          height={750}
-          loading="lazy"
-          className="aspect-[16/10] w-full object-cover object-top brightness-[0.82] transition-[transform,filter] duration-700 ease-(--ease-out-expo) group-hover:scale-[1.02] group-hover:brightness-100"
-        />
-      </div>
-    );
-  }
-
-  const steps = project.flow ?? [];
+  const label = project.frameLabel ?? (project.liveUrl ? new URL(project.liveUrl).host : '');
   return (
-    <div className="grid grid-cols-1 gap-6 rounded-2xl sm:aspect-[16/10.6] sm:grid-cols-[minmax(0,1fr)_auto] border border-line bg-raised p-5 sm:p-7">
-      <p className="order-last self-end text-[1.65rem] leading-[1.05] sm:order-none font-light tracking-[-0.03em] text-fg sm:text-[2rem]">{project.facts[0]}</p>
-      <ol className="flex flex-col justify-center" aria-label={`How ${project.title} runs`}>
-        {steps.map((step, i) => {
-          const last = i === steps.length - 1;
-          return (
-            <li key={step} className="flex flex-col items-start sm:items-end">
-              <span
-                className={`rounded-full border px-3.5 py-1.5 text-[0.85rem] whitespace-nowrap ${
-                  last ? 'border-fg bg-fg text-page' : 'border-line-strong bg-panel text-fg'
-                }`}
-              >
-                {step}
-              </span>
-              {!last && <span className="ml-6 h-4 w-px bg-line-strong sm:mr-6 sm:ml-0 sm:h-5" aria-hidden="true" />}
-            </li>
-          );
-        })}
-      </ol>
-    </div>
+    <figure className="overflow-hidden rounded-2xl border border-line bg-raised">
+      <div className="flex h-8 items-center gap-2 border-b border-line px-3.5">
+        <span className="size-2 shrink-0 rounded-full bg-line-strong" />
+        <span className={`truncate text-[0.7rem] text-faint ${project.frameLabel ? '' : 'font-mono'}`}>{label}</span>
+        {project.credit && (
+          <a
+            href={project.credit.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-auto shrink-0 rounded-full text-[0.7rem] text-faint underline-offset-2 hover:text-fg hover:underline"
+          >
+            {project.credit.name} / Unsplash
+          </a>
+        )}
+      </div>
+      <img
+        src={project.image}
+        alt={project.credit ? `Illustrative photo for ${project.title}` : `${project.title}, screenshot`}
+        width={1200}
+        height={750}
+        loading="lazy"
+        className="aspect-[16/10] w-full object-cover object-top brightness-[0.82] transition-[transform,filter] duration-700 ease-(--ease-out-expo) group-hover:scale-[1.02] group-hover:brightness-100"
+      />
+    </figure>
   );
 };
 
@@ -306,7 +290,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
         <p className="mt-1 text-[0.95rem] text-faint">{project.kind}</p>
         <p className="mt-3 text-[0.95rem] leading-relaxed text-muted">{project.description}</p>
         <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-1.5 text-sm text-fg" aria-label="Key facts">
-          {(project.flow ? project.facts.slice(1) : project.facts).map((fact) => (
+          {project.facts.map((fact) => (
             <li key={fact} className="flex items-center gap-1.5">
               <Check size={14} className="text-live" aria-hidden="true" />
               {fact}
