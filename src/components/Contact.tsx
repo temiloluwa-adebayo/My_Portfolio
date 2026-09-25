@@ -119,7 +119,7 @@ const ContactForm = () => {
         initial={{ opacity: 0, scale: 0.96, filter: 'blur(6px)' }}
         animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
         transition={{ duration: 0.6, ease: EASE }}
-        className="flex min-h-[26rem] flex-col items-center justify-center gap-4 rounded-[1.75rem] border border-line bg-page/50 p-8 text-center"
+        className="flex min-h-[26rem] flex-col items-center justify-center gap-4 p-8 text-center lg:border-l lg:border-line"
         role="status"
       >
         <motion.span initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring', stiffness: 260, damping: 14, delay: 0.15 }} className="grid size-14 place-items-center rounded-full bg-live text-page">
@@ -135,7 +135,7 @@ const ContactForm = () => {
   }
 
   return (
-    <form onSubmit={submit} className="flex flex-col gap-3 rounded-[1.75rem] border border-line bg-page/50 p-4 md:p-5" noValidate={false}>
+    <form onSubmit={submit} className="flex flex-col gap-3 lg:border-l lg:border-line lg:pl-10" noValidate={false}>
       <div className="grid gap-3 sm:grid-cols-2">
         <label className="flex flex-col gap-1.5">
           <span className="px-1 text-[0.85rem] text-muted">Your name</span>
@@ -234,8 +234,8 @@ const ContactForm = () => {
 export const Contact = () => (
   <section id="contact" className="relative overflow-hidden py-24 md:py-32">
     <div aria-hidden="true" className="absolute inset-0 -z-10">
-      <img src="/hero/desk-sm.webp" alt="" className="h-full w-full object-cover opacity-[0.12] blur-[2px]" loading="lazy" />
-      <div className="absolute inset-0 bg-gradient-to-b from-page via-page/80 to-page" />
+      <img src="/hero/architecture.webp" alt="" className="h-full w-full object-cover opacity-[0.35]" loading="lazy" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,var(--color-page),rgba(18,18,18,0.55)_40%,rgba(18,18,18,0.55)_60%,var(--color-page))]" />
     </div>
     <Container>
       <Reveal>

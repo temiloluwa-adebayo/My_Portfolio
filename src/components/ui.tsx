@@ -57,7 +57,7 @@ export const Action = ({ href, onClick, children, variant = 'primary', size = 'm
     primary:
       'bg-accent text-on-accent shadow-[0_8px_24px_-8px_rgba(255,178,36,0.55),inset_0_1px_0_rgba(255,255,255,0.35)] hover:bg-accent-hover hover:shadow-[0_12px_32px_-8px_rgba(255,178,36,0.7),inset_0_1px_0_rgba(255,255,255,0.35)]',
     secondary: 'border border-line-strong bg-page/40 text-fg backdrop-blur-sm hover:border-fg/50 hover:bg-raised',
-    tertiary: 'h-auto! px-0! text-fg underline decoration-line-strong decoration-1 hover:decoration-accent',
+    tertiary: 'h-auto! px-0! text-fg underline decoration-line-strong decoration-1 hover:decoration-fg',
   };
   const cls = `${base} ${sizes} ${variants[variant]} ${className}`;
   if (href) {

@@ -33,7 +33,7 @@ export const Services = () => {
           </div>
 
           <Reveal>
-            <div className="rounded-[2rem] border border-line bg-panel p-2 md:p-2.5" role="radiogroup" aria-label="Services">
+            <div role="radiogroup" aria-label="Services">
               <LayoutGroup>
                 <div className="flex flex-col gap-2">
                   {SERVICES.map((service) => {
@@ -43,7 +43,7 @@ export const Services = () => {
                         layout
                         key={service.id}
                         transition={{ type: 'spring', bounce: 0.25, duration: 0.6 }}
-                        className={`relative overflow-hidden rounded-[1.5rem] border transition-colors duration-300 ${on ? 'border-fg/40 bg-raised' : 'border-line bg-page/40 hover:border-line-strong'}`}
+                        className={`relative overflow-hidden rounded-[1.5rem] border transition-colors duration-300 ${on ? 'border-fg/40 bg-raised' : 'border-line bg-panel hover:border-line-strong'}`}
                       >
                         <button
                           type="button"
@@ -93,7 +93,7 @@ export const Services = () => {
                 </div>
               </LayoutGroup>
 
-              <div className="flex flex-col items-start gap-4 px-4 pt-5 pb-3 sm:flex-row sm:items-center sm:justify-between md:px-5">
+              <div className="flex flex-col items-start gap-4 pt-6 sm:flex-row sm:items-center sm:justify-between">
                 <p className="text-[0.88rem] text-faint">Quoted per project, after a short scoping conversation.</p>
                 <Action onClick={requestQuote}>
                   Request a quote <ArrowIcon />
@@ -134,7 +134,7 @@ export const Faq = () => {
                       setTab(g.id);
                       setOpen(`${g.id}-0`);
                     }}
-                    className={`relative isolate rounded-full px-4 py-2 text-sm transition-colors sm:px-5 ${on ? 'text-page' : 'text-muted hover:text-fg'}`}
+                    className={`relative isolate rounded-full px-3.5 py-2 text-sm whitespace-nowrap transition-colors sm:px-5 ${on ? 'text-page' : 'text-muted hover:text-fg'}`}
                   >
                     {on && <motion.span layoutId="faq-pill" className="absolute inset-0 -z-10 rounded-full bg-fg" transition={{ type: 'spring', stiffness: 380, damping: 30 }} />}
                     {g.label}

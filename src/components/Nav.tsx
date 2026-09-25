@@ -237,7 +237,7 @@ export const Nav = () => {
           transition={{ duration: 0.9, ease: EASE }}
           className={`flex w-full max-w-[1180px] items-center justify-between gap-3 rounded-full border py-2 pr-2 pl-2.5 transition-[background-color,border-color,max-width,box-shadow] duration-500 ease-(--ease-out-expo) md:pl-3 ${
             scrolled
-              ? 'max-w-[980px] border-line bg-page/75 shadow-[0_16px_40px_-20px_rgba(0,0,0,0.9)] backdrop-blur-xl'
+              ? 'max-w-[980px] border-line bg-page/92 shadow-[0_16px_40px_-20px_rgba(0,0,0,0.9)] backdrop-blur-xl'
               : 'border-transparent bg-transparent'
           }`}
         >

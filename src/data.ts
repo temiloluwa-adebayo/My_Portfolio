@@ -320,6 +320,7 @@ export type Fact = {
   value?: number;
   decimals?: number;
   before?: string;
+  after?: string;
   lead: string;
   rest: string;
   source: string;
@@ -330,11 +331,11 @@ export const FACTS: Fact[] = [
   { value: 8370, lead: 'hospital staff', rest: 'received their payslips the same day, instead of after weeks of manual distribution.', source: 'Payslip automation · Government hospital', wide: true },
   { value: 5, lead: 'hospital cooperatives', rest: 'check a member’s combined deductions on Clarix before approving a loan.', source: 'Clarix' },
   { value: 4000, lead: 'leads a day', rest: 'is what the LeadForge pipeline was designed to handle, with no manual steps.', source: 'LeadForge' },
-  { before: 'Under', value: 60, lead: 'seconds', rest: 'from marketplace search to a published, AI-written WooCommerce listing.', source: 'VooltFlow' },
+  { before: '<', value: 60, after: 's', lead: 'search to published listing', rest: 'from a marketplace search to a live, AI-written WooCommerce listing.', source: 'VooltFlow' },
   { value: 14, lead: 'production systems', rest: 'designed and shipped across web, mobile and desktop since 2023.', source: 'Career to date', wide: true },
   { value: 3, lead: 'app stores', rest: 'Microsoft Store, Google Play and the Apple App Store, with billing and subscriptions.', source: 'Flix Technologies · Orayn Digital' },
-  { lead: 'Certified Ethical Hacker', rest: '(EC-Council). Security is designed in, not bolted on.', source: 'Certified August 2026' },
-  { before: 'CGPA', value: 4.47, decimals: 2, lead: '/ 5.0', rest: 'in Computer Software Engineering, specialising in AI and machine learning.', source: 'Chrisland University · graduating Oct 2026' },
+  { lead: 'Certified Ethical Hacker', rest: '(EC-Council). Security is designed in, not bolted on.', source: 'Certified August 2026', wide: true },
+  { value: 4.47, decimals: 2, after: '/5', lead: 'CGPA, BSc Computer Software Engineering', wide: true, rest: 'Specialising in AI and machine learning.', source: 'Chrisland University · graduating Oct 2026' },
 ];
 
 // --- Services: scope from the CV, quoted per project ---

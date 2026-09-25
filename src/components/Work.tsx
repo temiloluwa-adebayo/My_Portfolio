@@ -220,7 +220,7 @@ const PipelineDemo = ({ project }: { project: Project }) => {
                   initial={{ opacity: 0, scale: 0.85, filter: 'blur(4px)' }}
                   animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
                   exit={{ opacity: 0, scale: 0.85, filter: 'blur(4px)' }}
-                  className="flex h-11 items-center gap-2.5 rounded-full bg-fg px-5 text-[0.95rem] font-medium text-page transition-transform active:scale-95"
+                  className="flex h-11 items-center gap-2.5 rounded-full border border-line-strong px-5 text-[0.95rem] font-medium text-fg transition-[transform,background-color] hover:bg-raised active:scale-95"
                 >
                   <Play size={16} className="fill-current" aria-hidden="true" /> Run the pipeline
                 </motion.button>
@@ -261,9 +261,11 @@ const PipelineDemo = ({ project }: { project: Project }) => {
               )}
             </AnimatePresence>
           </motion.div>
-          <p className="text-center text-[0.75rem] text-white/60">Animation of LeadForge’s real steps · not a live run</p>
         </div>
       </div>
+      <figcaption className="border-t border-line bg-raised px-4 py-2.5 text-[0.78rem] text-muted">
+        Animation of LeadForge’s nine phases, condensed to four · not a live run
+      </figcaption>
     </figure>
   );
 };
@@ -303,16 +305,16 @@ const FeaturedCard = ({ project, index, total, progress, desktop }: { project: P
   const dim = useTransform(progress, [index / total, 1], [0, (total - 1 - index) * 0.18]);
 
   return (
-    <div className={desktop ? 'sticky top-0 flex h-screen items-center' : ''}>
+    <div className={desktop ? 'sticky top-0 flex h-screen items-start pt-28' : ''}>
       <motion.article
-        style={desktop ? { scale, top: `${index * 26}px` } : undefined}
+        style={desktop ? { scale, top: `${index * 14}px` } : undefined}
         className="relative w-full origin-top rounded-[2rem] border border-line bg-panel p-3 shadow-[0_-20px_60px_-30px_rgba(0,0,0,0.9)] md:p-4"
       >
         <div className="grid gap-6 md:grid-cols-[0.85fr_1.15fr] md:items-center md:gap-10">
           <div className="order-2 flex flex-col gap-5 px-3 pb-4 md:order-1 md:py-6 md:pl-6">
             <div>
-              <p className="text-sm text-faint">{project.kind}</p>
-              <h3 className="mt-2 font-display text-[2.2rem] leading-none font-semibold tracking-[-0.02em] md:text-[2.8rem]">{project.title}</h3>
+              <h3 className="font-display text-[2.2rem] leading-none font-semibold tracking-[-0.02em] md:text-[2.8rem]">{project.title}</h3>
+              <p className="mt-2 text-[0.95rem] text-faint">{project.kind}</p>
             </div>
             <p className="text-[0.98rem] leading-relaxed text-muted">{project.description}</p>
             <Facts project={project} />
@@ -384,9 +386,11 @@ export const Work = () => {
             <h3 className="font-display text-[1.9rem] leading-none font-semibold tracking-[-0.01em] md:text-[2.4rem]">More shipped systems</h3>
             <p className="max-w-sm text-[0.95rem] text-muted">Desktop, mobile and web: offline exam software, store-published apps and AI platforms.</p>
           </Reveal>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 lg:grid-cols-6">
             {rest.map((p, i) => (
-              <ProjectCard key={p.id} project={p} index={i} />
+              <div key={p.id} className={`${i < 2 ? 'lg:col-span-3' : 'lg:col-span-2'} ${i === rest.length - 1 ? 'md:col-span-2 lg:col-span-2' : ''}`}>
+                <ProjectCard project={p} index={i} />
+              </div>
             ))}
           </div>
         </div>

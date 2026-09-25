@@ -11,8 +11,8 @@ export const Stack = () => {
   return (
     <section id="skills" className="bg-band py-24 md:py-32">
       <Container>
-        <SectionHead title="Tools I build with" lede="Grouped by the layer they serve, from the interface down to security and delivery." />
-        <div className="mx-auto flex max-w-5xl flex-col divide-y divide-line border-y border-line" onPointerLeave={() => setHot(null)}>
+        <SectionHead align="left" title="Tools I build with" lede="Grouped by the layer they serve, from the interface down to security and delivery." />
+        <div className="flex flex-col divide-y divide-line border-y border-line" onPointerLeave={() => setHot(null)}>
           {STACK.map((group, gi) => (
             <Reveal key={group.label} delay={gi * 0.05}>
               <div
@@ -51,7 +51,7 @@ export const Experience = () => {
   return (
     <section id="experience" className="py-24 md:py-32">
       <Container className="max-w-[900px]!">
-        <SectionHead title="Where I’ve worked" lede="Three years across founding-engineer, freelance and agency roles, most of it shipping alone." />
+        <SectionHead align="left" title="Where I’ve worked" lede="Three years across founding-engineer, freelance and agency roles, most of it shipping alone." />
         <ol ref={ref} className="relative ml-2 pl-8 md:ml-0 md:pl-0">
           <span aria-hidden="true" className="absolute top-0 bottom-0 left-[-1px] w-px md:left-[11.5rem]">
             <span className="absolute inset-0 bg-line" />
@@ -106,8 +106,11 @@ export const Proof = () => (
                   {fact.value !== undefined ? (
                     <>
                       <p className={`flex items-end gap-2 font-display leading-none font-semibold tracking-[-0.02em] text-fg ${fact.wide ? 'text-[3.4rem] md:text-[4.25rem]' : 'text-[2.9rem]'}`}>
-                        {fact.before && <span className="pb-[0.12em] text-[0.4em] font-medium text-muted">{fact.before}</span>}
-                        <RollingNumber value={fact.value} decimals={fact.decimals} />
+                        <span className="inline-flex items-end whitespace-nowrap">
+                          {fact.before && <span className="mr-[0.25em] text-muted">{fact.before}</span>}
+                          <RollingNumber value={fact.value} decimals={fact.decimals} />
+                          {fact.after && <span className="ml-[0.08em] text-muted">{fact.after}</span>}
+                        </span>
                       </p>
                       <p className="mt-2 text-[1.05rem] font-medium text-fg">{fact.lead}</p>
                     </>
