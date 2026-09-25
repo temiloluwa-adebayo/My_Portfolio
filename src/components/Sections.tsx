@@ -50,9 +50,9 @@ export const Experience = () => {
 
   return (
     <section id="experience" className="py-24 md:py-32">
-      <Container className="max-w-[900px]!">
+      <Container>
         <SectionHead align="left" title="Where I’ve worked" lede="Three years across founding-engineer, freelance and agency roles, most of it shipping alone." />
-        <ol ref={ref} className="relative ml-2 pl-8 md:ml-0 md:pl-0">
+        <ol ref={ref} className="relative ml-2 max-w-[900px] pl-8 md:ml-0 md:pl-0">
           <span aria-hidden="true" className="absolute top-0 bottom-0 left-[-1px] w-px md:left-[11.5rem]">
             <span className="absolute inset-0 bg-line" />
             <motion.span className="absolute inset-0 origin-top bg-fg" style={{ scaleY: reduce ? 1 : draw }} />
@@ -81,7 +81,7 @@ export const Experience = () => {
             </li>
           ))}
         </ol>
-        <Reveal className="mt-14 flex justify-center">
+        <Reveal className="mt-14 flex max-w-[900px] justify-center">
           <Action href={PROFILE.cv} variant="secondary" download>
             Download my CV <Download size={16} aria-hidden="true" />
           </Action>
