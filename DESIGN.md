@@ -1,300 +1,333 @@
 ---
 name: Temiloluwa Adebayo
-description: Quiet near-black, photo-led portfolio where the proof is production facts.
+description: Cinematic graphite portfolio where motion and real imagery carry the personality and one signal amber marks every primary action.
 colors:
-  page: "#131313"
+  page: "#121212"
   band: "#161616"
   panel: "#1b1b1b"
-  raised: "#222222"
+  raised: "#232323"
   line: "#2a2a2a"
-  line-strong: "#3a3a3a"
-  fg: "#ededed"
-  muted: "#a3a3a3"
-  faint: "#8c8c8c"
+  line-strong: "#3b3b3b"
+  fg: "#efede8"
+  muted: "#a8a6a1"
+  faint: "#8d8b86"
   live: "#4ade80"
-  pill-hover: "#ffffff"
+  accent: "#ffb224"
+  accent-hover: "#ffc457"
+  on-accent: "#1d1303"
 typography:
   display:
-    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "3.1rem (sm 3.75rem, lg 4.75rem)"
-    fontWeight: 300
-    lineHeight: 0.98
-    letterSpacing: "-0.04em"
-    fontFeature: "\"ss01\", \"cv11\""
+    fontFamily: "Clash Display, Geist Variable, ui-sans-serif, sans-serif"
+    fontSize: "2.9rem (sm 4.5rem, lg 5.75rem)"
+    fontWeight: 600
+    lineHeight: 0.95
+    letterSpacing: "-0.03em"
   display-closing:
-    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "2.5rem (md 4rem)"
-    fontWeight: 300
-    lineHeight: 1.02
-    letterSpacing: "-0.04em"
+    fontFamily: "Clash Display, Geist Variable, ui-sans-serif, sans-serif"
+    fontSize: "2.6rem (md 4rem)"
+    fontWeight: 600
+    lineHeight: 0.98
+    letterSpacing: "-0.025em"
   headline:
-    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "2rem (md 2.75rem)"
-    fontWeight: 400
-    lineHeight: 1.25
-    letterSpacing: "-0.03em"
-  figure:
-    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1.65rem (sm 2rem)"
-    fontWeight: 300
-    lineHeight: 1.05
-    letterSpacing: "-0.03em"
-  title:
-    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1.5rem"
-    fontWeight: 400
-    lineHeight: 1.33
+    fontFamily: "Clash Display, Geist Variable, ui-sans-serif, sans-serif"
+    fontSize: "2.4rem (md 3.5rem)"
+    fontWeight: 600
+    lineHeight: 1.02
     letterSpacing: "-0.02em"
+  figure:
+    fontFamily: "Clash Display, Geist Variable, ui-sans-serif, sans-serif"
+    fontSize: "2.9rem (wide tile 3.4rem, md 4.25rem)"
+    fontWeight: 600
+    lineHeight: 1
+    letterSpacing: "-0.02em"
+  title-lg:
+    fontFamily: "Clash Display, Geist Variable, ui-sans-serif, sans-serif"
+    fontSize: "2.2rem (md 2.8rem)"
+    fontWeight: 600
+    lineHeight: 1
+    letterSpacing: "-0.02em"
+  title:
+    fontFamily: "Clash Display, Geist Variable, ui-sans-serif, sans-serif"
+    fontSize: "1.6rem"
+    fontWeight: 600
+    lineHeight: 1
+    letterSpacing: "-0.01em"
+  title-quiet:
+    fontFamily: "Clash Display, Geist Variable, ui-sans-serif, sans-serif"
+    fontSize: "1.2rem to 1.35rem"
+    fontWeight: 500
+    lineHeight: 1.25
+    letterSpacing: "-0.01em"
   body:
     fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1rem (md 1.125rem)"
+    fontSize: "1.05rem (md 1.125rem)"
     fontWeight: 400
     lineHeight: 1.625
+    fontFeature: "\"ss01\", \"cv11\""
   body-sm:
     fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
     fontSize: "0.95rem"
     fontWeight: 400
     lineHeight: 1.625
+    fontFeature: "\"ss01\", \"cv11\""
   label:
     fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "0.875rem"
-    fontWeight: 500
-    lineHeight: 1.43
-  meta:
-    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "0.85rem"
+    fontSize: "0.82rem"
     fontWeight: 400
     lineHeight: 1.4
   mono:
     fontFamily: "Geist Mono Variable, ui-monospace, SFMono-Regular, monospace"
-    fontSize: "0.7rem to 0.875rem"
+    fontSize: "0.72rem to 0.9rem"
     fontWeight: 400
     lineHeight: 1.4
     fontFeature: "\"tnum\""
 rounded:
-  media: "1rem"
-  container: "1.5rem"
-  card: "1.75rem"
-  panel-xl: "2rem"
+  md: "12px"
+  lg: "16px"
+  xl: "24px"
+  card: "28px"
+  feature: "32px"
+  panel: "36px"
   full: "9999px"
 spacing:
-  gutter: "20px"
-  gutter-md: "32px"
-  card-gap: "16px"
-  card-gap-md: "20px"
-  card-inset: "10px"
-  head-gap: "56px"
-  head-gap-md: "64px"
-  section: "96px"
-  section-md: "128px"
-  container: "1080px"
-  container-narrow: "820px"
+  gutter: "20px (md 32px)"
+  grid-gap: "16px (md 20px)"
+  card-pad: "24px (md 28px)"
+  section: "96px (md 128px)"
+  container: "1180px"
 components:
-  pill-solid:
-    backgroundColor: "{colors.fg}"
-    textColor: "{colors.page}"
-    typography: "{typography.label}"
+  button-primary:
+    backgroundColor: "{colors.accent}"
+    textColor: "{colors.on-accent}"
     rounded: "{rounded.full}"
-    padding: "10px 20px"
-  pill-solid-hover:
-    backgroundColor: "{colors.pill-hover}"
-    textColor: "{colors.page}"
-  pill-outline:
+    padding: "0 24px"
+    height: "48px"
+  button-primary-hover:
+    backgroundColor: "{colors.accent-hover}"
+    textColor: "{colors.on-accent}"
+  button-primary-sm:
+    backgroundColor: "{colors.accent}"
+    textColor: "{colors.on-accent}"
+    rounded: "{rounded.full}"
+    padding: "0 16px"
+    height: "40px"
+  button-secondary:
     backgroundColor: "transparent"
     textColor: "{colors.fg}"
-    typography: "{typography.label}"
     rounded: "{rounded.full}"
-    padding: "10px 20px"
-  pill-outline-hover:
+    padding: "0 24px"
+    height: "48px"
+  button-secondary-hover:
     backgroundColor: "{colors.raised}"
     textColor: "{colors.fg}"
-  pill-compact:
-    rounded: "{rounded.full}"
-    padding: "8px 16px"
-  stack-chip:
-    backgroundColor: "{colors.panel}"
+  button-tertiary:
+    backgroundColor: "transparent"
     textColor: "{colors.fg}"
-    rounded: "{rounded.full}"
-    padding: "8px 16px 8px 12px"
-  stack-chip-hover:
-    backgroundColor: "{colors.raised}"
-  status-pill:
-    backgroundColor: "{colors.panel}"
-    textColor: "{colors.muted}"
-    rounded: "{rounded.full}"
-    padding: "6px 16px 6px 12px"
-  icon-tile:
-    backgroundColor: "{colors.panel}"
-    rounded: "{rounded.media}"
-    size: "56px"
-  project-card:
+    padding: "0"
+  input:
+    backgroundColor: "{colors.page}"
+    textColor: "{colors.fg}"
+    rounded: "{rounded.lg}"
+    padding: "14px 16px"
+  card-project:
     backgroundColor: "{colors.panel}"
     rounded: "{rounded.card}"
-    padding: "{spacing.card-inset}"
-  project-media:
+    padding: "10px"
+  card-featured:
+    backgroundColor: "{colors.panel}"
+    rounded: "{rounded.feature}"
+    padding: "16px"
+  tile-fact:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.fg}"
+    rounded: "{rounded.xl}"
+    padding: "{spacing.card-pad}"
+  chip-tool:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.fg}"
+    rounded: "{rounded.full}"
+    padding: "6px 14px 6px 10px"
+  nav-pill-active:
     backgroundColor: "{colors.raised}"
-    rounded: "{rounded.media}"
-  accordion-item:
-    backgroundColor: "{colors.panel}"
     textColor: "{colors.fg}"
-    rounded: "{rounded.container}"
-    padding: "24px 28px"
-  fact-card:
-    backgroundColor: "{colors.panel}"
-    textColor: "{colors.muted}"
-    rounded: "{rounded.container}"
-    padding: "28px"
-  contact-panel:
-    backgroundColor: "{colors.panel}"
-    textColor: "{colors.fg}"
-    rounded: "{rounded.panel-xl}"
-    padding: "96px 40px"
-  nav-bar:
-    backgroundColor: "{colors.page}"
-    height: "72px"
+    rounded: "{rounded.full}"
+    padding: "8px 14px"
+  tab-pill-active:
+    backgroundColor: "{colors.fg}"
+    textColor: "{colors.page}"
+    rounded: "{rounded.full}"
 ---
 
 # Design System: Temiloluwa Adebayo
 
 ## Overview
 
-**Creative North Star: "The Quiet Ledger"**
+**Creative North Star: "The Night Shift Screening Room"**
 
-A graphite room with the lights low, where the only things that glow are the work and the facts about it. The ground is near-black and nearly flat; depth comes from four steps of grey and a hairline, never from shadow or colour. Everything interactive is a pill, everything that holds content is a softly rounded panel, and the one living colour is a green that means "true" or "running".
+A graphite room with the lights down, where the work plays on screen. The ground is near-black and warm-neutral, not blue; panels step up one shade at a time and are separated by 1px hairlines rather than shadow. Real imagery does the atmosphere: a crossfading, slowly zooming slideshow behind the hero, real product screenshots inside browser-style frames, the owner's portrait. A fine film grain sits over everything so the flat greys read as material rather than screen.
 
-Density is generous: one idea per section, centred section heads, wide vertical rhythm (128px between sections on desktop) and a single 1080px column. Type does the atmosphere: Geist at weight 300 and tight negative tracking for the big statements, regular Geist for everything else, Geist Mono only where a value is literally machine text (a date range, a hostname, an email address). Real photography (the portrait, live-site screenshots) and real brand marks carry the colour the palette withholds.
+Motion carries the personality. Content rises into place with a slight backward tilt that flattens as it arrives; interactive things move on springs; cards stack and tuck behind one another on scroll; pointer devices get a gentle 3D tilt with a light sheen. Colour stays almost entirely out of the way so that one signal amber can mean exactly one thing: this is the next step. Green appears only for live status and confirmation.
 
-The world rejects the neon-glow "hacker terminal" register and any invented social proof. Every project image is real: a screenshot of the live site or desktop app, or, where no screen can be shown, a clearly labelled and credited Unsplash photo. Never a mock screenshot.
+Typography pairs a geometric, slightly condensed display face (Clash Display) for every heading and figure with Geist for everything a person reads or clicks. Density is generous: long sections, wide gutters, one idea per band.
 
 **Key Characteristics:**
-- Near-black tonal ladder (page, band, panel, raised) with 1px hairlines instead of shadows.
-- Pill-shaped actions: solid off-white primary with an arrow, outlined secondary.
-- Light-weight, tightly tracked Geist display; mono reserved for dates, hostnames, email.
-- One accent hue, green, used only as a truth signal.
-- Motion is one soft rise-and-unblur per section, ease-out-expo, once.
+- Warm graphite ladder (page, band, panel, raised) with hairline borders; no pure black, no pure white.
+- One accent, amber, used only on primary actions and the keyboard focus ring.
+- Clash Display for headings and figures; Geist for UI and body; Geist Mono for machine-literal strings.
+- Large, soft radii (24 to 36px) on containers; fully round pills on every action and chip.
+- Film grain over the whole page; generated atmosphere imagery kept decorative.
+- Ease-out-expo reveals with a 10° rotateX; springs for interaction; fades only under reduced motion.
 
 ## Colors
 
-A monochrome graphite ladder with a single green signal; colour otherwise arrives only through photographs and brand marks.
+A warm graphite neutral ladder with one hot signal colour and one status colour.
 
 ### Primary
-- **Signal Green** (live): the availability dot (with a soft ping), the check marks beside project facts, and the "copied" confirmation on the email button. It always means something is live, verified, or done.
+- **Signal Amber** (accent): the fill of every primary action (hero "Start a project", nav "Hire me", "Request a quote", "Send message") and the 2px keyboard focus outline. Never a text colour, border, icon tint, or decorative wash.
+- **Lit Amber** (accent-hover): hover fill of primary actions only.
+- **Ember Ink** (on-accent): text and icons on an amber fill.
+
+### Tertiary
+- **Live Green** (live): availability dot (with a ping), "Open to work", check marks in fact and inclusion lists, the "Copied" state, the command-palette toast, the "Message sent" badge, the finished pipeline tick. Status and confirmation only.
 
 ### Neutral
-- **Graphite Page** (page): the page ground, the nav's frosted fill (80% with backdrop blur), the selection text colour, and the solid pill's text.
-- **Band Graphite** (band): full-bleed alternating section bands (Skills, Experience) that separate chapters without a rule.
-- **Panel Graphite** (panel): every card, chip, tile, accordion item and the contact panel. The BrandIcon contrast check is computed against this value.
-- **Raised Graphite** (raised): the surface inside a card (image frame) and the hover fill for outline pills and chips.
-- **Hairline** (line): the default 1px border on every panel, the nav border once scrolled, the footer rule.
-- **Hairline Strong** (line-strong): hover/open border state, outline-pill border, scrollbar thumb, the single dot in the screenshot frame bar.
-- **Bone** (fg): headings, primary text, the solid pill fill, focus ring.
-- **Ash** (muted): default body text and nav links.
-- **Smoke** (faint): meta lines, sources, tag lists, hostnames, dates. Still passes contrast on panel; do not go darker for text.
-- **Paper White** (pill-hover): hover state of the solid pill only.
+- **Graphite** (page): the page ground, input wells, scrims, the colour text takes on light fills. Also the `theme-color`.
+- **Band Graphite** (band): alternate full-width section bands (Stack, Proof, FAQ) so sections separate by tone, not rules.
+- **Panel Graphite** (panel): cards, the contact panel, the palette, tab rails.
+- **Raised Graphite** (raised): frame bars, active nav pill, selected service, hovered rows and chips.
+- **Hairline** (line): default 1px borders and dividers.
+- **Strong Hairline** (line-strong): hover borders, secondary-button outline, portrait frame, scrollbar thumb, tertiary-link underline at rest.
+- **Bone** (fg): headings, active text, active tab pills (as a fill, with page-coloured text), timeline stroke, selection background.
+- **Ash** (muted): body copy and ledes.
+- **Smoke** (faint): meta lines, sources, hostnames, placeholders, captions.
 
 ### Named Rules
-**The Live Green Rule.** Green is the only hue in the system and it signals truth or status: live dot, verified-fact check, copied confirmation. It never fills a surface, a button, or a heading.
+**The One Signal Rule.** Amber marks the primary action and nothing else. If a screen has two amber things, one of them is wrong. Selected and active states use Bone or Raised Graphite, never amber.
 
-**The Tonal Ladder Rule.** Separation is made by stepping one rung on page, band, panel, raised, plus a hairline. A new surface picks a rung; it does not invent a grey.
+**The Status Is Green Rule.** Green means live or done. It is never used to decorate, rank, or highlight.
 
 ## Typography
 
-**Display Font:** Geist Variable (with ui-sans-serif, system-ui)
-**Body Font:** Geist Variable
+**Display Font:** Clash Display 500 and 600, self-hosted (with Geist Variable, ui-sans-serif)
+**Body Font:** Geist Variable (with ui-sans-serif, system-ui), stylistic sets `ss01` and `cv11` on
 **Label/Mono Font:** Geist Mono Variable (with ui-monospace, SFMono-Regular)
 
-Both faces are self-hosted via @fontsource-variable. Body runs with stylistic sets ss01 and cv11 on; headings use balanced wrapping, paragraphs pretty wrapping.
-
-**Character:** One family doing two voices: whisper-light and tightly tracked at display size, plain and even at reading size. Mono is a data voice, not a decoration.
+**Character:** Clash's tight, engineered geometry gives the headlines a poster voice; Geist keeps the reading and interface layer calm and technical. Mono appears only where the string is literally machine text.
 
 ### Hierarchy
-- **Display** (hero H1 only): light, very tight tracking, sub-1 leading; scales from 3.1rem to 4.75rem.
-- **Display Closing** (contact banner H2): light, 2.5rem to 4rem, capped at 14ch.
-- **Headline** (section heads): regular weight, 2rem to 2.75rem, centred with a muted lede under it, max width 36rem.
-- **Title** (project card titles 1.5rem; accordion role titles 1.1rem to 1.25rem at -0.01em): regular weight.
-- **Body** (intros and ledes, 1rem to 1.125rem) and **Body Small** (card copy, list items, 0.95rem): relaxed leading, Ash colour, intro capped at 34rem.
-- **Label** (pills, 0.875rem, weight 500) and **Meta** (sources, role meta, 0.82 to 0.85rem, Smoke).
-- **Mono** (0.7 to 0.8rem, tabular numerals): date ranges, the hostname in a screenshot frame, the email address. Nothing else.
+- **Display** (600, 2.9rem to 5.75rem, 0.95): the hero headline only, two lines, second line at 70% Bone.
+- **Display closing** (600, 2.6rem to 4rem, 0.98): the contact panel's closing headline.
+- **Headline** (600, 2.4rem to 3.5rem, 1.02): every section heading, always followed by a Geist lede in Ash.
+- **Figure** (600, 2.9rem; wide tile 3.4rem to 4.25rem): rolling CV figures in the Proof bento, with prefix and suffix in Ash.
+- **Title large** (600, 2.2rem to 2.8rem, 1): featured project names.
+- **Title** (600, 1.6rem to 2.4rem): project-card names and sub-section headings.
+- **Title quiet** (500, 1.2rem to 1.35rem): stack group labels and service names.
+- **Body** (400, 1.05rem to 1.125rem, 1.625): ledes and intros, max width about 36rem. Body small (0.93 to 0.98rem) for card copy, FAQ answers, timeline points.
+- **Label** (400, 0.82rem, Smoke, sentence case): sources, tags joined with " · ", captions, form hints. Form field labels at 0.85rem in Ash.
+- **Mono** (400, 0.72rem to 0.9rem, tabular): timeline dates, frame-bar hostnames, the email address, and n/N counters.
 
 ### Named Rules
-**The Light Statement Rule.** Only the two display statements run at weight 300; section heads, titles and body stay at 400, and weight 500 is for pill labels, the name, and the bold lead of a fact.
+**The Machine Text Rule.** Geist Mono is for strings a machine wrote: dates, hostnames, the email address, step and slide counters. Never for headings, labels, or decoration.
 
-**The Machine Text Rule.** Geist Mono appears only on literal machine strings: dates, hostnames, email. Never for labels, headings, or flavour.
+**The Sentence Case Rule.** No uppercase tracked labels anywhere. Labels are small, sentence case, and quiet.
 
 ## Layout
 
-A single centred column, max 1080px, with 20px side gutters (32px from md). The experience section narrows to 820px. Sections breathe on a 96px / 128px (md) vertical rhythm and alternate between page and band backgrounds. Each section opens with a centred head and a 56px / 64px gap before content.
+Single column of full-width sections inside a centred container (max 1180px, 20px gutters, 32px from md). Sections breathe at 96px vertical padding, 128px from md, and alternate between Graphite and Band Graphite grounds. The FAQ narrows its container to 860px; the timeline caps at 900px.
 
-The hero is two columns from md (1.05fr / 1fr, 32px gap): text left vertically centred, portrait right stretched to the column height. On mobile it stacks, portrait capped at 26rem. Projects sit in a two-column grid from md (16px / 20px gaps), one column below. Facts run as two full-bleed marquees (19rem cards, 22rem from sm) that become a 1/2/4-column static grid under reduced motion. The nav is fixed, 72px tall, transparent until 12px of scroll, then frosted page with a hairline; below md it collapses to a height-animated menu with large light links. Anchor scroll offset is 5.5rem.
+- **Hero:** full small-viewport height; two columns from lg (1.35fr text, 1fr portrait), stacked below.
+- **Featured work:** each card is sticky at full viewport height on md+ and tucks behind the next one (scales down 4.5% per step, offset 14px, dims toward Graphite). Below md, and under reduced motion, cards simply stack with 24px gaps.
+- **More work:** a 6-column grid on lg, two cards spanning 3 columns over three spanning 2; 2 columns on md; 1 on mobile.
+- **Stack:** full-width rows split by hairlines, 14rem label column plus wrapping chips.
+- **Services:** 0.9fr / 1.1fr, left heading sticky at 128px from top on lg.
+- **Proof:** 4-column bento on lg, the headline figure spans 2.
+- **Timeline:** 11.5rem right-aligned date column, a 1px line that draws with scroll, content column.
+- **Mobile:** a bottom tab bar replaces the top links; the footer reserves 112px bottom padding for it. Scroll padding is 96px for the fixed nav.
 
 ## Elevation & Depth
 
-The system is flat: there are no box-shadows anywhere. Depth is tonal (page, band, panel, raised) and edged with 1px hairlines; hover and open states strengthen the hairline or step the fill one rung up. The only blur in the system is the frosted nav and the entrance unblur. Screenshots sit at 82% brightness and come up to full on card hover, so imagery lifts instead of the surface.
+Depth is tonal first: four graphite steps and hairlines separate everything at rest. Shadows exist, but they are large, soft, and dark (black at 80 to 90%, heavily negative spread), used to lift floating objects off the page, never to outline cards. The one coloured shadow is the amber glow under primary actions. Film grain (fractal noise, 6% opacity, fixed, above all content) unifies the surfaces.
+
+### Shadow Vocabulary
+- **Float** (`box-shadow: 0 40px 80px -30px rgba(0,0,0,0.9)`): the hero portrait card; the command palette uses `0 40px 80px -20px rgba(0,0,0,0.8)`.
+- **Stack lip** (`box-shadow: 0 -20px 60px -30px rgba(0,0,0,0.9)`): featured cards, casting upward onto the card they cover.
+- **Docked** (`box-shadow: 0 16px 40px -20px rgba(0,0,0,0.9)`): the top nav once scrolled; the mobile tab bar uses the upward `0 -8px 40px -12px`.
+- **Signal glow** (`box-shadow: 0 8px 24px -8px rgba(255,178,36,0.55), inset 0 1px 0 rgba(255,255,255,0.35)`): primary actions; hover deepens to `0 12px 32px -8px` at 0.7.
 
 ### Named Rules
-**The Hairline, Not Shadow Rule.** A container earns separation with a one-rung tone step and a 1px line. Shadows are not part of this world.
+**The Float, Don't Outline Rule.** Shadows lift things that float (nav, palette, portrait, stacked cards). Cards in a grid rely on tone and hairline alone.
+
+**The Glass Only On Imagery Rule.** Backdrop blur is used only where content sits over a photograph or scrolls under a fixed bar: nav, tab bar, hero badge, portrait caption, slideshow controls, palette scrim.
 
 ## Shapes
 
-Soft, generous corners in four sizes plus the pill. Actions, chips, status tags, avatars and social buttons are full pills or circles. Project cards and the portrait panel use the card radius; accordion items and fact cards the slightly smaller container radius; the contact banner the largest, panel-xl. Media nested inside a card (image frame, stack icon tiles) uses the media radius, so a 10px card inset leaves a visible concentric margin. The focus ring follows the pill shape by default.
+Soft, large corners on containers and fully round pills on everything you press. Radius steps up with the container's importance: 12px for small controls inside panels, 16px for inputs, media frames and FAQ items, 24px for fact tiles, service rows and the palette, 28px for project cards, 32px for featured cards and the portrait, 36px for the contact panel. Every action, chip, tab rail, nav, and status badge is a full pill. Inner radii step down so nested shapes stay concentric (a 28px card with 10px padding holds a 16px frame). Borders are always 1px; the only dashed line separates a selected service's inclusions.
 
 ## Components
 
-### Buttons (Pill)
-Confident and quiet.
-- **Shape:** full pill.
-- **Solid (primary):** Bone fill, Graphite Page text, 10px by 20px, weight 500, usually with a trailing arrow that nudges 2px right on hover. Hover lifts to Paper White.
-- **Outline (secondary):** transparent with a Hairline Strong border and Bone text; hover fills Raised and brightens the border.
-- **Compact:** 8px by 16px inside cards and the nav.
-- **Press:** scales to 0.97. Transitions 300ms ease-out-expo.
-- **Focus:** 2px Bone outline, 3px offset.
-- Each pair puts at most one solid pill per group; the primary action (Contact / Email) is the solid one.
+### Buttons
+Three tiers, one component, never mixed up.
+- **Shape:** full pill (9999px), 48px tall (40px small), medium weight, 0.95rem.
+- **Primary:** Signal Amber fill, Ember Ink text, signal glow, a trailing arrow that nudges 2px right on hover. One per view region.
+- **Hover / Focus:** fill to Lit Amber and the glow deepens, 300ms ease-out-expo; press scales to 0.96. Focus is a 2px amber outline at 3px offset on every focusable element.
+- **Secondary:** 1px Strong Hairline outline over a translucent Graphite with slight blur, Bone text; hover brightens the border to 50% Bone and fills Raised Graphite. Used for "See my work", "Live website", CV download, LinkedIn, GitHub.
+- **Tertiary:** plain Bone text with a 1px Strong Hairline underline at 0.22em offset that turns Bone on hover. "Download CV" in the hero, "Source code".
 
 ### Chips
-- **Status pill:** panel fill, hairline, Ash text, green dot with ping; secondary detail in Smoke hidden below sm.
-- **Stack chip:** panel fill, hairline, Bone text, 16px BrandIcon; hover steps to Raised and Hairline Strong.
-
-### BrandIcon
-Real simple-icons marks in their brand colour, with a contrast floor: if a brand hex falls under 4.5:1 against Panel Graphite, the mark renders in Bone instead. Used in stack chips (16px) and the hero icon marquee (24px in 56px tiles).
+- **Tool chip:** Panel pill, 1px Hairline, Bone text at 0.9rem, a 15px brand mark in its own colour (switched to Bone when it would fall below 4.5:1 on Panel), or a hollow 9px ring when no mark exists. Hover: Strong Hairline border, Raised fill.
+- **Status badge:** Graphite pill at 60% with blur, Strong Hairline, pinging Live Green dot, Bone text with Ash detail.
 
 ### Cards / Containers
-- **Project card:** panel fill, hairline (strong on hover), card radius, 10px inset around a media block, then title, kind in Smoke, description, green-check fact list, dot-separated tags in Smoke, and compact pills pushed to the bottom.
-- **Screenshot frame (projects with a live site):** Raised surface, media radius, a 32px bar with one grey dot and the mono hostname, then a 16:10 top-cropped screenshot, dimmed until hover, scaling 1.02 over 700ms.
-- **Image frame labels:** the frame bar shows the live host in mono; a desktop capture or stock photo shows a sans label instead ("Windows desktop app", "Illustrative photo"), and stock photos carry the photographer credit linked to Unsplash at the bar's right.
-- **Fact card:** panel fill, container radius, 28px padding; lead phrase weight 500 in Bone, the rest in Ash, source in Smoke at the bottom.
+- **Corner Style:** 28px (project), 32px (featured), 24px (fact tile), 36px (contact panel).
+- **Background:** Panel Graphite; the contact panel is Panel at 80% over a dim photograph.
+- **Shadow Strategy:** none for grid cards; stack lip for featured cards (see Elevation).
+- **Border:** 1px Hairline, Strong Hairline on hover (500ms).
+- **Internal Padding:** 10px around the media frame, then 20px/12px text inset (project); 12 to 16px outer with a 24px text column (featured); 24 to 28px (fact tile).
+- **Media frame:** a 16px-radius Raised figure with a 36px frame bar (two Strong Hairline dots, the hostname in mono Smoke, counters and photo credit on the right) above a 16:10 image. Project images sit at 85% brightness and brighten with a 1.03 zoom on card hover.
 
-### Experience Accordion
-Stacked container-radius panels with 12px gaps; the first is open by default and one opens at a time. Header row: title, company in Ash, mono date range (right-aligned from sm, under the company on mobile), and a chevron rotating 180 degrees over 500ms. The body animates height and opacity over 500ms ease-out-expo and lists points with small Smoke dot bullets.
-
-### Marquees
-Duplicated tracks translating -50% linearly (hero icons 40s, fact rows 70s, second fact row reversed), with 8% edge fade masks. They pause on hover and focus-within. Under reduced motion the CSS animation stops, and the fact rows are replaced by a static grid.
-
-### Contact Panel
-panel-xl rounded banner, centred: 64px avatar with a Hairline Strong ring offset 4px, Display Closing statement, muted line, a solid "Email me" pill beside an outline "Download CV" pill, then the email in mono as a copy button that swaps its copy icon for a green check for 2 seconds (with a polite live-region announcement), falling back to mailto if the clipboard fails.
+### Inputs / Fields
+- **Style:** 16px radius, 1px Hairline, Graphite at 60%, Bone text at 0.98rem, Smoke placeholder, 14px by 16px padding. Labels sit above in Ash at 0.85rem. The select uses a custom Ash chevron.
+- **Focus:** border to 50% Bone plus a 4px Bone halo at 6%; caret is Bone.
+- **Error:** the submit button relabels to "Try again" and an alert line with a mailto fallback slides in above it, in Bone, not red.
 
 ### Navigation
-Avatar (32px circle) plus name on the left; Ash text links that turn Bone on hover; a compact solid "Contact me" pill on the right. Mobile: a 40px circular menu toggle and a height-animated panel of 1.5rem light links and a solid pill.
+- **Top nav:** a floating full-width pill (max 1180px) that, after 24px of scroll, narrows to 980px and gains a Graphite 92% fill, Hairline border, blur and the docked shadow. Left: 34px avatar and name. Centre (md+): section links at 0.875rem in Ash; the active one gets a Raised pill that slides between links on a spring (380/32). Right: a ⌘K search button and the small primary "Hire me".
+- **Command palette:** ⌘K, Ctrl K or "/" opens a 34rem Panel dialog (24px radius, Strong Hairline, float shadow) over a 60% black blurred scrim; grouped results (Go to, Projects, Actions), arrow-key selection shown as a Raised row, Esc key cap in mono.
+- **Mobile tab bar:** a bottom-docked Panel 85% pill with five icon-over-label tabs; the active tab is a Bone pill with Graphite text that slides on a spring.
 
-### Motion
-- **Easing:** ease-out-expo for every transition and entrance.
-- **Section reveal:** rise 18px and unblur from 6px over 900ms, triggered once when 80px into view; project cards stagger 80ms by column.
-- **Hero entrance:** text rises 24px over 1s; the portrait unblurs from 10px and scales from 0.97 over 1.2s.
-- Reduced motion is honoured globally (motion's user setting, CSS marquee stop, ping hidden, smooth scroll off).
+### Hero Slideshow
+Four generated atmosphere images crossfade every 6.5s (1.6s fade) at 72% opacity, each zooming slowly from 1.1 to 1 over 9s, masked to fade out toward the bottom, under a left-weighted Graphite scrim plus top and bottom fades. The background drifts down 18% on scroll while the content lifts and fades. Thin progress bars at bottom centre (md+) double as slide controls. The headline arrives word by word, each word flipping up from rotateX -70° on a spring.
+
+### Featured Stack and Pipeline Demo
+Featured cards pair copy with a screenshot slideshow (auto-advances every 4.2s in view, pauses on hover, swipe or arrow buttons, dot pager). LeadForge replaces the slideshow with a runnable demo: a pill button morphs from "Run the pipeline" through each step (icon swap, character-by-character label) to "Sent. Zero manual steps." with a green tick, over segmented progress bars and a caption stating it is an animation, not a live run.
+
+### Services Selector
+A radio list of rounded rows; the selected row takes Raised fill and a 40% Bone border, a filled Bone radio with a Graphite check, and expands its inclusions (green checks, two columns) below a dashed rule. A single amber "Request a quote" below pre-fills the contact form's topic.
+
+### Proof Bento and Timeline
+Fact tiles roll each digit column into place on a soft spring when in view, and name their source in Smoke at the tile's foot. The timeline's Bone stroke draws over a Hairline track as you scroll, with Bone dots ringed in Graphite.
+
+### Contact
+Contact panel over a 35% photograph. Left: closing headline, copy-email well (mono address, a Raised "Copy" button that flips to green "Copied" for 1.8s), a "Show QR code" pill that expands into a Bone tile with a Graphite QR, and secondary LinkedIn and GitHub pills. Right: the form, divided by a hairline on lg. The amber submit morphs its label through Send, Sending (spinner), and Try again; success replaces the form with a springing green check and "Message sent".
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** place every new surface on an existing rung (page, band, panel, raised) with a 1px line or line-strong border.
-- **Do** make actions pills: solid Bone for the one primary action, outline for the rest.
-- **Do** use ease-out-expo and a single rise-and-unblur reveal per section, once.
-- **Do** render brand marks through the BrandIcon contrast rule so no mark drops under 4.5:1 on panel.
-- **Do** use a real screenshot wherever one exists; use a stock photo only when no screen can be shown, labelled "Illustrative photo" and credited.
-- **Do** keep marquees pausable on hover and focus, and provide a static layout under reduced motion.
+- **Do** use the Action component's three tiers: amber primary, outlined secondary pill, underlined tertiary link.
+- **Do** keep Signal Amber (#ffb224) to primary actions and the focus ring; express selection with Bone or Raised Graphite.
+- **Do** separate sections by alternating Graphite and Band Graphite grounds, and components by 1px hairlines.
+- **Do** reveal content with the shared rise: 40px up, 10° rotateX flattening, 6px blur clearing, 1s ease-out-expo `cubic-bezier(0.16, 1, 0.3, 1)`; use springs for anything the visitor drives.
+- **Do** give every motion a reduced-motion path: slideshows stop, stacking becomes a plain column, tilt and parallax switch off, digits render static, the timeline shows fully drawn.
+- **Do** frame product screenshots in the media frame with the real hostname, and credit any stock photo by name on its frame bar.
+- **Do** trace every number on the page to the CV and name its source under the figure.
+- **Do** keep generated imagery decorative (empty alt, `aria-hidden`), with its provenance recorded beside the file and disclosed in the footer.
 
 ### Don't:
-- **Don't** add box-shadows, glows, or neon; depth is tonal.
-- **Don't** introduce a second accent hue, or use green for fills, buttons or headings.
-- **Don't** set labels, headings or decoration in Geist Mono; it is for dates, hostnames and email only.
-- **Don't** put small uppercase kickers or eyebrows above headings; section heads are a title plus a lede.
-- **Don't** invent testimonials, client logos, satisfaction figures, or screenshots for projects without a live site.
-- **Don't** use weight 300 below display size, or bold (700) anywhere.
+- **Don't** put amber on text, borders, icons, selected states, backgrounds, or a second button in the same group.
+- **Don't** place a small label, kicker, or eyebrow line above a section heading. The hero's availability badge is live status with a live dot, not a category label, and is the only element that sits above a headline.
+- **Don't** nest a card inside a card. The media frame inside a project card and the control wells inside the contact panel are objects, not prose containers, and are the only sanctioned insets.
+- **Don't** use uppercase tracked labels or mono for anything that is not machine text.
+- **Don't** outline grid cards with shadows or use hard offset shadows; depth is tone, hairline, and soft float shadows on floating objects.
+- **Don't** invent social proof: no testimonials, client logos, satisfaction percentages, or prices.
+- **Don't** present generated atmosphere images as the owner's workspace or product, or use them in place of project screenshots.
+- **Don't** use pure black or pure white; the extremes are Graphite (#121212) and Bone (#efede8).
