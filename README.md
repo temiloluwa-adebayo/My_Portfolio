@@ -1,229 +1,79 @@
 # Temiloluwa Adebayo — Portfolio
 
-> **Personal portfolio website for Temiloluwa Adebayo, AI Software Engineer. Built with React, TypeScript, Vite, and Framer Motion.**
+Personal portfolio of Temiloluwa Adebayo, full-stack software engineer building AI-integrated systems for web, mobile and desktop.
 
-[![Stack](https://img.shields.io/badge/Frontend-React%2019-61DAFB?style=flat-square&logo=react)](https://react.dev)
-[![Language](https://img.shields.io/badge/Language-TypeScript-3178C6?style=flat-square&logo=typescript)](https://typescriptlang.org)
-[![Animation](https://img.shields.io/badge/Animation-Framer%20Motion-pink?style=flat-square)](https://motion.dev)
-[![Build](https://img.shields.io/badge/Build-Vite-646CFF?style=flat-square&logo=vite)](https://vitejs.dev)
-[![Deployed](https://img.shields.io/badge/Deployed-Vercel-black?style=flat-square&logo=vercel)](https://vercel.com)
+**Live site:** [my-portfolio-bice-delta-10.vercel.app](https://my-portfolio-bice-delta-10.vercel.app/)
 
-**Live site:** [temiloluwa-adebayo.vercel.app](https://my-portfolio-bice-delta-10.vercel.app/)
-
-## Screenshots
-
-![Dashboard](assets/Screenshot%202026-03-19%20215907.png)
-![Leads Table](assets/Screenshot%202026-03-19%20221158.png)
-
----
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Sections](#sections)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
-- [Customisation](#customisation)
-- [Deployment](#deployment)
-
----
-
-## Overview
-
-A production-grade personal portfolio showcasing 7 fully shipped software products across web applications, mobile apps, automation systems, and AI-powered platforms. Designed to communicate professional credibility, technical depth, and real-world delivery capability to hiring managers, technical recruiters, and collaborators.
-
-**Design direction:** Dark theme with an emerald green accent system. Outfit (display) + DM Sans (body) + JetBrains Mono (code). Framer Motion scroll animations, animated terminal card, glassmorphism project cards, and a fully responsive layout.
-
----
+![Portfolio hero](public/og.png)
 
 ## Sections
 
-### Hero
-- Animated availability badge with pulsing indicator
-- Large display headline with staggered entrance animation
-- Animated terminal card showing skills and status (typing effect with live cursor)
-- Stats strip: shipped products, education, specialisation, availability
+| Section | What it shows |
+|---|---|
+| Hero | Availability, role, intro, portrait, and a drifting row of core tools |
+| Tools I build with | The full stack as a pill cloud with brand icons |
+| Projects I’ve shipped | Eight projects: real screenshots for live sites, the system's pipeline for the rest |
+| Where I’ve worked | Accordion of roles from the CV, plus a CV download |
+| Don’t just take my word for it | Two marquees of production figures, each traceable to the CV |
+| Contact | Email, CV download, and click-to-copy email address |
 
-### Work
-- All 7 projects displayed as glassmorphism cards
-- Per-project accent colours (not generic — each project has its own colour identity)
-- Filter tabs: All / Web App / Mobile / Desktop / AI-Powered
-- Live project count updates on filter
-- `whileInView` scroll entrance animations with staggered delays
-
-### Skills
-- 5 skill categories: AI & ML, Frontend, Backend, Automation, Integrations
-- Card grid with per-category accent colours
-- Hover lift effect with accent glow
-
-### About
-- Split layout: photo (left) + text (right)
-- Photo with grayscale-to-colour hover effect
-- Floating stat card overlapping the image
-- Stat grid: education, specialisation, location, status
-- Social link row: GitHub, LinkedIn, Email
-
-### Contact
-- Split layout: contact links (left) + message form (right)
-- Animated contact links with slide-on-hover
-- Form with focus states and success animation
-- Dark glass form container
-
-### Footer
-- Logo mark + full name
-- Build credit
-
----
-
-## Tech Stack
+## Tech stack
 
 | Layer | Technology |
 |---|---|
-| Framework | React 19 |
-| Language | TypeScript |
-| Build Tool | Vite 6 |
-| Animation | Framer Motion (`motion/react`) |
-| Fonts | Outfit + DM Sans + JetBrains Mono (Google Fonts) |
-| Styling | Inline styles + scoped CSS |
-| Hosting | Vercel |
+| Framework | React 19 + TypeScript (strict) |
+| Build | Vite 6 |
+| Styling | Tailwind CSS v4 (tokens in `src/index.css`) |
+| Motion | `motion` (Framer Motion), respects reduced-motion |
+| Type | Geist and Geist Mono, self-hosted via Fontsource |
+| Icons | `lucide-react`, `simple-icons` for brand marks |
+| Hosting | Vercel, with Vercel Web Analytics |
 
----
-
-## Project Structure
+## Project structure
 
 ```
-portfolio/
-├── index.html              # Entry HTML — includes Google Fonts
-├── vite.config.ts          # Vite configuration
-├── tsconfig.json           # TypeScript configuration
-├── postcss.config.js       # PostCSS (prevents global config conflicts)
-├── package.json
+├── index.html            # Entry HTML, meta and Open Graph tags
+├── public/
+│   ├── Temiloluwa_Adebayo_CV.pdf
+│   ├── profile.webp      # Portrait (hero)
+│   ├── avatar.webp       # Nav and footer avatar
+│   ├── og.png            # Social preview image
+│   └── work/             # Screenshots of live projects
 └── src/
-    ├── main.tsx            # React root mount
-    ├── index.css           # Global base styles
-    └── App.tsx             # Complete application (all components)
+    ├── data.ts           # All content: profile, stack, projects, roles, facts
+    ├── App.tsx           # Page sections and components
+    ├── index.css         # Design tokens and global styles
+    └── main.tsx          # React root, fonts, analytics
 ```
 
-All components live in `src/App.tsx` as named functions. The data arrays (`PROJECTS`, `SKILLS`, `TERMINAL_LINES`) are defined at the top of the file for easy editing.
+## Getting started
 
----
-
-## Getting Started
-
-### Prerequisites
-- Node.js 18 or higher
-
-### Installation
+Requires Node.js 18 or newer.
 
 ```bash
-# Clone the repository
-git clone https://github.com/temiloluwa-adebayo/My_Portfolio.git
-cd My_Portfolio
-
-# Install dependencies
 npm install
-
-# Start development server
-npm run dev
+npm run dev       # http://localhost:5173
+npm run lint      # type-check
+npm run build     # production build in dist/
+npm run preview   # serve the build locally
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+## Editing content
 
-### Build for Production
+Everything on the page lives in `src/data.ts`:
 
-```bash
-npm run build
-```
+- `PROFILE`: name, role, intro, email, links, CV path, availability.
+- `STACK` and `HERO_TOOLS`: tools with their `simple-icons` mark.
+- `PROJECTS`: each project has `facts`, `tags`, optional `githubUrl` / `liveUrl`, and either an `image` (a real screenshot in `public/work/`) or a `flow` (the pipeline steps drawn on the card).
+- `EXPERIENCE`: roles, dates and bullet points.
+- `FACTS`: the production figures in the proof marquee. Keep every one traceable to the CV.
 
-Output is generated in the `dist/` directory.
-
-### Preview Production Build
-
-```bash
-npm run preview
-```
-
----
-
-## Customisation
-
-All content is defined in the `DATA` section at the top of `src/App.tsx`.
-
-### Update Projects
-
-```typescript
-const PROJECTS = [
-  {
-    id: "your-project-id",
-    title: "Project Name",
-    subtitle: "One-line description",
-    description: "Full description paragraph.",
-    tags: ["Tech 1", "Tech 2"],
-    metrics: ["Key metric 1", "Key metric 2"],
-    icon: "🔧",           // Emoji icon
-    accent: "#6EE7B7",    // Hex colour for card accent
-  },
-  // ...
-];
-```
-
-### Update Skills
-
-```typescript
-const SKILLS = [
-  {
-    cat: "Category Name",
-    color: "#6EE7B7",
-    items: ["Skill 1", "Skill 2", "Skill 3"],
-  },
-  // ...
-];
-```
-
-### Update Personal Info
-
-Search `src/App.tsx` for the following placeholders and replace with your real information:
-
-| Placeholder | Location |
-|---|---|
-| `temiloluwa@email.com` | Hero actions, Contact section |
-| `https://linkedin.com/in/temiloluwa-adebayo` | About section, Contact section |
-| `https://github.com/temiloluwa-adebayo` | About section, Contact section |
-| Unsplash photo URL | About section `<img>` tag |
-| Project live links | Project cards (currently `#`) |
-
----
+To update the CV, replace `public/Temiloluwa_Adebayo_CV.pdf`.
 
 ## Deployment
 
-### Deploy to Vercel (Recommended)
-
-**Option 1 — Via Vercel Website (no CLI):**
-1. Push this repository to GitHub
-2. Go to [vercel.com](https://vercel.com) → Sign up with GitHub
-3. Click "Add New Project" → Import this repository
-4. Vercel auto-detects Vite — click Deploy
-5. Done. Live URL generated in ~30 seconds
-
-**Option 2 — Via Vercel CLI:**
-```bash
-npm install -g vercel
-vercel
-```
-
-### Auto-Deploy on Push
-Once connected to Vercel, every `git push` to the `main` branch triggers an automatic redeployment. No manual steps required.
-
----
-
-## License
-
-MIT — free to use as a template. If you do, a credit or a star is appreciated.
-
----
+The repository is connected to Vercel; every push to `main` redeploys automatically. Vercel detects Vite with no extra configuration.
 
 ## Author
 
-**Temiloluwa Adebayo** — AI Software Engineer  
-[Live Site](https://my-portfolio-bice-delta-10.vercel.app/) · [GitHub](https://github.com/temiloluwa-adebayo) · [LinkedIn](www.linkedin.com/in/temiloluwa-adebayo-4843ba377)
+**Temiloluwa Adebayo** · [GitHub](https://github.com/temiloluwa-adebayo) · [LinkedIn](https://www.linkedin.com/in/temiloluwa-adebayo-4843ba377) · [temidaniel124@gmail.com](mailto:temidaniel124@gmail.com)
