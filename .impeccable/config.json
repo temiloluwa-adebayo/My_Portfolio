@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font",
+        "value": "clash display",
+        "createdAt": "2026-09-25T02:03:22.931Z",
+        "reason": "user approved the redesign plan with Clash Display as the new display face (2026-09-25); DESIGN.md is rewritten at finish"
+      }
+    ]
+  }
+}

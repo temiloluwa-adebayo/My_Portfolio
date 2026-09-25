@@ -1,7 +1,6 @@
 import type { SimpleIcon } from 'simple-icons';
 import {
   siAppstore,
-  siDart,
   siDocker,
   siElectron,
   siExpress,
@@ -30,9 +29,12 @@ import {
 
 export const PROFILE = {
   name: 'Temiloluwa Adebayo',
-  role: 'Full-Stack Engineer.',
+  role: 'Full-stack software engineer · AI-integrated systems',
+  headline: 'I build systems that run themselves.',
   intro:
-    "Hi, I'm Temiloluwa, a software engineer in Nigeria building AI-integrated systems for web, mobile and desktop. I take products from database architecture and automation through to store-published apps, working solo or leading a small team.",
+    'Web platforms, automation pipelines and store-published apps, taken from database design to deployment. Fourteen production systems shipped since 2023, most of them solo.',
+  location: 'Ogun State, Nigeria · working remotely',
+  site: 'https://my-portfolio-bice-delta-10.vercel.app',
   email: 'temidaniel124@gmail.com',
   github: 'https://github.com/temiloluwa-adebayo',
   linkedin: 'https://www.linkedin.com/in/temiloluwa-adebayo-4843ba377',
@@ -42,56 +44,78 @@ export const PROFILE = {
 };
 
 export const NAV = [
-  { label: 'Skills', href: '#skills' },
   { label: 'Work', href: '#work' },
+  { label: 'Services', href: '#services' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Proof', href: '#proof' },
+  { label: 'FAQ', href: '#faq' },
 ];
+
+/** Generated atmosphere images behind the hero (Canva AI); decorative only. */
+export const HERO_SLIDES = ['desk', 'devices', 'architecture', 'servers'];
 
 // --- Stack ---
 
-export type Tool = { name: string; icon: SimpleIcon };
+export type Tool = { name: string; icon?: SimpleIcon };
+export type ToolGroup = { label: string; tools: Tool[] };
 
-export const STACK: Tool[] = [
-  { name: 'TypeScript', icon: siTypescript },
-  { name: 'JavaScript', icon: siJavascript },
-  { name: 'Python', icon: siPython },
-  { name: 'Dart', icon: siDart },
-  { name: 'React', icon: siReact },
-  { name: 'Next.js', icon: siNextdotjs },
-  { name: 'React Native', icon: siReact },
-  { name: 'Flutter', icon: siFlutter },
-  { name: 'Tailwind CSS', icon: siTailwindcss },
-  { name: 'Framer Motion', icon: siFramer },
-  { name: 'Electron', icon: siElectron },
-  { name: 'Node.js', icon: siNodedotjs },
-  { name: 'Express', icon: siExpress },
-  { name: 'FastAPI', icon: siFastapi },
-  { name: 'Supabase', icon: siSupabase },
-  { name: 'PostgreSQL', icon: siPostgresql },
-  { name: 'SQLite', icon: siSqlite },
-  { name: 'n8n', icon: siN8n },
-  { name: 'Stripe', icon: siStripe },
-  { name: 'Google Play', icon: siGoogleplay },
-  { name: 'App Store', icon: siAppstore },
-  { name: 'Vercel', icon: siVercel },
-  { name: 'Railway', icon: siRailway },
-  { name: 'Docker', icon: siDocker },
-  { name: 'Git', icon: siGit },
-];
-
-/** The hero's drifting tile row: the tools most of the shipped work runs on. */
-export const HERO_TOOLS: SimpleIcon[] = [
-  siNextdotjs,
-  siSupabase,
-  siN8n,
-  siReact,
-  siElectron,
-  siFlutter,
-  siPostgresql,
-  siStripe,
-  siTypescript,
-  siTailwindcss,
+export const STACK: ToolGroup[] = [
+  {
+    label: 'Frontend & mobile',
+    tools: [
+      { name: 'TypeScript', icon: siTypescript },
+      { name: 'JavaScript', icon: siJavascript },
+      { name: 'React', icon: siReact },
+      { name: 'Next.js', icon: siNextdotjs },
+      { name: 'React Native', icon: siReact },
+      { name: 'Flutter', icon: siFlutter },
+      { name: 'Tailwind CSS', icon: siTailwindcss },
+      { name: 'Framer Motion', icon: siFramer },
+    ],
+  },
+  {
+    label: 'Backend & data',
+    tools: [
+      { name: 'Node.js', icon: siNodedotjs },
+      { name: 'Express', icon: siExpress },
+      { name: 'Python', icon: siPython },
+      { name: 'FastAPI', icon: siFastapi },
+      { name: 'Supabase', icon: siSupabase },
+      { name: 'PostgreSQL', icon: siPostgresql },
+      { name: 'SQLite', icon: siSqlite },
+    ],
+  },
+  {
+    label: 'Automation & AI',
+    tools: [
+      { name: 'n8n', icon: siN8n },
+      { name: 'OpenAI GPT-4o' },
+      { name: 'Webhook workflows' },
+      { name: 'Prompt engineering' },
+    ],
+  },
+  {
+    label: 'Desktop, stores & payments',
+    tools: [
+      { name: 'Electron', icon: siElectron },
+      { name: 'Microsoft Store · MSIX' },
+      { name: 'Google Play', icon: siGoogleplay },
+      { name: 'App Store', icon: siAppstore },
+      { name: 'Stripe', icon: siStripe },
+      { name: 'RevenueCat' },
+    ],
+  },
+  {
+    label: 'Security & delivery',
+    tools: [
+      { name: 'Row-Level Security' },
+      { name: 'RBAC' },
+      { name: 'Supabase Auth', icon: siSupabase },
+      { name: 'Git', icon: siGit },
+      { name: 'Docker', icon: siDocker },
+      { name: 'Vercel', icon: siVercel },
+      { name: 'Railway', icon: siRailway },
+    ],
+  },
 ];
 
 // --- Work ---
@@ -111,6 +135,12 @@ export type Project = {
   /** Attribution for stock photography. */
   credit?: { name: string; url: string };
   note?: string;
+  /** Featured projects lead the Work section as large stacked cards. */
+  featured?: boolean;
+  /** Extra real screens for the featured slideshow. */
+  slides?: string[];
+  /** Steps for the animated pipeline demo. */
+  pipeline?: string[];
 };
 
 export const PROJECTS: Project[] = [
@@ -124,6 +154,8 @@ export const PROJECTS: Project[] = [
     tags: ['Next.js 16', 'Supabase', 'PostgreSQL', 'Row-Level Security', 'pgTAP'],
     liveUrl: 'https://clarix-3w5i.vercel.app/',
     image: '/work/clarix.webp',
+    featured: true,
+    slides: ['/work/slides/clarix-1.webp', '/work/slides/clarix-2.webp', '/work/slides/clarix-3.webp'],
   },
   {
     id: 'leadforge',
@@ -135,6 +167,8 @@ export const PROJECTS: Project[] = [
     tags: ['Next.js 14', 'n8n', 'Supabase', 'ScrapingBee', 'Gmail API'],
     githubUrl: 'https://github.com/temiloluwa-adebayo/LeadForge',
     image: '/work/leadforge.webp',
+    featured: true,
+    pipeline: ['Discover businesses', 'Score their presence', 'Write the PDF proposal', 'Send through Gmail'],
     frameLabel: 'Illustrative photo',
     credit: { name: 'Justin Morgan', url: 'https://unsplash.com/photos/D2TZ-ashGzc' },
   },
@@ -149,6 +183,8 @@ export const PROJECTS: Project[] = [
     githubUrl: 'https://github.com/temiloluwa-adebayo/vooltflow',
     liveUrl: 'https://vooltflow-fmql.vercel.app/',
     image: '/work/vooltflow.webp',
+    featured: true,
+    slides: ['/work/slides/vooltflow-1.webp', '/work/slides/vooltflow-2.webp', '/work/slides/vooltflow-3.webp'],
   },
   {
     id: 'voolttrip',
@@ -279,15 +315,134 @@ export const EXPERIENCE: Role[] = [
 
 // --- Proof: production facts, each traceable to the CV ---
 
-export type Fact = { lead: string; rest: string; source: string };
+/** `value` rolls up when the card enters view; the rest of the sentence is static. */
+export type Fact = {
+  value?: number;
+  decimals?: number;
+  before?: string;
+  lead: string;
+  rest: string;
+  source: string;
+  wide?: boolean;
+};
 
 export const FACTS: Fact[] = [
-  { lead: '8,370 hospital staff', rest: 'received their payslips the same day, instead of after weeks of manual distribution.', source: 'Payslip automation · Government hospital' },
-  { lead: '5 hospital cooperatives', rest: 'check a member’s combined deductions on Clarix before approving a loan.', source: 'Clarix' },
-  { lead: '4,000 leads a day', rest: 'is what the LeadForge pipeline was designed to handle, with no manual steps.', source: 'LeadForge' },
-  { lead: 'Under 60 seconds', rest: 'from marketplace search to a published, AI-written WooCommerce listing.', source: 'VooltFlow' },
-  { lead: '14 production systems', rest: 'designed and shipped across web, mobile and desktop since 2023.', source: 'Career to date' },
-  { lead: 'Three app stores:', rest: 'apps published on the Microsoft Store, Google Play and the Apple App Store.', source: 'Flix Technologies · Orayn Digital' },
-  { lead: 'Certified Ethical Hacker,', rest: 'EC-Council. Security is designed in, not bolted on.', source: 'Certified August 2026' },
-  { lead: 'CGPA 4.47 / 5.0', rest: 'in Computer Software Engineering, specialising in AI and machine learning.', source: 'Chrisland University · graduating Oct 2026' },
+  { value: 8370, lead: 'hospital staff', rest: 'received their payslips the same day, instead of after weeks of manual distribution.', source: 'Payslip automation · Government hospital', wide: true },
+  { value: 5, lead: 'hospital cooperatives', rest: 'check a member’s combined deductions on Clarix before approving a loan.', source: 'Clarix' },
+  { value: 4000, lead: 'leads a day', rest: 'is what the LeadForge pipeline was designed to handle, with no manual steps.', source: 'LeadForge' },
+  { before: 'Under', value: 60, lead: 'seconds', rest: 'from marketplace search to a published, AI-written WooCommerce listing.', source: 'VooltFlow' },
+  { value: 14, lead: 'production systems', rest: 'designed and shipped across web, mobile and desktop since 2023.', source: 'Career to date', wide: true },
+  { value: 3, lead: 'app stores', rest: 'Microsoft Store, Google Play and the Apple App Store, with billing and subscriptions.', source: 'Flix Technologies · Orayn Digital' },
+  { lead: 'Certified Ethical Hacker', rest: '(EC-Council). Security is designed in, not bolted on.', source: 'Certified August 2026' },
+  { before: 'CGPA', value: 4.47, decimals: 2, lead: '/ 5.0', rest: 'in Computer Software Engineering, specialising in AI and machine learning.', source: 'Chrisland University · graduating Oct 2026' },
+];
+
+// --- Services: scope from the CV, quoted per project ---
+
+export type Service = {
+  id: string;
+  title: string;
+  summary: string;
+  includes: string[];
+  stack: string;
+};
+
+export const SERVICES: Service[] = [
+  {
+    id: 'platform',
+    title: 'Full-stack product build',
+    summary: 'A production web platform, not a prototype: data model, auth, roles, dashboards and deployment.',
+    includes: [
+      'Architecture and PostgreSQL schema design',
+      'Auth, roles and Row-Level Security on every table',
+      'Admin and customer dashboards',
+      'Deployment on Vercel, handed over documented',
+    ],
+    stack: 'Next.js · React · TypeScript · Supabase',
+  },
+  {
+    id: 'automation',
+    title: 'Workflow automation & AI',
+    summary: 'Pipelines that do the repetitive work: finding, scoring, writing and sending, end to end.',
+    includes: [
+      'n8n workflows and webhook integrations',
+      'GPT-4o writing, scoring and classification steps',
+      'Document generation and email delivery',
+      'Dashboards to watch the pipeline run',
+    ],
+    stack: 'n8n · OpenAI GPT-4o · Supabase · Gmail API',
+  },
+  {
+    id: 'apps',
+    title: 'Desktop & mobile apps',
+    summary: 'Apps built for real conditions, including offline, and shipped through the stores.',
+    includes: [
+      'Offline-first Electron apps with cloud sync',
+      'Flutter and React Native mobile apps',
+      'Stripe, Google Play Billing and RevenueCat payments',
+      'Microsoft Store (MSIX), Google Play and App Store submission',
+    ],
+    stack: 'Electron · Flutter · React Native · Stripe',
+  },
+];
+
+// --- FAQ: answers drawn from the CV ---
+
+export type FaqGroup = { id: string; label: string; items: { q: string; a: string }[] };
+
+export const FAQ: FaqGroup[] = [
+  {
+    id: 'availability',
+    label: 'Availability',
+    items: [
+      {
+        q: 'Are you available right now?',
+        a: 'Yes. I can start immediately on remote, contract or full-time work, and I’m open to discussing relocation.',
+      },
+      {
+        q: 'Where are you based, and what languages do you work in?',
+        a: 'Ogun State, Nigeria. I already work remotely with teams in the United Kingdom and Canada. I’m fluent in English and speak intermediate French.',
+      },
+      {
+        q: 'Do you take full-time roles or only projects?',
+        a: 'Both. I’m open to full-time engineering roles as well as contract builds and technical collaborations.',
+      },
+    ],
+  },
+  {
+    id: 'working',
+    label: 'Working together',
+    items: [
+      {
+        q: 'Can you build a whole product on your own?',
+        a: 'Yes. Most of the systems on this page were built solo, from the database schema to the store listing. At VooltGroup I also lead a small team of designers and automation specialists.',
+      },
+      {
+        q: 'How do we start?',
+        a: 'Send a message with what you’re building and where it stands. I’ll come back with questions, a proposed scope and a quote for that scope.',
+      },
+      {
+        q: 'Can I see work that isn’t listed here?',
+        a: 'Several apps I built for Flix Technologies and Orayn Digital Agency are under NDA. I can share more detail on request, within those agreements.',
+      },
+    ],
+  },
+  {
+    id: 'technical',
+    label: 'Technical',
+    items: [
+      {
+        q: 'What’s your main stack?',
+        a: 'Next.js, React and TypeScript on the front end; Supabase and PostgreSQL for data; n8n for automation; Electron and Flutter for desktop and mobile. Python and FastAPI when a project needs them.',
+      },
+      {
+        q: 'How do you handle security?',
+        a: 'By design: Row-Level Security, role-based access and strict multi-tenant data isolation, tested rather than assumed. I’m also an EC-Council Certified Ethical Hacker.',
+      },
+      {
+        q: 'Can you publish to the app stores?',
+        a: 'Yes. I’ve shipped apps to the Microsoft Store (MSIX), Google Play and the Apple App Store, including subscriptions and in-app billing.',
+      },
+    ],
+  },
 ];

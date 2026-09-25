@@ -1,19 +1,41 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Clash Display";
+  src: url("/fonts/clash-display-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Clash Display";
+  src: url("/fonts/clash-display-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Clash Display", "Geist Variable", ui-sans-serif, sans-serif;
 
-  --color-page: #131313;
+  --color-page: #121212;
   --color-band: #161616;
   --color-panel: #1b1b1b;
-  --color-raised: #222222;
+  --color-raised: #232323;
   --color-line: #2a2a2a;
-  --color-line-strong: #3a3a3a;
-  --color-fg: #ededed;
-  --color-muted: #a3a3a3;
-  --color-faint: #8c8c8c;
+  --color-line-strong: #3b3b3b;
+  --color-fg: #efede8;
+  --color-muted: #a8a6a1;
+  --color-faint: #8d8b86;
   --color-live: #4ade80;
+
+  /* Signal amber: primary actions only. */
+  --color-accent: #ffb224;
+  --color-accent-hover: #ffc457;
+  --color-on-accent: #1d1303;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -21,7 +43,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5.5rem;
+    scroll-padding-top: 6rem;
     color-scheme: dark;
   }
 
@@ -40,19 +62,35 @@
   }
 
   ::selection {
-    background: var(--color-fg);
-    color: var(--color-page);
+    background: var(--color-accent);
+    color: var(--color-on-accent);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-fg);
+    outline: 2px solid var(--color-accent);
     outline-offset: 3px;
-    border-radius: 9999px;
   }
 
   a {
-    text-underline-offset: 0.2em;
+    text-underline-offset: 0.22em;
   }
+
+  input,
+  textarea,
+  select {
+    caret-color: var(--color-accent);
+  }
+}
+
+/* Film grain over the whole page: depth without decoration. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* Scrollbar */
@@ -82,10 +120,6 @@
   animation: marquee var(--marquee-duration, 60s) linear infinite;
 }
 
-.marquee-track[data-reverse] {
-  animation-direction: reverse;
-}
-
 .marquee:hover .marquee-track,
 .marquee:focus-within .marquee-track {
   animation-play-state: paused;
@@ -95,11 +129,22 @@
   mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
 }
 
+/* Slow zoom on the active hero slide. */
+@keyframes kenburns {
+  from { transform: scale(1.1); }
+  to { transform: scale(1); }
+}
+
+.kenburns {
+  animation: kenburns 9s var(--ease-out-expo) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  .marquee-track {
+  .marquee-track,
+  .kenburns {
     animation: none;
   }
 }

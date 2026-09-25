@@ -10,12 +10,24 @@ Personal portfolio of Temiloluwa Adebayo, full-stack software engineer building 
 
 | Section | What it shows |
 |---|---|
-| Hero | Availability, role, intro, portrait, and a drifting row of core tools |
-| Tools I build with | The full stack as a pill cloud with brand icons |
-| Projects I’ve shipped | Eight projects with real screenshots, plus labelled Unsplash photos for two products that can't be shown |
-| Where I’ve worked | Accordion of roles from the CV, plus a CV download |
-| On the record | Production figures and credentials, each traceable to the CV |
-| Contact | Email, CV download, and click-to-copy email address |
+| Hero | Headline revealed word by word in 3D over a crossfading, slowly zooming background slideshow; tilting portrait; primary "Start a project" |
+| Selected work | Three featured projects as cards that stack on scroll, with real screenshot carousels and a runnable LeadForge pipeline demo; five more in a grid |
+| Tools I build with | The stack grouped by layer, with brand icons |
+| Services | Three engagements (quote on request); "Request a quote" pre-fills the contact form |
+| On the record | CV figures that roll up when they come into view |
+| Where I've worked | Timeline whose line draws itself as you scroll, plus a CV download |
+| FAQ | Tabbed questions on availability, working together and tech |
+| Contact | Form that sends through Resend, copy-email, QR code, LinkedIn and GitHub |
+
+Also: a ⌘K / Ctrl K command palette (or press `/`), and a bottom tab bar on mobile.
+
+## Design system
+
+- **Colour:** graphite `#121212` ground with a light film grain. Signal amber `#FFB224` is used **only** for primary actions; secondary actions are outlined pills and tertiary actions are underlined links. Green marks live and success states only.
+- **Type:** Clash Display (self-hosted, `public/fonts/`) for headlines, Geist for everything else, Geist Mono for dates, hostnames and the email address.
+- **Motion:** one easing curve (ease-out-expo) for reveals, springs for interactions, 3D pointer tilt on desktop cards. Everything falls back to simple fades when the visitor prefers reduced motion.
+
+Full details are in `DESIGN.md`.
 
 ## Tech stack
 
@@ -24,27 +36,38 @@ Personal portfolio of Temiloluwa Adebayo, full-stack software engineer building 
 | Framework | React 19 + TypeScript (strict) |
 | Build | Vite 6 |
 | Styling | Tailwind CSS v4 (tokens in `src/index.css`) |
-| Motion | `motion` (Framer Motion), respects reduced-motion |
-| Type | Geist and Geist Mono, self-hosted via Fontsource |
+| Motion | `motion` (Framer Motion) |
+| Type | Clash Display, Geist and Geist Mono, all self-hosted |
 | Icons | `lucide-react`, `simple-icons` for brand marks |
+| Contact | Vercel Function (`api/contact.ts`) + Resend |
 | Hosting | Vercel, with Vercel Web Analytics |
 
 ## Project structure
 
 ```
-├── index.html            # Entry HTML, meta and Open Graph tags
+├── api/contact.ts        # Vercel Function: sends the contact form via Resend
+├── index.html            # Entry HTML, meta, Open Graph, preloads
 ├── public/
 │   ├── Temiloluwa_Adebayo_CV.pdf
-│   ├── profile.webp      # Portrait (hero)
-│   ├── avatar.webp       # Nav and footer avatar
-│   ├── og.png            # Social preview image
-│   └── work/             # Screenshots of live projects
+│   ├── fonts/            # Clash Display (self-hosted)
+│   ├── hero/             # Hero slideshow images (Canva AI, decorative)
+│   ├── work/             # Project images; work/slides/ holds carousel screens
+│   ├── profile.webp, avatar.webp, og.png, favicon.svg
 └── src/
-    ├── data.ts           # All content: profile, stack, projects, roles, facts
-    ├── App.tsx           # Page sections and components
+    ├── data.ts           # All content: profile, stack, projects, roles, facts, services, FAQ
+    ├── App.tsx           # Section order
+    ├── components/       # Nav, Hero, Work, Sections, Services, Contact, ui (shared pieces)
     ├── index.css         # Design tokens and global styles
     └── main.tsx          # React root, fonts, analytics
 ```
+
+## Contact form setup
+
+The form posts to `/api/contact`, which sends the message with [Resend](https://resend.com). Until it's configured, the form shows a "send it by email instead" fallback with the message pre-filled.
+
+1. Create a free Resend account using **temidaniel124@gmail.com** and create an API key.
+2. In Vercel: **Project → Settings → Environment Variables**, add `RESEND_API_KEY` for Production (and Preview if you like), then redeploy.
+3. Optional: `CONTACT_TO` (defaults to temidaniel124@gmail.com) and `CONTACT_FROM`. Without a verified domain, Resend's test sender `onboarding@resend.dev` only delivers to the email that owns the Resend account, so step 1 matters.
 
 ## Getting started
 
@@ -63,10 +86,12 @@ npm run preview   # serve the build locally
 Everything on the page lives in `src/data.ts`:
 
 - `PROFILE`: name, role, intro, email, links, CV path, availability.
-- `STACK` and `HERO_TOOLS`: tools with their `simple-icons` mark.
-- `PROJECTS`: each project has `facts`, `tags`, optional `githubUrl` / `liveUrl`, and an `image` in `public/work/`. Set `frameLabel` for anything that isn't a live site, and `credit` for stock photos.
+- `STACK`: tool groups; each tool can carry a `simple-icons` mark.
+- `PROJECTS`: each project has `facts`, `tags`, optional `githubUrl` / `liveUrl`, and an `image` in `public/work/`. Set `frameLabel` for anything that isn't a live site, and `credit` for stock photos. `featured: true` puts a project in the stacked cards; `slides` adds carousel screens; `pipeline` adds the run-the-pipeline demo.
+- `SERVICES` and `FAQ`: the Services cards and FAQ tabs.
+- `HERO_SLIDES`: image names in `public/hero/` for the hero slideshow.
 - `EXPERIENCE`: roles, dates and bullet points.
-- `FACTS`: the production figures in the proof marquee. Keep every one traceable to the CV.
+- `FACTS`: the figures in "On the record" (`value` rolls up). Keep every one traceable to the CV.
 
 To update the CV, replace `public/Temiloluwa_Adebayo_CV.pdf`.
 

@@ -25,7 +25,8 @@ A solo engineer who ships whole systems end to end, from database architecture a
 - Content source of truth is the CV (`public/Temiloluwa_Adebayo_CV.pdf`).
 
 ## Brand Commitments
-- Visual reference pinned by the owner: https://fastfolio.framer.website/ (dark, minimal, rounded cards, pill buttons, photo hero, tech-stack pill cloud, image-topped project cards, experience accordion, CV download, closing contact banner).
+- Visual direction set by the owner (2026-09-25 redesign): cinematic dark graphite, one signal-amber accent reserved for primary actions, strong primary/secondary hierarchy, hero background slideshow, 3D and scroll-driven motion, Watermelon UI components as interaction references. Earlier reference: https://fastfolio.framer.website/.
+- Owner-approved sections: Services (quote on request, no published prices), FAQ, and a contact form that delivers through Resend.
 - Name: Temiloluwa Adebayo. Contact email: temidaniel124@gmail.com. GitHub: temiloluwa-adebayo. LinkedIn: temiloluwa-adebayo-4843ba377.
 
 ## Evidence on Hand
@@ -40,7 +41,9 @@ From the CV (confirmed by the owner as the source for all claims):
 - Roles: VooltGroup (Founding Engineer), Flix Technologies, Dot's Institute of Technology (freelance + internship), Orayn Digital Agency.
 - Profile photo: `public/profile.webp` (avatar crop: `public/avatar.webp`). Live sites: Clarix, CampusPress AI, VOOLT Academy, VooltFlow, VooltTrip. ExamForge CBT screenshot supplied by the owner.
 
-Absent, never to be fabricated: testimonials, client logos, satisfaction percentages, project screenshots. LeadForge and EyeBalance use owner-approved Unsplash photos, labelled "Illustrative photo" and credited.
+- Hero atmosphere images: generated with Canva AI at the owner's request (Higgsfield unavailable); decorative only, never presented as the owner's workspace or product.
+
+Absent, never to be fabricated: testimonials, client logos, satisfaction percentages, prices, project screenshots. LeadForge and EyeBalance use owner-approved Unsplash photos, labelled "Illustrative photo" and credited.
 
 ## Product Principles
 1. Prove, don't claim: every number on the page traces to the CV.
