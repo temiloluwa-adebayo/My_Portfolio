@@ -31,16 +31,16 @@ A solo engineer who ships whole systems end to end, from database architecture a
 ## Evidence on Hand
 From the CV (confirmed by the owner as the source for all claims):
 - 3+ years professional experience (Apr 2023 onward); 14 production systems shipped.
-- PayHub Central: in active use across 5 hospital cooperatives; 3 isolation levels, 9 roles, RLS on every table.
+- Clarix (renamed from PayHub Central; live at clarix-3w5i.vercel.app): in active use across 5 hospital staff cooperatives; checks combined deductions against the one-third-of-salary cap; 4 roles; RLS on every table, tested with pgTAP.
 - Payslip automation for a government hospital: verified at a peak of 8,370 employees, same-day dispatch.
 - LeadForge: designed for up to 4,000 leads/day. VooltFlow: listings published in under 60 seconds.
 - Apps published on Microsoft Store, Google Play, and Apple App Store (several under NDA).
 - EC-Council Certified Ethical Hacker (issued 11 Aug 2026).
 - BSc Computer Software Engineering, Chrisland University, expected Oct 2026, CGPA 4.47/5.0, AI & ML specialisation.
 - Roles: VooltGroup (Founding Engineer), Flix Technologies, Dot's Institute of Technology (freelance + internship), Orayn Digital Agency.
-- Profile photo: `public/profile.webp` (avatar crop: `public/avatar.webp`). Live sites: VOOLT Academy, VooltFlow, VooltTrip.
+- Profile photo: `public/profile.webp` (avatar crop: `public/avatar.webp`). Live sites: Clarix, CampusPress AI, VOOLT Academy, VooltFlow, VooltTrip. ExamForge CBT screenshot supplied by the owner.
 
-Absent, never to be fabricated: testimonials, client logos, satisfaction percentages, project screenshots for projects without a live site.
+Absent, never to be fabricated: testimonials, client logos, satisfaction percentages, project screenshots. LeadForge and EyeBalance use owner-approved Unsplash photos, labelled "Illustrative photo" and credited.
 
 ## Product Principles
 1. Prove, don't claim: every number on the page traces to the CV.

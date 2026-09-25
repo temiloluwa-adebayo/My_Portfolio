@@ -164,7 +164,7 @@ A graphite room with the lights low, where the only things that glow are the wor
 
 Density is generous: one idea per section, centred section heads, wide vertical rhythm (128px between sections on desktop) and a single 1080px column. Type does the atmosphere: Geist at weight 300 and tight negative tracking for the big statements, regular Geist for everything else, Geist Mono only where a value is literally machine text (a date range, a hostname, an email address). Real photography (the portrait, live-site screenshots) and real brand marks carry the colour the palette withholds.
 
-The world rejects the neon-glow "hacker terminal" register and any invented social proof. Where a project has no live site, it gets a typographic pipeline panel, not a mock screenshot.
+The world rejects the neon-glow "hacker terminal" register and any invented social proof. Every project image is real: a screenshot of the live site or desktop app, or, where no screen can be shown, a clearly labelled and credited Unsplash photo. Never a mock screenshot.
 
 **Key Characteristics:**
 - Near-black tonal ladder (page, band, panel, raised) with 1px hairlines instead of shadows.
@@ -184,10 +184,10 @@ A monochrome graphite ladder with a single green signal; colour otherwise arrive
 - **Graphite Page** (page): the page ground, the nav's frosted fill (80% with backdrop blur), the selection text colour, and the solid pill's text.
 - **Band Graphite** (band): full-bleed alternating section bands (Skills, Experience) that separate chapters without a rule.
 - **Panel Graphite** (panel): every card, chip, tile, accordion item and the contact panel. The BrandIcon contrast check is computed against this value.
-- **Raised Graphite** (raised): the surface inside a card (screenshot frame, pipeline panel) and the hover fill for outline pills and chips.
+- **Raised Graphite** (raised): the surface inside a card (image frame) and the hover fill for outline pills and chips.
 - **Hairline** (line): the default 1px border on every panel, the nav border once scrolled, the footer rule.
-- **Hairline Strong** (line-strong): hover/open border state, outline-pill border, pipeline connectors, scrollbar thumb, the single dot in the screenshot frame bar.
-- **Bone** (fg): headings, primary text, the solid pill fill, focus ring, and the terminal step of a pipeline.
+- **Hairline Strong** (line-strong): hover/open border state, outline-pill border, scrollbar thumb, the single dot in the screenshot frame bar.
+- **Bone** (fg): headings, primary text, the solid pill fill, focus ring.
 - **Ash** (muted): default body text and nav links.
 - **Smoke** (faint): meta lines, sources, tag lists, hostnames, dates. Still passes contrast on panel; do not go darker for text.
 - **Paper White** (pill-hover): hover state of the solid pill only.
@@ -211,7 +211,6 @@ Both faces are self-hosted via @fontsource-variable. Body runs with stylistic se
 - **Display** (hero H1 only): light, very tight tracking, sub-1 leading; scales from 3.1rem to 4.75rem.
 - **Display Closing** (contact banner H2): light, 2.5rem to 4rem, capped at 14ch.
 - **Headline** (section heads): regular weight, 2rem to 2.75rem, centred with a muted lede under it, max width 36rem.
-- **Figure** (the lead fact inside a pipeline panel): light, 1.65rem to 2rem.
 - **Title** (project card titles 1.5rem; accordion role titles 1.1rem to 1.25rem at -0.01em): regular weight.
 - **Body** (intros and ledes, 1rem to 1.125rem) and **Body Small** (card copy, list items, 0.95rem): relaxed leading, Ash colour, intro capped at 34rem.
 - **Label** (pills, 0.875rem, weight 500) and **Meta** (sources, role meta, 0.82 to 0.85rem, Smoke).
@@ -237,7 +236,7 @@ The system is flat: there are no box-shadows anywhere. Depth is tonal (page, ban
 
 ## Shapes
 
-Soft, generous corners in four sizes plus the pill. Actions, chips, status tags, avatars, social buttons and pipeline steps are full pills or circles. Project cards and the portrait panel use the card radius; accordion items and fact cards the slightly smaller container radius; the contact banner the largest, panel-xl. Media nested inside a card (screenshot frame, pipeline panel, stack icon tiles) uses the media radius, so a 10px card inset leaves a visible concentric margin. The focus ring follows the pill shape by default.
+Soft, generous corners in four sizes plus the pill. Actions, chips, status tags, avatars and social buttons are full pills or circles. Project cards and the portrait panel use the card radius; accordion items and fact cards the slightly smaller container radius; the contact banner the largest, panel-xl. Media nested inside a card (image frame, stack icon tiles) uses the media radius, so a 10px card inset leaves a visible concentric margin. The focus ring follows the pill shape by default.
 
 ## Components
 
@@ -261,7 +260,7 @@ Real simple-icons marks in their brand colour, with a contrast floor: if a brand
 ### Cards / Containers
 - **Project card:** panel fill, hairline (strong on hover), card radius, 10px inset around a media block, then title, kind in Smoke, description, green-check fact list, dot-separated tags in Smoke, and compact pills pushed to the bottom.
 - **Screenshot frame (projects with a live site):** Raised surface, media radius, a 32px bar with one grey dot and the mono hostname, then a 16:10 top-cropped screenshot, dimmed until hover, scaling 1.02 over 700ms.
-- **Pipeline panel (projects without a live site):** Raised surface, media radius, the lead fact set as a light Figure, and a vertical ordered chain of small pills joined by 1px connectors; the final step is inverted (Bone fill, page text).
+- **Image frame labels:** the frame bar shows the live host in mono; a desktop capture or stock photo shows a sans label instead ("Windows desktop app", "Illustrative photo"), and stock photos carry the photographer credit linked to Unsplash at the bar's right.
 - **Fact card:** panel fill, container radius, 28px padding; lead phrase weight 500 in Bone, the rest in Ash, source in Smoke at the bottom.
 
 ### Experience Accordion
@@ -289,7 +288,7 @@ Avatar (32px circle) plus name on the left; Ash text links that turn Bone on hov
 - **Do** make actions pills: solid Bone for the one primary action, outline for the rest.
 - **Do** use ease-out-expo and a single rise-and-unblur reveal per section, once.
 - **Do** render brand marks through the BrandIcon contrast rule so no mark drops under 4.5:1 on panel.
-- **Do** show a real screenshot in the frame only for projects with a live site; otherwise use the pipeline panel.
+- **Do** use a real screenshot wherever one exists; use a stock photo only when no screen can be shown, labelled "Illustrative photo" and credited.
 - **Do** keep marquees pausable on hover and focus, and provide a static layout under reduced motion.
 
 ### Don't:

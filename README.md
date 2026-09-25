@@ -12,9 +12,9 @@ Personal portfolio of Temiloluwa Adebayo, full-stack software engineer building 
 |---|---|
 | Hero | Availability, role, intro, portrait, and a drifting row of core tools |
 | Tools I build with | The full stack as a pill cloud with brand icons |
-| Projects I’ve shipped | Eight projects: real screenshots for live sites, the system's pipeline for the rest |
+| Projects I’ve shipped | Eight projects with real screenshots, plus labelled Unsplash photos for two products that can't be shown |
 | Where I’ve worked | Accordion of roles from the CV, plus a CV download |
-| Don’t just take my word for it | Two marquees of production figures, each traceable to the CV |
+| On the record | Production figures and credentials, each traceable to the CV |
 | Contact | Email, CV download, and click-to-copy email address |
 
 ## Tech stack
@@ -64,7 +64,7 @@ Everything on the page lives in `src/data.ts`:
 
 - `PROFILE`: name, role, intro, email, links, CV path, availability.
 - `STACK` and `HERO_TOOLS`: tools with their `simple-icons` mark.
-- `PROJECTS`: each project has `facts`, `tags`, optional `githubUrl` / `liveUrl`, and either an `image` (a real screenshot in `public/work/`) or a `flow` (the pipeline steps drawn on the card).
+- `PROJECTS`: each project has `facts`, `tags`, optional `githubUrl` / `liveUrl`, and an `image` in `public/work/`. Set `frameLabel` for anything that isn't a live site, and `credit` for stock photos.
 - `EXPERIENCE`: roles, dates and bullet points.
 - `FACTS`: the production figures in the proof marquee. Keep every one traceable to the CV.
 
