@@ -1,5 +1,5 @@
 import { useEffect, useState, type CSSProperties, type ReactNode } from 'react';
-import { AnimatePresence, MotionConfig, motion } from 'motion/react';
+import { AnimatePresence, MotionConfig, motion, useReducedMotion } from 'motion/react';
 import type { SimpleIcon } from 'simple-icons';
 import {
   ArrowRight,
@@ -20,14 +20,17 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 
 // --- Primitives ---
 
-/** Brand mark from simple-icons; near-black brand colours render light on the dark ground. */
+/** Brand mark from simple-icons; marks too dark to read on a panel render light on the dark ground. */
 const BrandIcon = ({ icon, size = 18 }: { icon: SimpleIcon; size?: number }) => {
   const hex = icon.hex;
   const r = parseInt(hex.slice(0, 2), 16);
   const g = parseInt(hex.slice(2, 4), 16);
   const b = parseInt(hex.slice(4, 6), 16);
-  const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-  const fill = luminance < 0.35 ? '#ededed' : `#${hex}`;
+  const lin = (c: number) => ((c /= 255) <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
+  const luminance = 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
+  const PANEL_LUMINANCE = 0.0116; // #1b1b1b
+  const contrast = (luminance + 0.05) / (PANEL_LUMINANCE + 0.05);
+  const fill = contrast < 3.5 ? '#ededed' : `#${hex}`;
   return (
     <svg role="img" aria-hidden="true" viewBox="0 0 24 24" width={size} height={size} fill={fill} className="shrink-0">
       <path d={icon.path} />
@@ -171,7 +174,7 @@ const Hero = () => (
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: EASE }}
-        className="order-2 flex min-w-0 flex-col justify-center md:order-1 md:py-6"
+        className="flex min-w-0 flex-col justify-center md:py-6"
       >
         <div className="mb-7 inline-flex w-fit items-center gap-2.5 rounded-full border border-line bg-panel py-1.5 pr-4 pl-3 text-sm text-muted">
           <span className="relative flex size-2">
@@ -210,7 +213,7 @@ const Hero = () => (
         initial={{ opacity: 0, scale: 0.97, filter: 'blur(10px)' }}
         animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
         transition={{ duration: 1.2, ease: EASE, delay: 0.1 }}
-        className="relative order-1 overflow-hidden rounded-[1.75rem] border border-line bg-panel md:order-2"
+        className="relative overflow-hidden rounded-[1.75rem] border border-line bg-panel"
       >
         <img
           src="/profile.webp"
@@ -263,30 +266,33 @@ const ProjectMedia = ({ project }: { project: Project }) => {
           width={1200}
           height={750}
           loading="lazy"
-          className="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-(--ease-out-expo) group-hover:scale-[1.02]"
+          className="aspect-[16/10] w-full object-cover object-top brightness-[0.82] transition-[transform,filter] duration-700 ease-(--ease-out-expo) group-hover:scale-[1.02] group-hover:brightness-100"
         />
       </div>
     );
   }
 
+  const steps = project.flow ?? [];
   return (
-    <div className="flex aspect-[16/10.6] flex-col justify-between rounded-2xl border border-line bg-raised p-5 sm:p-6">
-      <span className="font-mono text-[0.7rem] tracking-wide text-faint">How it runs</span>
-      <ol className="flex flex-wrap items-center gap-x-1.5 gap-y-2.5">
-        {project.flow?.map((step, i) => (
-          <li key={step} className="flex items-center gap-1.5">
-            {i > 0 && <ArrowRight size={14} className="text-faint" aria-hidden="true" />}
-            <span
-              className={`rounded-full border px-3 py-1.5 text-[0.82rem] whitespace-nowrap ${
-                i === (project.flow?.length ?? 0) - 1 ? 'border-fg/70 bg-fg text-page' : 'border-line-strong bg-panel text-fg'
-              }`}
-            >
-              {step}
-            </span>
-          </li>
-        ))}
+    <div className="grid aspect-[16/10.6] grid-cols-[minmax(0,1fr)_auto] gap-4 sm:gap-6 rounded-2xl border border-line bg-raised p-5 sm:p-7">
+      <p className="self-end text-[1.4rem] leading-[1.05] font-light tracking-[-0.03em] text-fg sm:text-[2rem]">{project.facts[0]}</p>
+      <ol className="flex flex-col justify-center" aria-label={`How ${project.title} runs`}>
+        {steps.map((step, i) => {
+          const last = i === steps.length - 1;
+          return (
+            <li key={step} className="flex flex-col items-end">
+              <span
+                className={`rounded-full border px-3.5 py-1.5 text-[0.85rem] whitespace-nowrap ${
+                  last ? 'border-fg bg-fg text-page' : 'border-line-strong bg-panel text-fg'
+                }`}
+              >
+                {step}
+              </span>
+              {!last && <span className="mr-6 h-4 w-px bg-line-strong sm:h-5" aria-hidden="true" />}
+            </li>
+          );
+        })}
       </ol>
-      <p className="text-[1.65rem] leading-none font-light tracking-[-0.03em] text-fg sm:text-3xl">{project.facts[0]}</p>
     </div>
   );
 };
@@ -296,18 +302,18 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
     <article className="group flex h-full flex-col rounded-[1.75rem] border border-line bg-panel p-2.5 transition-colors duration-500 hover:border-line-strong">
       <ProjectMedia project={project} />
       <div className="flex flex-1 flex-col px-4 pt-6 pb-4 sm:px-5">
-        <p className="text-sm text-faint">{project.kind}</p>
-        <h3 className="mt-1.5 text-2xl font-normal tracking-[-0.02em]">{project.title}</h3>
+        <h3 className="text-2xl font-normal tracking-[-0.02em]">{project.title}</h3>
+        <p className="mt-1 text-[0.95rem] text-faint">{project.kind}</p>
         <p className="mt-3 text-[0.95rem] leading-relaxed text-muted">{project.description}</p>
         <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-1.5 text-sm text-fg" aria-label="Key facts">
-          {project.facts.map((fact) => (
+          {(project.flow ? project.facts.slice(1) : project.facts).map((fact) => (
             <li key={fact} className="flex items-center gap-1.5">
               <Check size={14} className="text-live" aria-hidden="true" />
               {fact}
             </li>
           ))}
         </ul>
-        <p className="mt-4 font-mono text-[0.72rem] leading-relaxed text-faint">{project.tags.join(' · ')}</p>
+        <p className="mt-4 text-[0.82rem] leading-relaxed text-faint">{project.tags.join(' · ')}</p>
 
         <div className="mt-auto flex flex-wrap items-center gap-2.5 pt-6">
           {project.githubUrl && (
@@ -331,7 +337,7 @@ const Work = () => (
   <section id="work" className="py-24 md:py-32">
     <Container>
       <SectionHead title="Projects I’ve shipped" lede="Complete systems, built end to end: architecture, security, automation and deployment." />
-      <div className="grid gap-4 md:grid-cols-2 md:gap-5">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5">
         {PROJECTS.map((project, i) => (
           <ProjectCard key={project.id} project={project} index={i} />
         ))}
@@ -366,6 +372,7 @@ const Experience = () => {
                     <span className="min-w-0 flex-1">
                       <span className="block text-[1.1rem] font-normal tracking-[-0.01em] text-fg sm:text-xl">{role.title}</span>
                       <span className="mt-1 block text-[0.95rem] text-muted">{role.company}</span>
+                      <span className="mt-1 block font-mono text-[0.78rem] text-faint tabular-nums sm:hidden">{role.period}</span>
                     </span>
                     <span className="hidden pt-1 font-mono text-[0.8rem] whitespace-nowrap text-faint tabular-nums sm:block">{role.period}</span>
                     <ChevronDown
@@ -386,10 +393,7 @@ const Experience = () => {
                       className="overflow-hidden"
                     >
                       <div className="px-5 pb-6 sm:px-7 sm:pb-7">
-                        <p className="font-mono text-[0.78rem] text-faint">
-                          <span className="sm:hidden">{role.period} · </span>
-                          {role.meta}
-                        </p>
+                        <p className="text-[0.85rem] text-faint">{role.meta}</p>
                         <ul className="mt-4 space-y-2.5">
                           {role.points.map((point) => (
                             <li key={point} className="flex gap-3 text-[0.95rem] leading-relaxed text-muted">
@@ -419,27 +423,39 @@ const Experience = () => {
 // --- Proof ---
 
 const FactCard = ({ fact }: { fact: Fact }) => (
-  <figure className="flex w-[19rem] shrink-0 flex-col justify-between gap-8 rounded-3xl border border-line bg-panel p-6 sm:w-[22rem] sm:p-7">
-    <blockquote className="text-[1.15rem] leading-snug tracking-[-0.01em] text-muted">
+  <div className="flex h-full flex-col justify-between gap-8 rounded-3xl border border-line bg-panel p-6 sm:p-7">
+    <p className="text-[1.15rem] leading-snug tracking-[-0.01em] text-muted">
       <span className="font-medium text-fg">{fact.lead}</span> {fact.rest}
-    </blockquote>
-    <figcaption className="font-mono text-[0.75rem] text-faint">{fact.source}</figcaption>
-  </figure>
+    </p>
+    <p className="text-[0.85rem] text-faint">{fact.source}</p>
+  </div>
 );
 
 const Proof = () => {
+  const reduceMotion = useReducedMotion();
   const rows = [FACTS.slice(0, 4), FACTS.slice(4)];
   return (
     <section id="proof" className="overflow-hidden py-24 md:py-32">
       <Container>
-        <SectionHead title="Don’t just take my word for it" lede="Figures from systems running in production, every one of them on my CV." />
+        <SectionHead title="On the record" lede="Figures from shipped systems, plus the credentials behind them. Every one is on my CV." />
       </Container>
+      {reduceMotion ? (
+        <Container>
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {FACTS.map((fact) => (
+              <li key={fact.lead}>
+                <FactCard fact={fact} />
+              </li>
+            ))}
+          </ul>
+        </Container>
+      ) : (
       <Reveal className="flex flex-col gap-4">
         {rows.map((row, r) => (
           <div key={r} className="marquee marquee-mask overflow-hidden">
             <ul className="marquee-track flex w-max gap-4" data-reverse={r === 1 ? '' : undefined} style={{ '--marquee-duration': '70s' } as CSSProperties}>
               {[...row, ...row].map((fact, i) => (
-                <li key={i} aria-hidden={i >= row.length ? true : undefined}>
+                <li key={i} aria-hidden={i >= row.length ? true : undefined} className="w-[19rem] shrink-0 sm:w-[22rem]">
                   <FactCard fact={fact} />
                 </li>
               ))}
@@ -447,6 +463,7 @@ const Proof = () => {
           </div>
         ))}
       </Reveal>
+      )}
     </section>
   );
 };
@@ -471,6 +488,7 @@ const Contact = () => {
       <Container>
         <Reveal>
           <div className="rounded-[2rem] border border-line bg-panel px-6 py-16 text-center sm:px-10 md:py-24">
+            <img src="/avatar.webp" alt="" width={64} height={64} className="mx-auto mb-8 size-16 rounded-full object-cover ring-1 ring-line-strong ring-offset-4 ring-offset-panel" />
             <h2 className="mx-auto max-w-[14ch] text-[2.5rem] leading-[1.02] font-light tracking-[-0.04em] md:text-[4rem]">
               Let’s build something that lasts
             </h2>

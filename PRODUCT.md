@@ -38,7 +38,7 @@ From the CV (confirmed by the owner as the source for all claims):
 - EC-Council Certified Ethical Hacker (issued 11 Aug 2026).
 - BSc Computer Software Engineering, Chrisland University, expected Oct 2026, CGPA 4.47/5.0, AI & ML specialisation.
 - Roles: VooltGroup (Founding Engineer), Flix Technologies, Dot's Institute of Technology (freelance + internship), Orayn Digital Agency.
-- Profile photo: `public/profile.png`. Live sites: VOOLT Academy, VooltFlow, VooltTrip.
+- Profile photo: `public/profile.webp` (avatar crop: `public/avatar.webp`). Live sites: VOOLT Academy, VooltFlow, VooltTrip.
 
 Absent, never to be fabricated: testimonials, client logos, satisfaction percentages, project screenshots for projects without a live site.
 
