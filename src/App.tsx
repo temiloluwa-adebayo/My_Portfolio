@@ -30,7 +30,7 @@ const BrandIcon = ({ icon, size = 18 }: { icon: SimpleIcon; size?: number }) => 
   const luminance = 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
   const PANEL_LUMINANCE = 0.0116; // #1b1b1b
   const contrast = (luminance + 0.05) / (PANEL_LUMINANCE + 0.05);
-  const fill = contrast < 3.5 ? '#ededed' : `#${hex}`;
+  const fill = contrast < 4.5 ? '#ededed' : `#${hex}`;
   return (
     <svg role="img" aria-hidden="true" viewBox="0 0 24 24" width={size} height={size} fill={fill} className="shrink-0">
       <path d={icon.path} />
@@ -274,13 +274,13 @@ const ProjectMedia = ({ project }: { project: Project }) => {
 
   const steps = project.flow ?? [];
   return (
-    <div className="grid aspect-[16/10.6] grid-cols-[minmax(0,1fr)_auto] gap-4 sm:gap-6 rounded-2xl border border-line bg-raised p-5 sm:p-7">
-      <p className="self-end text-[1.4rem] leading-[1.05] font-light tracking-[-0.03em] text-fg sm:text-[2rem]">{project.facts[0]}</p>
+    <div className="grid grid-cols-1 gap-6 rounded-2xl sm:aspect-[16/10.6] sm:grid-cols-[minmax(0,1fr)_auto] border border-line bg-raised p-5 sm:p-7">
+      <p className="order-last self-end text-[1.65rem] leading-[1.05] sm:order-none font-light tracking-[-0.03em] text-fg sm:text-[2rem]">{project.facts[0]}</p>
       <ol className="flex flex-col justify-center" aria-label={`How ${project.title} runs`}>
         {steps.map((step, i) => {
           const last = i === steps.length - 1;
           return (
-            <li key={step} className="flex flex-col items-end">
+            <li key={step} className="flex flex-col items-start sm:items-end">
               <span
                 className={`rounded-full border px-3.5 py-1.5 text-[0.85rem] whitespace-nowrap ${
                   last ? 'border-fg bg-fg text-page' : 'border-line-strong bg-panel text-fg'
@@ -288,7 +288,7 @@ const ProjectMedia = ({ project }: { project: Project }) => {
               >
                 {step}
               </span>
-              {!last && <span className="mr-6 h-4 w-px bg-line-strong sm:h-5" aria-hidden="true" />}
+              {!last && <span className="ml-6 h-4 w-px bg-line-strong sm:mr-6 sm:ml-0 sm:h-5" aria-hidden="true" />}
             </li>
           );
         })}
